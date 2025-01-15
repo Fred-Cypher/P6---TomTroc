@@ -1,4 +1,7 @@
 config/config.php
 Test.php
 
+public/uploads/covers/*
+public/uploads/avatars/*
+
 notes.md
