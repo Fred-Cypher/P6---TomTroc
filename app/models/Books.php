@@ -4,30 +4,31 @@ namespace App\Models;
 
 use DateTime;
 
-class Library {
+class Books {
     private int $id;
     private string $title;
     private string $authorFirstName;
-    private string $authorName;
+    private string $authorLastName;
     private string $description;
     private int $userId;
     private string $cover;
     private bool $availability;
     private DateTime $createdAt;
-    private ?DateTime $updatedAt;
+    private DateTime $updatedAt;
 
-    public function __construct($id = null, $title = '', $authorFirstName = '', $authorName = '', $description = '', $userId = null, $cover = '', $availability = 1, $createdAt = null, $updatedAt = null)
+    public function __construct(array $data = [])
     {
-        $this->id = $id;
-        $this->title = $title;
-        $this->authorFirstName = $authorFirstName;
-        $this->authorName = $authorName;
-        $this->description = $description;
-        $this->userId = $userId;
-        $this->cover = $cover;
-        $this->availability = $availability;
-        $this->createdAt = $createdAt ?? date('Y-m-d H:i:s');
-        $this->updatedAt = $updatedAt;
+        $this->hydrate($data);
+    }
+
+    public function hydrate(array $data)
+    {
+        foreach ($data as $key => $value) {
+            $method = 'set' . str_replace('_', '', ucwords($key, '_'));
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
     }
 
     public function getId(): int
@@ -55,14 +56,14 @@ class Library {
         $this->authorFirstName = $authorFirstName;
     }
 
-    public function getAuthorName(): string
+    public function getAuthorLastName(): string
     {
-        return $this->authorName;
+        return $this->authorLastName;
     }
 
-    public function setAuthorName(string $authorName): void
+    public function setAuthorName(string $authorLastName): void
     {
-        $this->authorName = $authorName;
+        $this->authorLastName = $authorLastName;
     }
 
     public function getDescription(): string
