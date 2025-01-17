@@ -1,10 +1,22 @@
 <?php
 
 use App\Controllers\MainController;
+use App\Controllers\UserController;
 
-require '../autoload.php';
-require_once '../config/config.php';
+require_once '../autoload.php';
 
-$controller = new MainController();
-$controller->index();
+$db = require '../config/config.php';
+
+$requestUri = $_SERVER['REQUEST_URI'];
+
+if ($requestUri === '/') {
+    $controller = new MainController();
+    $controller->index();
+} elseif ($requestUri === '/login') {
+    $controller = new UserController();
+    $controller->login();
+} else {
+    echo "Page not found";
+}
+
 

@@ -4,6 +4,10 @@ namespace App\Controllers;
 
 class MainController {
     public function index() {
+        $title ="Tom Troc - Accueil";
+        ob_start();
+        require __DIR__ . '../../views/templates/home.php';
+        $content = ob_get_clean();
         require __DIR__ . '../../views/index.php';
     }
 }
