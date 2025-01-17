@@ -14,6 +14,6 @@ class UserController{
         ob_start();
         require __DIR__ . '../../views/templates/login.php';
         $content = ob_get_clean();
-        require __DIR__ . '../../views/index.php';
+        require __DIR__ . '../../views/layout.php';
     }
 }

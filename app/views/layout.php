@@ -44,7 +44,7 @@
     <footer class="footer d-flex justify-content-end">
         <span class="footerSpan">Politique de confidentialité</span>
         <span class="footerSpan">Mentions légales</span>
-        <span class="footerSpan">Tom Troc </span>
+        <span class="footerSpan">Tom Troc &#169; </span>
         <span class="footerSpan"><img src="/images/Group10-1.svg" alt="Tom Troc"></span>
     </footer>
 </body>

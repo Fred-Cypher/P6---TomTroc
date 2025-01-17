@@ -8,7 +8,7 @@ class MainController {
         ob_start();
         require __DIR__ . '../../views/templates/home.php';
         $content = ob_get_clean();
-        require __DIR__ . '../../views/index.php';
+        require __DIR__ . '../../views/layout.php';
     }
 
     public function error(){
@@ -16,6 +16,6 @@ class MainController {
         ob_start();
         require __DIR__ . '../../views/templates/error.php';
         $content = ob_get_clean();
-        require __DIR__ . '../../views/index.php';
+        require __DIR__ . '../../views/layout.php';
     }
 }

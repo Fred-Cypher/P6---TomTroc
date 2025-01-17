@@ -9,23 +9,23 @@ class User {
     private string $pseudo;
     private string $email;
     private string $password;
-    private int $books;
     private string $avatar;
     private string $role;
     private DateTime $createdAt;
-    private ?DateTime $updatedAt;
+    private DateTime $updatedAt;
 
-    public function __construct($id = null, $pseudo = '', $email = '', $password = '', $books = 0, $avatar = '', $role = 'User', $createdAt = null, $updatedAt = null)
+    public function __construct(array $data = [])
     {
-        $this->id = $id;
-        $this->pseudo = $pseudo;
-        $this->email = $email;
-        $this->password = $password;
-        $this->books = $books;
-        $this->avatar = $avatar;
-        $this->role = $role;
-        $this->createdAt = $createdAt ?? date('Y-m-d H:i:s');
-        $this->updatedAt = $updatedAt;
+        $this->hydrate($data);
+    }
+    
+    public function hydrate(array $data) {
+        foreach ($data as $key => $value) {
+            $method = 'set' . \ucfirst($key);
+            if (method_exists($this, $method)){
+                $this->$method($value);
+            }
+        }
     }
 
     public function getId(): int
@@ -61,16 +61,6 @@ class User {
     public function setPassword(string $password): void
     {
         $this->password = $password;
-    }
-
-    public function getBooks(): int
-    {
-        return $this->books;
-    }
-
-    public function setBooks(int $books): void
-    {
-        $this->books = $books;
     }
 
     public function getAvatar(): string

@@ -9,15 +9,19 @@ $db = require '../config/config.php';
 
 $requestUri = $_SERVER['REQUEST_URI'];
 
-if ($requestUri === '/') {
-    $controller = new MainController();
-    $controller->index();
-} elseif ($requestUri === '/login') {
-    $controller = new UserController();
-    $controller->login();
-} else {
-    $controller = new MainController();
-    $controller->error();
+switch ($requestUri) {
+    case '/' :
+        $controller = new MainController();
+        $controller->index();
+        break;
+    case '/login':
+        $controller = new UserController();
+        $controller->login();
+        break;
+    default:
+        $controller = new MainController();
+        $controller->error();
+        break;
 }
 
 
