@@ -16,7 +16,8 @@ if ($requestUri === '/') {
     $controller = new UserController();
     $controller->login();
 } else {
-    echo "Page not found";
+    $controller = new MainController();
+    $controller->error();
 }
 
 

@@ -11,6 +11,7 @@
     <title><?= $title ?></title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="icon" type="image/vnd.icon" href="/images/Group10.svg">
 </head>
 
 <body>
@@ -18,7 +19,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light headerNav">
             <div class="border border-info col-6 d-flex justify-content-evenly align-items-center">
                 <img src="/images/logo.svg" alt="Logo Tom Troc">
-                <a href="#" class="link">Accueil</a>
+                <a href="/" class="link">Accueil</a>
                 <a href="#" class="link">Nos livres à l'échange</a>
             </div>
             <div class="border border-info col-6 d-flex justify-content-evenly">
