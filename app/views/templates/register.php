@@ -1,13 +1,15 @@
-<h2>Connexion</h2>
+<h2>Inscription</h2>
 
-<?php if (!empty($message)): ?>
+<?php if(!empty($message)): ?>
     <p><?= $message ?></p>
 <?php endif; ?>
 
-<form action="/login" method="POST"> 
+<form action="/register"  method="POST">
+    <label for="pseudo">Pseudo</label>
+    <input type="text" name="pseudo" id="pseudo" required>
     <label for="email">Adresse email</label>
     <input type="text" name="email" id="email" required>
     <label for="password">Mot de passe</label>
     <input type="password" name="password" id="password" required>
-    <button class="submit">Se connecter</button>
+    <button class="submit">S'inscrire</button>
 </form>

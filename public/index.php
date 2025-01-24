@@ -14,6 +14,10 @@ switch ($requestUri) {
         $controller = new MainController();
         $controller->index();
         break;
+    case '/register' :
+        $controller = new UserController();
+        $controller->register();
+        break;
     case '/login':
         $controller = new UserController();
         $controller->login();
