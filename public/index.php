@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\BooksController;
 use App\Controllers\MainController;
 use App\Controllers\UserController;
 
@@ -25,6 +26,18 @@ switch ($requestUri) {
     case '/logout':
         $controller = new UserController();
         $controller->logout();
+    case '/books' :
+        $controller= new BooksController();
+        $controller->index();
+        break;
+    case '/addBook':
+        $controller = new BooksController();
+        $controller->addBook();
+        break;
+    case '/detailBook' :
+        $controller = new BooksController();
+        $controller->showBook();
+        break;
     default:
         $controller = new MainController();
         $controller->error();

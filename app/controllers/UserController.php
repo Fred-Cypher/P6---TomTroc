@@ -7,7 +7,8 @@ use App\Models\UserRepository;
 use App\services\Utils;
 use DateTime;
 
-class UserController{
+class UserController 
+{
     private $userRepository;
 
     public function __construct(){
@@ -72,8 +73,6 @@ class UserController{
                 $message = "Tous les champs sont obligatoires.";
             } else {
                 $user = $this->userRepository->getUserByEmail($email);
-                //var_dump($user);
-                //exit;
                 if (!$user) {
                     $message = "Cet utilisateur n'existe pas. Veuillez vérifier vos identifiants";
                 } elseif (!password_verify($password, $user->getPassword())){

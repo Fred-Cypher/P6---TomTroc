@@ -7,9 +7,8 @@ use DateTime;
 class Books {
     private int $id;
     private string $title;
-    private string $authorFirstName;
-    private string $authorLastName;
-    private string $description;
+    private string $author;
+    private string $comment;
     private int $userId;
     private string $cover;
     private bool $availability;
@@ -46,34 +45,24 @@ class Books {
         $this->title = $title;
     }
 
-    public function getAuthorFirstName(): string
+    public function getAuthor(): string
     {
-        return $this->authorFirstName;
+        return $this->author;
     }
 
-    public function setAuthorFirstName(string $authorFirstName): void
+    public function setAuthor(string $author): void
     {
-        $this->authorFirstName = $authorFirstName;
+        $this->author = $author;
     }
 
-    public function getAuthorLastName(): string
+    public function getComment(): string
     {
-        return $this->authorLastName;
+        return $this->comment;
     }
 
-    public function setAuthorName(string $authorLastName): void
+    public function setComment(string $comment): void
     {
-        $this->authorLastName = $authorLastName;
-    }
-
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): void
-    {
-        $this->description = $description;
+        $this->comment = $comment;
     }
 
     public function getUserId(): int

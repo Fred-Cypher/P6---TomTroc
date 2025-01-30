@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-class MainController {
+class MainController 
+{
     public function index() {
         $title = "Tom Troc - Accueil";
         ob_start();
