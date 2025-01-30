@@ -11,3 +11,5 @@
     <input type="password" name="password" id="password" required>
     <button class="submit">Se connecter</button>
 </form>
+
+<p>Pas de compte ? <a href="/register">Inscrivez-vous</a></p>

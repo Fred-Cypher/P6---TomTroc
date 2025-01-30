@@ -32,9 +32,16 @@
                     <img src="/images/icon_mon_compte.svg" alt="Mon compte">
                     Mon compte
                 </a>
-                <a href="#" class="link">
+                <?php
+                if (isset($_SESSION['user'])) { ?>
+                    <a href="/logout" class="link">
+                    Déconnexion
+                </a>
+                <?php } else { ?>
+                    <a href="/login" class="link">
                     Connexion
                 </a>
+                <?php } ?>
             </div>
         </nav>
     </header>

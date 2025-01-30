@@ -22,6 +22,9 @@ switch ($requestUri) {
         $controller = new UserController();
         $controller->login();
         break;
+    case '/logout':
+        $controller = new UserController();
+        $controller->logout();
     default:
         $controller = new MainController();
         $controller->error();

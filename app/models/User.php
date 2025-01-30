@@ -9,7 +9,7 @@ class User {
     private string $pseudo;
     private string $email;
     private string $password;
-    private string $avatar;
+    private ?string $avatar = null;
     private string $role;
     private DateTime $createdAt;
     private DateTime $updatedAt;
@@ -31,6 +31,11 @@ class User {
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function setId(int $id):void
+    {
+        $this->id = $id;
     }
 
     public function getPseudo(): string
@@ -63,12 +68,12 @@ class User {
         $this->password = $password;
     }
 
-    public function getAvatar(): string
+    public function getAvatar(): ?string
     {
         return $this->avatar;
     }
 
-    public function setAvartar(string $avatar): void
+    public function setAvatar(?string $avatar): void
     {
         $this->avatar = $avatar;
     }
