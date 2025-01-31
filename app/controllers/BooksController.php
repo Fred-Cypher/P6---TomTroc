@@ -13,7 +13,7 @@ class BooksController{
     }
     
     public function addBook(){
-        $title = "Tom Troc - Accueil";
+        $title = "Tom Troc - Enregistrer un livre";
         ob_start();
         require __DIR__ . '../../views/templates/addBook.php';
         $content = ob_get_clean();
