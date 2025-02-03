@@ -20,7 +20,6 @@ class BooksController{
         $message = '';
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
             try{
                 if(!isset($_SESSION['user']['id'])){
                     throw new Exception("Vous devez être connecté pour enregistrer un nouveau livre");
@@ -34,8 +33,9 @@ class BooksController{
                 $createdAt = new DateTime();
                 $updatedAt = new DateTime();
                 $userId = $_SESSION['user']['id'];
-            } catch (Exception $e) {}
+            } catch (Exception $e) {
                 $message = "Erreur : " . $e->getMessage();
+            }
         }
 
         $title = "Tom Troc - Enregistrer un livre";
@@ -53,5 +53,4 @@ class BooksController{
         $content = ob_get_clean();
         require __DIR__ . '../../views/layout.php';
     }
-
 }

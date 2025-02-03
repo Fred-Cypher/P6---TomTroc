@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\UserRepository;
 use App\services\Utils;
 use DateTime;
+use Exception;
 
 class UserController 
 {
@@ -25,29 +26,33 @@ class UserController
         $message = '';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-            $pseudo = Utils::request('pseudo');
-            $email = Utils::request('email');
-            $password = Utils::request('password');
-            $avatar = '';
-            $role = 'ROLE_USER';
-            $createdAt = new DateTime();
-            $updatedAt = new DateTime();
+            try{
+                $pseudo = Utils::request('pseudo');
+                $email = Utils::request('email');
+                $password = Utils::request('password');
+                $avatar = '';
+                $role = 'ROLE_USER';
+                $createdAt = new DateTime();
+                $updatedAt = new DateTime();
 
-            if(empty($pseudo || $email || $password)){
-                $message = "Tous les champs sont obligatoires";
-            } else {
-                $user = new User([
-                'pseudo' => $pseudo,
-                'email' => $email,
-                'password' => $password,
-                'avatar' => $avatar,
-                'role' => $role,
-                'created_at' => $createdAt,
-                'updated_at' => $updatedAt
-                ]);
-                $this->userRepository->createUser($user);
+                if(empty($pseudo || $email || $password)){
+                    $message = "Tous les champs sont obligatoires";
+                } else {
+                    $user = new User([
+                    'pseudo' => $pseudo,
+                    'email' => $email,
+                    'password' => $password,
+                    'avatar' => $avatar,
+                    'role' => $role,
+                    'created_at' => $createdAt,
+                    'updated_at' => $updatedAt
+                    ]);
+                    $this->userRepository->createUser($user);
 
-                header('location: /login');
+                    header('location: /login');
+                }
+            } catch (Exception $e) {
+                $message = "Erreur : " . $e->getMessage();
             }
         }
 
@@ -73,10 +78,8 @@ class UserController
                 $message = "Tous les champs sont obligatoires.";
             } else {
                 $user = $this->userRepository->getUserByEmail($email);
-                if (!$user) {
+                if (!$user || !password_verify($password, $user->getPassword())) {
                     $message = "Cet utilisateur n'existe pas. Veuillez vérifier vos identifiants";
-                } elseif (!password_verify($password, $user->getPassword())){
-                        $message = "Cet utilisateur n'existe pas.";
                 } else {
                     $_SESSION['user'] = [
                         'id' => $user->getId(),
@@ -98,7 +101,6 @@ class UserController
 
     public function logout(): void
     {
-        session_start();
         session_destroy();
         header('location: /');
     }
