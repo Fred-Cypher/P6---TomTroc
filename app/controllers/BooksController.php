@@ -2,11 +2,21 @@
 
 namespace App\Controllers;
 
+use App\Models\Books;
+use App\Models\BooksRepository;
+use App\services\PictureService;
 use App\services\Utils;
 use DateTime;
 use Exception;
 
-class BooksController{
+class BooksController
+{
+    private $booksRepository;
+
+    public function __construct(){
+        $this->booksRepository = new BooksRepository;
+    }
+
     public function index()
     {
         $title = "Tom Troc - Nos livres à l'échange";
@@ -22,17 +32,44 @@ class BooksController{
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             try{
                 if(!isset($_SESSION['user']['id'])){
-                    throw new Exception("Vous devez être connecté pour enregistrer un nouveau livre");
+                    echo ("Vous devez être connecté pour enregistrer un nouveau livre");
+                }
+
+                $params = ['images_directory' => 'uploads/covers/'];
+
+                $pictureService = new PictureService($params);
+
+                if (isset($_FILES['cover']) && $_FILES['cover']['error'] == UPLOAD_ERR_OK){
+                    $coverFilename = $pictureService->addCover($_FILES['cover']);
+                } else {
+                    echo ("Erreur lors du chargement de l'image");
                 }
 
                 $title = Utils::request("title");
                 $author = Utils::request("author");
                 $comment = Utils::request("comment");
-                $cover = Utils::request("cover");
                 $availability = Utils::request("availability");
                 $createdAt = new DateTime();
                 $updatedAt = new DateTime();
                 $userId = $_SESSION['user']['id'];
+
+                $book = New Books([
+                    'title' => $title,
+                    'author' => $author,
+                    'comment' => $comment,
+                    'cover' => $coverFilename,
+                    'availability' => $availability,
+                    'created_at' => $createdAt,
+                    'updated_at' => $updatedAt,
+                    'user_id' => $userId
+                ]);
+                
+
+                $this->booksRepository->addBook($book);
+
+                header('location: /');
+                exit();
+
             } catch (Exception $e) {
                 $message = "Erreur : " . $e->getMessage();
             }

@@ -1,6 +1,6 @@
 <h2>Enregistrer un nouveau livre</h2>
 
-<form action="" method="POST">
+<form action="/addBook" method="POST" enctype="multipart/form-data">
     <p>
         <label for="title">Titre <span class="asterisk">*</span></label>
         <input type="text" name="title" id="title" required>
@@ -15,7 +15,7 @@
     </p>
     <p>
         <label for="cover">Couverture</label>
-        <input type="file" name="cover" id="cover">
+        <input type="file" name="cover" id="cover" required>
     </p>
     <p>
         <label for="availability">Disponibilité <span class="asterisk">*</span></label>

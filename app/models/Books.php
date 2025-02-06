@@ -11,7 +11,7 @@ class Books {
     private string $comment;
     private int $userId;
     private string $cover;
-    private bool $availability;
+    private bool $availability = true;
     private DateTime $createdAt;
     private DateTime $updatedAt;
 
