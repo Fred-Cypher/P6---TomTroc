@@ -33,42 +33,41 @@ class BooksController
             try{
                 if(!isset($_SESSION['user']['id'])){
                     echo ("Vous devez être connecté pour enregistrer un nouveau livre");
-                }
-
-                $params = ['images_directory' => 'uploads/covers/'];
-
-                $pictureService = new PictureService($params);
-
-                if (isset($_FILES['cover']) && $_FILES['cover']['error'] == UPLOAD_ERR_OK){
-                    $coverFilename = $pictureService->addCover($_FILES['cover']);
                 } else {
-                    echo ("Erreur lors du chargement de l'image");
+                    $params = ['images_directory' => 'uploads/covers/'];
+
+                    $pictureService = new PictureService($params);
+
+                    if (isset($_FILES['cover']) && $_FILES['cover']['error'] == UPLOAD_ERR_OK){
+                        $coverFilename = $pictureService->addCover($_FILES['cover']);
+                    } else {
+                        echo ("Erreur lors du chargement de l'image");
+                    }
+
+                    $title = Utils::request("title");
+                    $author = Utils::request("author");
+                    $comment = Utils::request("comment");
+                    $availability = Utils::request("availability");
+                    $createdAt = new DateTime();
+                    $updatedAt = new DateTime();
+                    $userId = $_SESSION['user']['id'];
+
+                    $book = New Books([
+                        'title' => $title,
+                        'author' => $author,
+                        'comment' => $comment,
+                        'cover' => $coverFilename,
+                        'availability' => $availability,
+                        'created_at' => $createdAt,
+                        'updated_at' => $updatedAt,
+                        'user_id' => $userId
+                    ]);
+                    
+                    $this->booksRepository->addBook($book);
+
+                    header('location: /');
+                    exit();
                 }
-
-                $title = Utils::request("title");
-                $author = Utils::request("author");
-                $comment = Utils::request("comment");
-                $availability = Utils::request("availability");
-                $createdAt = new DateTime();
-                $updatedAt = new DateTime();
-                $userId = $_SESSION['user']['id'];
-
-                $book = New Books([
-                    'title' => $title,
-                    'author' => $author,
-                    'comment' => $comment,
-                    'cover' => $coverFilename,
-                    'availability' => $availability,
-                    'created_at' => $createdAt,
-                    'updated_at' => $updatedAt,
-                    'user_id' => $userId
-                ]);
-                
-
-                $this->booksRepository->addBook($book);
-
-                header('location: /');
-                exit();
 
             } catch (Exception $e) {
                 $message = "Erreur : " . $e->getMessage();
