@@ -12,7 +12,7 @@ class BooksRepository extends AbstractEntityManager
             'author' => $books->getAuthor(),
             'comment' => $books->getComment(),
             'cover' =>$books->getCover(),
-            'availability' => $books->getAvailability(),
+            'availability' => (int) $books->getAvailability(),
             'created_at' => $books->getCreatedAt()->format('Y-m-d H:i:s'),
             'updated_at' => $books->getUpdatedAt()->format('Y-m-d H:i:s'),
             'user_id' => $books->getUserId(),
