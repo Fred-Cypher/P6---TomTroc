@@ -11,7 +11,7 @@ class Books {
     private string $comment;
     private int $userId;
     private string $cover;
-    private bool $availability = true;
+    private bool $availability;
     private DateTime $createdAt;
     private DateTime $updatedAt;
 
@@ -85,12 +85,12 @@ class Books {
         $this->cover = $cover;
     }
 
-    public function getAvaibility(): bool
+    public function getAvailability(): bool
     {
         return $this->availability;
     }
 
-    public function setAvaibility(bool $availability): void
+    public function setAvailability(bool $availability): void
     {
         $this->availability = $availability;
     }

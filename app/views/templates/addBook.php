@@ -18,8 +18,11 @@
         <input type="file" name="cover" id="cover" required>
     </p>
     <p>
-        <label for="availability">Disponibilité <span class="asterisk">*</span></label>
-        <input type="checkbox" name="availability" id="availability" required>
+        <label for="availability">Disponibilité</label>
+        <select id="availability" name="availability">
+            <option value="1">Disponible</option>
+            <option value="0">Indisponible</option>
+        </select>
     </p>
     <p>
         <button class="submit">Enregistrer le livre</button>
