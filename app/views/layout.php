@@ -29,18 +29,28 @@
                     Messagerie
                 </a>
                 <a href="#" class="link">
-                    <img src="/images/icon_mon_compte.svg" alt="Mon compte">
-                    Mon compte
+                    <?php
+                    if (isset($_SESSION['user'])) { ?>
+                        <a href="/privateProfile" class="link">
+                            <img src="/images/icon_mon_compte.svg" alt="Mon compte">
+                            Mon compte
+                        </a>
+                    <?php } else { ?>
+                        <a href="/login" class="link">
+                            <img src="/images/icon_mon_compte.svg" alt="Mon compte">
+                            Mon compte
+                        </a>
+                    <?php } ?>
                 </a>
                 <?php
                 if (isset($_SESSION['user'])) { ?>
                     <a href="/logout" class="link">
-                    Déconnexion
-                </a>
+                        Déconnexion
+                    </a>
                 <?php } else { ?>
                     <a href="/login" class="link">
-                    Connexion
-                </a>
+                        Connexion
+                    </a>
                 <?php } ?>
             </div>
         </nav>

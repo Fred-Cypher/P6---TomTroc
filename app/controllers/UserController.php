@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\BooksRepository;
 use App\Models\User;
 use App\Models\UserRepository;
 use App\services\Utils;
@@ -11,14 +12,40 @@ use Exception;
 class UserController 
 {
     private $userRepository;
+    private $booksRepository;
 
     public function __construct(){
         $this->userRepository = new UserRepository;
+        $this->booksRepository = new BooksRepository;
     }
 
     public function index()
     {
-    
+        if ($_SESSION['user']['pseudo']){
+            $pseudo = $_SESSION['user']['pseudo'];
+
+            $userRepository = new UserRepository();
+            $user = $userRepository->getUserByPseudo($pseudo);
+
+            if ($user){
+                $userId = $user->getId();
+                $books = $this->booksRepository->getBooksByUser($userId);
+
+                $title = "Tom Troc - Profil";
+                ob_start();
+                require __DIR__ . '../../views/templates/privateProfile.php';
+                $content = ob_get_clean();
+                require __DIR__ . '../../views/layout.php';
+            } else {
+                $title = "Profil non trouvé";
+                ob_start();
+                require __DIR__ . '/../views/templates/error.php';
+                $content = ob_get_clean();
+                require __DIR__ . '/../views/layout.php';
+            }
+        } else {
+            header('location: /login');
+        }
     }
 
     public function register(): void

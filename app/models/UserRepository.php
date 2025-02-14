@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use DateTime;
+
 class UserRepository extends AbstractEntityManager
 {
     /**
@@ -37,6 +39,8 @@ class UserRepository extends AbstractEntityManager
         $result = $this->db->query($sql, ['pseudo' => $pseudo]);
         $user = $result->fetch();
         if ($user) {
+            $user['created_at'] = new DateTime($user['created_at']);
+            $user['updated_at'] = new DateTime($user['updated_at']);
             return new User($user);
         }
         return null; 

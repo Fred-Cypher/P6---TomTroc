@@ -26,6 +26,11 @@ switch ($requestUri) {
     case '/logout':
         $controller = new UserController();
         $controller->logout();
+        break;
+    case '/privateProfile':
+        $controller = new UserController();
+        $controller->index();
+        break;
     case '/books' :
         $controller= new BooksController();
         $controller->index();

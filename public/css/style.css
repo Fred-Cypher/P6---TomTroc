@@ -56,10 +56,26 @@ main{
 }
 
 /*** IMAGES ***/
+.imageContainer{    
+    height: 100px;
+}
+
+.smallCover{
+    width: 78px;
+}
+
+.avatar{
+    border-radius: 50%;
+}
 
 
 /*** FORMULAIRES ***/
 .asterisk{
     color: red;
     font-weight: bold;
+}
+
+/*** Tableaux ***/
+.booksTable tr:nth-child(even){
+    background-color: var(--softgrey);
 }
