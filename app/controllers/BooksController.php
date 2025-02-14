@@ -62,7 +62,7 @@ class BooksController
                         'updated_at' => $updatedAt,
                         'user_id' => $userId
                     ]);
-                    
+
                     $this->booksRepository->addBook($book);
 
                     header('location: /');
@@ -71,6 +71,8 @@ class BooksController
 
             } catch (Exception $e) {
                 $message = "Erreur : " . $e->getMessage();
+                var_dump($message);
+                die;
             }
         }
 
@@ -83,9 +85,66 @@ class BooksController
 
     public function showBook()
     {
+        $id = Utils::request('id', -1);
+
+        $booksRepository = new BooksRepository;
+        $book = $booksRepository->getBookById($id);
+
+        if (!$book){
+            throw new Exception("Le livre demandé n'existe pas");
+        }
+
         $title = "Tom Troc - Détail";
         ob_start();
         require __DIR__ . '../../views/templates/detailBook.php';
+        $content = ob_get_clean();
+        require __DIR__ . '../../views/layout.php';
+    }
+
+    public function updateBook()
+    {
+            $id = Utils::request("id", -1);
+
+            try{
+                $booksRepository = new BooksRepository();
+                $book = $booksRepository->getBookById($id);
+
+                if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+                    $title = Utils::request("title");
+                    $author = Utils::request("author");
+                    $comment = Utils::request("comment");
+                    $availability = Utils::request("availability");
+                    $updatedAt = new DateTime();
+
+                    if (isset($_FILES['cover']) && $_FILES['cover']['error'] == UPLOAD_ERR_OK){
+                        $params = ['images_directory' => 'uploads/covers/'];
+                        $pictureService = new PictureService($params);
+                        $coverFilename = $pictureService->addCover($_FILES['cover']);
+                    }else {
+                        $coverFilename = $book->getCover();
+                    }
+
+                    $book->setTitle($title);
+                    $book->setAuthor($author);
+                    $book->setComment($comment);
+                    $book->setCover($coverFilename);
+                    $book->setAvailability($availability);
+                    $book->setUpdatedAt($updatedAt);
+
+                    $this->booksRepository->updateBook($book);
+
+                    header('location: /');
+                    exit;
+                }
+            } catch (Exception $e){
+                $message = "Erreur : " . $e->getMessage();
+                var_dump($message);
+                die;
+            }
+
+        $title = "Tom Troc - Modifier un livre";
+        ob_start();
+        require __DIR__ . '../../views/templates/updateBook.php';
         $content = ob_get_clean();
         require __DIR__ . '../../views/layout.php';
     }

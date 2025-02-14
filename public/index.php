@@ -43,6 +43,10 @@ switch ($requestUri) {
         $controller = new BooksController();
         $controller->showBook();
         break;
+    case '/updateBook':
+        $controller = new BooksController();
+        $controller->updateBook();
+        break;
     default:
         $controller = new MainController();
         $controller->error();
