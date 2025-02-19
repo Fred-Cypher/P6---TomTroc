@@ -15,7 +15,7 @@
     </p>
     <p>
         <label for="cover">Couverture</label>
-        <input type="file" name="cover" id="cover" required>
+        <input type="file" name="cover" id="cover">
     </p>
     <p>
         <label for="availability">Disponibilité</label>

@@ -10,7 +10,7 @@ class Books {
     private string $author;
     private string $comment;
     private int $userId;
-    private string $cover;
+    private ?string $cover;
     private bool $availability;
     private DateTime $createdAt;
     private DateTime $updatedAt;
@@ -33,6 +33,11 @@ class Books {
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getTitle(): string
@@ -75,12 +80,12 @@ class Books {
         $this->userId = $userId;
     }
 
-    public function getcover(): string
+    public function getcover(): string|null
     {
         return $this->cover;
     }
 
-    public function setCover(string $cover): void
+    public function setCover(?string $cover): void
     {
         $this->cover = $cover;
     }

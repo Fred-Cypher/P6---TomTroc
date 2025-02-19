@@ -13,7 +13,7 @@ class PictureService
         $this->params = $params;
     }
 
-    public function addCover($picture, ?string $folder = '', ?int $width = 720, ?int $height = 863)
+    public function addCover($picture, ?string $folder = '')
     {
         $file = md5(uniqid(rand(), true)) . '.webp';
 
@@ -47,7 +47,7 @@ class PictureService
             mkdir($path, 0755, true);
         }
 
-        imagewebp($pictureSource, $path . '/' .$width . 'x' . $height . '-' .  $file);
+        imagewebp($pictureSource, $path . '/' .  $file);
 
         imagedestroy($pictureSource);
 

@@ -20,7 +20,7 @@
             <div class="border border-info col-6 d-flex justify-content-evenly align-items-center">
                 <img src="/images/logo.svg" alt="Logo Tom Troc">
                 <a href="/" class="link">Accueil</a>
-                <a href="#" class="link">Nos livres à l'échange</a>
+                <a href="/books" class="link">Nos livres à l'échange</a>
             </div>
             <div class="border border-info col-6 d-flex justify-content-evenly">
                 <span class="line">|</span>

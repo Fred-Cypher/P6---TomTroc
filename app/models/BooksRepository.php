@@ -37,6 +37,22 @@ class BooksRepository extends AbstractEntityManager
         ]);
     }
 
+    function getAllBooks():array
+    {
+        $sql = "SELECT * FROM books";
+        $result = $this->db->query($sql);
+        $books = [];
+
+        while ($book = $result->fetch()) {
+            if($book){
+                $book['created_at'] = new DateTime($book['created_at']);
+                $book['updated_at'] = new DateTime($book['updated_at']);
+            }
+            $books[] = new Books($book);
+        }
+        return $books;
+    }
+
     function getBookById(int $id): ?Books
     {
         $sql = "SELECT * FROM books WHERE id = :id";

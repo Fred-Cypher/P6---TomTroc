@@ -4,4 +4,7 @@ Test.php
 public/uploads/covers/*
 public/uploads/avatars/*
 
+!public/uploads/covers/defaultBook.jpg
+!public/uploads/avatars/defaultAvatar.png
+
 notes.md

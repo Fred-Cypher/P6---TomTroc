@@ -19,6 +19,8 @@ class BooksController
 
     public function index()
     {
+        $books = $this->booksRepository->getAllBooks();
+
         $title = "Tom Troc - Nos livres à l'échange";
         ob_start();
         require __DIR__ . '../../views/templates/books.php';
@@ -40,8 +42,10 @@ class BooksController
 
                     if (isset($_FILES['cover']) && $_FILES['cover']['error'] == UPLOAD_ERR_OK){
                         $coverFilename = $pictureService->addCover($_FILES['cover']);
-                    } else {
+                    } elseif ($_FILES['cover']['error'] == UPLOAD_ERR_CANT_WRITE) {
                         echo ("Erreur lors du chargement de l'image");
+                    } else {
+                        $coverFilename = null;
                     }
 
                     $title = Utils::request("title");
@@ -83,17 +87,23 @@ class BooksController
         require __DIR__ . '../../views/layout.php';
     }
 
-    public function showBook()
+    public function showBook(): void
     {
-        $id = Utils::request('id', -1);
+        try{
+            $id = Utils::request('id', -1);
 
-        $booksRepository = new BooksRepository;
-        $book = $booksRepository->getBookById($id);
+            $booksRepository = new BooksRepository();
+            $book = $booksRepository->getBookById($id);
 
-        if (!$book){
-            throw new Exception("Le livre demandé n'existe pas");
+            if (!$book){
+                throw new Exception("Le livre demandé n'existe pas");
+            } 
+        } catch (Exception $e) {
+            $message = "Erreur : " . $e->getMessage();
+            var_dump($message);
+            die;
         }
-
+        
         $title = "Tom Troc - Détail";
         ob_start();
         require __DIR__ . '../../views/templates/detailBook.php';
