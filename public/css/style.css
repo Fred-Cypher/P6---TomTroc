@@ -3,6 +3,7 @@
 *{
     margin: 0;
     padding: 0;
+    background-color: var(--back);
 }
 
 
@@ -13,6 +14,7 @@
     --green: #00AC66; 
     --darkgreen: #006D41; 
     --red: #C56D6D;
+    --back: #FAF9F7;
 }
 
 .link{
@@ -20,6 +22,9 @@
     color: var(--darkgrey);
 }
 
+.cardLink{
+    text-decoration: none;
+}
 
 /*** HEADER ***/
 
@@ -40,6 +45,7 @@
 /*** MAIN ***/
 main{
     border: 1px blue solid;
+    margin-bottom: 62px;
 }
 
 /*** FOOTER ***/
@@ -49,6 +55,7 @@ main{
     width: 100%;
     position: fixed;
     bottom: 0;
+    background-color: white;
 }
 
 .footerSpan{
@@ -56,12 +63,19 @@ main{
 }
 
 /*** IMAGES ***/
-.imageContainer{    
-    height: 100px;
-}
+
+/*object-fill: cover*/
 
 .smallCover{
     width: 78px;
+    height: 78px;
+    object-fit: cover;
+}
+
+.mediumCover{
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
 }
 
 .avatar{
@@ -75,7 +89,66 @@ main{
     font-weight: bold;
 }
 
-/*** Tableaux ***/
+/*** TABLEAUX ***/
+.profileTable{
+    width: 100%;
+    border: 1px solid black;
+}
+
+.tableContainer{    
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
 .booksTable tr:nth-child(even){
     background-color: var(--softgrey);
+}
+
+.available{
+    background-color: var(--green);
+    color: var(--softgrey);
+    padding: 3px 10px;
+    border-radius: 15px;
+}
+
+.unavailable{
+    background-color: var(--red);
+    color: var(--softgrey);
+    padding: 3px 10px;
+    border-radius: 15px;
+}
+
+/*** CARTES LIVRE***/
+.exchangeBook{
+    display: flex;
+    flex-direction: row;
+}
+
+.bookCard{
+    width: 160px;
+    height: 260px;
+    background-color: white;
+    border : 1px solid rebeccapurple;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.exchangeBookTitle{
+    background-color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.exchangeBookAuthor{
+    background-color: white;
+    color: var(--textgrey);
+    font-size: 14px;
+}
+
+.exchangeBookSeller{
+    background-color: white;
+    color: var(--textgrey);
+    font-size: 10px;
+    font-style: italic;
 }

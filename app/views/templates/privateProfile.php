@@ -36,7 +36,7 @@
     </article>
 </section>
 <section>
-    <table>
+    <table class="profileTable">
         <thead>
             <tr>
                 <th>
@@ -63,30 +63,40 @@
             <?php foreach ($books as $book): ?>
                 <tr>
                     <td>
-                        <p class="imageContainer">
-                            <img src="/uploads/covers/720x863-<?= $book->getCover() ?>" alt=""  class="smallCover">
-                        </p>
-                        
+                        <div class="tableContainer">
+                            <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="smallCover">
+                        </div>
+
                     </td>
                     <td>
-                        <?= $book->getTitle() ?>
+                        <div class="tableContainer">
+                            <?= $book->getTitle() ?>
+                        </div>
                     </td>
                     <td>
-                        <?= $book->getAuthor() ?>
+                        <div class="tableContainer">
+                            <?= $book->getAuthor() ?>
+                        </div>
                     </td>
                     <td>
-                        <?= $book->getComment() ?>
+                        <div class="tableContainer">
+                            <?= $book->getComment() ?>
+                        </div>
                     </td>
                     <td>
-                        <?php if ($book->getAvailability() == 1): ?>
-                        Disponible
-                        <?php else: ?>
-                        Indisponible
-                        <?php endif; ?>
+                        <div class="tableContainer">
+                            <?php if ($book->getAvailability() == 1): ?>
+                                <span class="available">Disponible</span>
+                            <?php else: ?>
+                                <span class="unavailable">Non dispo.</span>
+                            <?php endif; ?>
+                        </div>
                     </td>
                     <td>
-                        <a href="">Editer</a>
-                        <a href="">Supprimer</a>
+                        <div class="tableContainer">
+                            <a href="">Editer </a>
+                            <a href="">Supprimer</a>
+                        </div>
                     </td>
                 </tr>
             <?php endforeach; ?>

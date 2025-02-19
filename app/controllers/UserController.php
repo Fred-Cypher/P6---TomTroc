@@ -21,6 +21,7 @@ class UserController
 
     public function index()
     {
+        //Affiche le profil de l'utilisateur
         if ($_SESSION['user']['pseudo']){
             $pseudo = $_SESSION['user']['pseudo'];
 
@@ -130,5 +131,6 @@ class UserController
     {
         session_destroy();
         header('location: /');
+        //Utils::redirect("/");
     }
 }
