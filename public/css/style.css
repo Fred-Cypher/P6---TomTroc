@@ -80,6 +80,9 @@ main{
 
 .avatar{
     border-radius: 50%;
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
 }
 
 

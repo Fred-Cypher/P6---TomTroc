@@ -3,7 +3,11 @@
 <section style="display:flex">
     <article>
         <p>
-            <img src="/uploads/avatars/adminAvatar.png" alt="" class="avatar">
+            <?php if ($user->getAvatar()): ?>
+                <img src="/uploads/avatars/<?= $user->getAvatar() ?>" alt="" class="avatar">
+            <?php else: ?>
+                <img src="/uploads/avatars/defaultAvatar.png" alt="" class="avatar">
+            <?php endif ?>
             <a href="#">Modifier</a>
         </p>
         <p></p>
@@ -64,9 +68,12 @@
                 <tr>
                     <td>
                         <div class="tableContainer">
-                            <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="smallCover">
+                            <?php if ($book->getCover()): ?>
+                                <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="smallCover">
+                            <?php else: ?>
+                                <img src="/uploads/covers/defaultBook.jpg" alt="" class="smallCover">
+                            <?php endif ?>
                         </div>
-
                     </td>
                     <td>
                         <div class="tableContainer">
