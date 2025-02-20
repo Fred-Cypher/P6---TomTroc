@@ -16,7 +16,7 @@ function isAuthenticated(){
 }
 
 function isAdmin(){
-    return isset($_SESSION['user']['role']);
+    return (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN');
 }
 
 switch ($requestUri) {
@@ -75,12 +75,9 @@ switch ($requestUri) {
         }
         break;
 
-        // URI with action
-
-
         // Admin access
     case '/admin':
-        if (isAdmin('ROLE_ADMIN')){
+        if (isAdmin()){
             $controller = new AdminController();
             $controller->index();
             break;
