@@ -4,7 +4,7 @@
 <section class="exchangeBooks">
     <?php foreach ($books as $book): ?>
         <article class="bookCard">
-            <a href="index.php?action=detailBook&id=<?= $book->getId() ?>" class="cardLink">
+            <a href="index.php?action=showBook&id=<?= $book->getId() ?>" class="cardLink">
                 <?php if ($book->getCover()): ?>
                     <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="mediumCover">
                 <?php else: ?>
