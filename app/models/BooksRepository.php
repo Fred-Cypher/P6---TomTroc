@@ -6,7 +6,7 @@ use DateTime;
 
 class BooksRepository extends AbstractEntityManager
 {
-    function addBook(Books $book): void
+    function addBook(Book $book): void
     {
         $sql = "INSERT INTO books (title, author, comment, cover, availability, created_at, updated_at, user_id)
         VALUES (:title, :author, :comment, :cover, :availability, :created_at, :updated_at, :user_id)";
@@ -22,7 +22,7 @@ class BooksRepository extends AbstractEntityManager
         ]);
     }
 
-    function updateBook(Books $book)
+    function updateBook(Book $book)
     {
         $sql = "UPDATE books SET title = :title, author = :author, comment = :comment, cover = :cover, availability = :availability,  updated_at = :updated_at
         WHERE id = :id";
@@ -48,18 +48,20 @@ class BooksRepository extends AbstractEntityManager
                 $book['created_at'] = new DateTime($book['created_at']);
                 $book['updated_at'] = new DateTime($book['updated_at']);
             }
-            $books[] = new Books($book);
+            $books[] = new Book($book);
         }
         return $books;
     }
 
-    function getBookById(int $id): ?Books
+    function getBookById(int $id): ?Book
     {
         $sql = "SELECT * FROM books WHERE id = :id";
         $result = $this->db->query($sql, ['id' => $id]);
         $book = $result->fetch();
         if ($book) {
-            return new Books($book);
+            $book['created_at'] = new DateTime($book['created_at']);
+            $book['updated_at'] = new DateTime($book['updated_at']);
+            return new Book($book);
         }
         return null;
     }
@@ -78,7 +80,7 @@ class BooksRepository extends AbstractEntityManager
             if (isset($booksData['updated_at'])) {
                 $booksData['updated_at'] = new DateTime($booksData['updated_at']);
             }
-            $books[] = new Books($booksData);
+            $books[] = new Book($booksData);
         }
         return $books;
     }

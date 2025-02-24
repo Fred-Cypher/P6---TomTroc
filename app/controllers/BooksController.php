@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\Books;
+use App\Models\Book;
 use App\Models\BooksRepository;
 use App\services\PictureService;
 use App\services\Utils;
@@ -56,7 +56,7 @@ class BooksController
                     $updatedAt = new DateTime();
                     $userId = $_SESSION['user']['id'];
 
-                    $book = New Books([
+                    $book = new Book([
                         'title' => $title,
                         'author' => $author,
                         'comment' => $comment,
