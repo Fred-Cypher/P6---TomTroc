@@ -45,7 +45,7 @@ class UserController
                 require __DIR__ . '/../views/layout.php';
             }
         } else {
-            header('location: /login');
+            Utils::redirect('login');
         }
     }
 
@@ -77,7 +77,7 @@ class UserController
                     ]);
                     $this->userRepository->createUser($user);
 
-                    header('location: /login');
+                    Utils::redirect('login');
                 }
             } catch (Exception $e) {
                 $message = "Erreur : " . $e->getMessage();
@@ -114,8 +114,8 @@ class UserController
                         'pseudo' => $user->getPseudo(),
                         'role' => $user->getRole()                        
                     ] ;
-                    
-                    header('location: /');
+
+                    Utils::redirect('home');
                 }
             }
         }
@@ -130,7 +130,6 @@ class UserController
     public function logout(): void
     {
         session_destroy();
-        header('location: /');
-        //Utils::redirect("/");
+        Utils::redirect('home');
     }
 }

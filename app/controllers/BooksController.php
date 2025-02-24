@@ -69,8 +69,7 @@ class BooksController
 
                     $this->booksRepository->addBook($book);
 
-                    header('location: /');
-                    exit();
+                    Utils::redirect('home');
                 }
 
             } catch (Exception $e) {
@@ -143,8 +142,7 @@ class BooksController
 
                     $this->booksRepository->updateBook($book);
 
-                    header('location: /');
-                    exit;
+                    Utils::redirect('home');
                 }
             } catch (Exception $e){
                 $message = "Erreur : " . $e->getMessage();

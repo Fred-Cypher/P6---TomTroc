@@ -19,8 +19,8 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light headerNav">
             <div class="border border-info col-6 d-flex justify-content-evenly align-items-center">
                 <img src="/images/logo.svg" alt="Logo Tom Troc">
-                <a href="/" class="link">Accueil</a>
-                <a href="/books" class="link">Nos livres à l'échange</a>
+                <a href="index.php?action=home" class="link">Accueil</a>
+                <a href="index.php?action=books" class="link">Nos livres à l'échange</a>
             </div>
             <div class="border border-info col-6 d-flex justify-content-evenly">
                 <span class="line">|</span>
@@ -31,12 +31,12 @@
                 <a href="#" class="link">
                     <?php
                     if (isset($_SESSION['user'])) { ?>
-                        <a href="/privateProfile" class="link">
+                        <a href="index.php?action=privateProfile" class="link">
                             <img src="/images/icon_mon_compte.svg" alt="Mon compte">
                             Mon compte
                         </a>
                     <?php } else { ?>
-                        <a href="/login" class="link">
+                        <a href="index.php?action=login" class="link">
                             <img src="/images/icon_mon_compte.svg" alt="Mon compte">
                             Mon compte
                         </a>
@@ -44,11 +44,11 @@
                 </a>
                 <?php
                 if (isset($_SESSION['user'])) { ?>
-                    <a href="/logout" class="link">
+                    <a href="index.php?action=logout" class="link">
                         Déconnexion
                     </a>
                 <?php } else { ?>
-                    <a href="/login" class="link">
+                    <a href="index.php?action=login" class="link">
                         Connexion
                     </a>
                 <?php } ?>
@@ -60,7 +60,7 @@
     </main>
     <footer class="footer d-flex justify-content-end">
         <?php if (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN') { ?>
-            <a href="/admin" class="link">
+            <a href="admin" class="link">
                 Panneau d'administration
             </a>
         <?php } ?>

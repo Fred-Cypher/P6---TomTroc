@@ -4,12 +4,13 @@ use App\Controllers\AdminController;
 use App\Controllers\BooksController;
 use App\Controllers\MainController;
 use App\Controllers\UserController;
+use App\services\Utils;
 
 require_once '../autoload.php';
 
 $db = require '../config/config.php';
 
-$requestUri = $_SERVER['REQUEST_URI'];
+$resquestAction = Utils::request('action');
 
 function isAuthenticated(){
     return isset($_SESSION['user']['id']);
@@ -19,64 +20,61 @@ function isAdmin(){
     return (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN');
 }
 
-switch ($requestUri) {
+switch ($resquestAction) {
     // Public access
-    case '/' :
+    case 'home' :
         $controller = new MainController();
         $controller->index();
         break;
-    case '/register' :
+    case 'register' :
         $controller = new UserController();
         $controller->register();
         break;
-    case '/login':
+    case 'login':
         $controller = new UserController();
         $controller->login();
         break;
-    case '/logout':
+    case 'logout':
         $controller = new UserController();
         $controller->logout();
         break;
-    case '/books' :
+    case 'books' :
         $controller= new BooksController();
         $controller->index();
         break;
-    case '/detailBook' :
+    case 'detailBook' :
         $controller = new BooksController();
         $controller->showBook();
         break;
     
     // Private access
-    case '/privateProfile':
+    case 'privateProfile':
         if (isAuthenticated()){
             $controller = new UserController();
             $controller->index();
         } else {
-            header('Location: /login');
-            exit();
+            Utils::redirect('login');
         }
         break;
-    case '/addBook':
+    case 'addBook':
         if (isAuthenticated()){
             $controller = new BooksController();
             $controller->addBook();
         } else {
-            header('Location: /login');
-            exit();
+            Utils::redirect('login');
         }
         break;
-    case '/updateBook':
+    case 'updateBook':
         if (isAuthenticated()){
             $controller = new BooksController();
             $controller->updateBook();
         } else {
-            header('Location: /login');
-            exit();
+            Utils::redirect('login');
         }
         break;
 
         // Admin access
-    case '/admin':
+    case 'admin':
         if (isAdmin()){
             $controller = new AdminController();
             $controller->index();

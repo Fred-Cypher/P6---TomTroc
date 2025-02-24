@@ -4,7 +4,7 @@
     <p><?= $message ?></p>
 <?php endif; ?>
 
-<form action="/login" method="POST"> 
+<form action="index.php?action=login" method="POST">
     <label for="email">Adresse email</label>
     <input type="text" name="email" id="email" required>
     <label for="password">Mot de passe</label>
@@ -12,4 +12,4 @@
     <button class="submit">Se connecter</button>
 </form>
 
-<p>Pas de compte ? <a href="/register">Inscrivez-vous</a></p>
+<p>Pas de compte ? <a href="index.php?action=register">Inscrivez-vous</a></p>

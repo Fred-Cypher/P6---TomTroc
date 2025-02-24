@@ -1,10 +1,10 @@
 <h2>Inscription</h2>
 
-<?php if(!empty($message)): ?>
+<?php if (!empty($message)): ?>
     <p><?= $message ?></p>
 <?php endif; ?>
 
-<form action="/register"  method="POST">
+<form action="index.php?action=register" method="POST">
     <label for="pseudo">Pseudo</label>
     <input type="text" name="pseudo" id="pseudo" required>
     <label for="email">Adresse email</label>
@@ -14,4 +14,4 @@
     <button class="submit">S'inscrire</button>
 </form>
 
-<p>Déjà inscrit ? <a href="/login">Connectez-vous</a></p>
+<p>Déjà inscrit ? <a href="index.php?action=login">Connectez-vous</a></p>
