@@ -31,7 +31,7 @@ class UserController
             if ($user){
                 $userId = $user->getId();
                 $books = $this->booksRepository->getBooksByUser($userId);
-
+                
                 $title = "Tom Troc - Profil";
                 ob_start();
                 require __DIR__ . '../../views/templates/privateProfile.php';

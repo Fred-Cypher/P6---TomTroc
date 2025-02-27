@@ -39,6 +39,7 @@ class UserRepository extends AbstractEntityManager
         $result = $this->db->query($sql, ['pseudo' => $pseudo]);
         $user = $result->fetch();
         if ($user) {
+            $user['avatar'] = $user['avatar'] ?? 'defaultAvatar.jpg';
             $user['created_at'] = new DateTime($user['created_at']);
             $user['updated_at'] = new DateTime($user['updated_at']);
             return new User($user);
