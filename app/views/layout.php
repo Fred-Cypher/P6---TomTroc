@@ -60,7 +60,7 @@
     </main>
     <footer class="footer d-flex justify-content-end">
         <?php if (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN') { ?>
-            <a href="admin" class="link">
+            <a href="index.php?action=admin" class="link">
                 Panneau d'administration
             </a>
         <?php } ?>

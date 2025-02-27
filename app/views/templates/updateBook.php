@@ -1,6 +1,6 @@
 <h2>Modifier les informations</h2>
 
-<form action="/addBook" method="POST" enctype="multipart/form-data">
+<form action="index.php?action=updateBook" method="POST" enctype="multipart/form-data">
     <p>
         <label for="title">Titre</label>
         <input type="text" name="title" id="title" value="<?= $book->getTitle() ?>">
@@ -15,8 +15,8 @@
     </p>
     <p>
         <label for="cover">Photo</label>
-        <p><?= $book->getCover() ?></p>
-        <input type="file" name="cover" id="cover">
+    <p><?= $book->getCover() ?></p>
+    <input type="file" name="cover" id="cover">
     </p>
     <p>
         <label for="availability">Disponibilité</label>

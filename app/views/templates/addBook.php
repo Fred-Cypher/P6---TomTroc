@@ -1,6 +1,6 @@
 <h2>Enregistrer un nouveau livre</h2>
 
-<form action="/addBook" method="POST" enctype="multipart/form-data">
+<form action="index.php?action=addBook" method="POST" enctype="multipart/form-data">
     <p>
         <label for="title">Titre <span class="asterisk">*</span></label>
         <input type="text" name="title" id="title" required>

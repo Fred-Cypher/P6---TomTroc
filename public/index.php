@@ -22,6 +22,7 @@ function isAdmin(){
 
 switch ($resquestAction) {
     // Public access
+    case '':
     case 'home' :
         $controller = new MainController();
         $controller->index();

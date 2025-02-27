@@ -25,5 +25,4 @@
             <button>Envoyer un message</button>
         </p>
     </article>
-    
 </section>
