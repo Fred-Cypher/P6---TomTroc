@@ -14,6 +14,8 @@ class Book {
     private bool $availability;
     private DateTime $createdAt;
     private DateTime $updatedAt;
+    private string $userPseudo;
+    private string $userAvatar;
 
     public function __construct(array $data = [])
     {
@@ -118,6 +120,26 @@ class Book {
     public function setUpdatedAt(?DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    public function getUserPseudo(): string
+    {
+        return $this->userPseudo;
+    }
+
+    public function setUserPseudo(string $userPseudo): void
+    {
+        $this->userPseudo = $userPseudo;
+    }
+
+    public function getUserAvatar(): string
+    {
+        return $this->userAvatar;
+    }
+
+    public function setUserAvatar(string $userAvatar): void
+    {
+        $this->userAvatar = $userAvatar;
     }
 }
 

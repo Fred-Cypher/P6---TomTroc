@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DateTime;
+use PDO;
 
 class BooksRepository extends AbstractEntityManager
 {
@@ -39,14 +40,18 @@ class BooksRepository extends AbstractEntityManager
 
     function getAllBooks():array
     {
-        $sql = "SELECT * FROM books";
+        $sql = "SELECT b.id, b.title, b.author, b.comment, b.cover, b.availability, b.created_at, b.updated_at, u.id as user_id, u.pseudo as user_pseudo
+        FROM books b
+        JOIN users u ON b.user_id = u.id";
         $result = $this->db->query($sql);
         $books = [];
-
-        while ($book = $result->fetch()) {
+        
+        while ($book = $result->fetch(PDO::FETCH_ASSOC)) {
             if($book){
+                $book['cover'] = $book['cover'] ?? 'defaultBook.jpg';
                 $book['created_at'] = new DateTime($book['created_at']);
                 $book['updated_at'] = new DateTime($book['updated_at']);
+                $book['user_pseudo'] = $book['user_pseudo'];
             }
             $books[] = new Book($book);
         }
@@ -55,12 +60,18 @@ class BooksRepository extends AbstractEntityManager
 
     function getBookById(int $id): ?Book
     {
-        $sql = "SELECT * FROM books WHERE id = :id";
+        $sql = "SELECT b.id, b.title, b.author, b.comment, b.cover, b.availability, b.created_at, b.updated_at, u.id as user_id, u.pseudo as user_pseudo, u.avatar as user_avatar
+        FROM books b
+        JOIN users u ON b.user_id = u.id
+        WHERE b.id = :id";
         $result = $this->db->query($sql, ['id' => $id]);
         $book = $result->fetch();
         if ($book) {
+            $book['cover'] = $book['cover'] ?? 'defaultBook.jpg';
             $book['created_at'] = new DateTime($book['created_at']);
             $book['updated_at'] = new DateTime($book['updated_at']);
+            $book['user_pseudo'] = $book['user_pseudo'];
+            $book['user_avatar'] = $book['user_avatar'];
             return new Book($book);
         }
         return null;
@@ -73,6 +84,7 @@ class BooksRepository extends AbstractEntityManager
         $books = [];
 
         while ($booksData = $result->fetch()){
+            $booksData['cover'] = $booksData['cover'] ?? 'defaultBook.jpg';
             if (isset($booksData['created_at']))
             {
                 $booksData['created_at'] = new DateTime($booksData['created_at']);
