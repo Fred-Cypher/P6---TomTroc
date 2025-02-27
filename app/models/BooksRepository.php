@@ -71,7 +71,7 @@ class BooksRepository extends AbstractEntityManager
             $book['created_at'] = new DateTime($book['created_at']);
             $book['updated_at'] = new DateTime($book['updated_at']);
             $book['user_pseudo'] = $book['user_pseudo'];
-            $book['user_avatar'] = $book['user_avatar'];
+            $book['user_avatar'] = $book['user_avatar'] ?? 'defaultAvatar.png';
             return new Book($book);
         }
         return null;
