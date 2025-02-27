@@ -125,20 +125,33 @@ class BooksController
                     $availability = Utils::request("availability");
                     $updatedAt = new DateTime();
 
-                    if (isset($_FILES['cover']) && $_FILES['cover']['error'] == UPLOAD_ERR_OK){
-                        $params = ['images_directory' => 'uploads/covers/'];
-                        $pictureService = new PictureService($params);
+                    $params = ['images_directory' => 'uploads/covers/'];
+
+                    $pictureService = new PictureService($params);
+
+                    if (isset($_FILES['cover']) && $_FILES['cover']['error'] == UPLOAD_ERR_OK) {
                         $coverFilename = $pictureService->addCover($_FILES['cover']);
-                    }else {
-                        $coverFilename = $book->getCover();
+                    } elseif ($_FILES['cover']['error'] == UPLOAD_ERR_CANT_WRITE) {
+                        echo ("Erreur lors du chargement de l'image");
+                    } else {
+                        $coverFilename = null;
                     }
 
-                    $book->setTitle($title);
+                    /*$book->setTitle($title);
                     $book->setAuthor($author);
                     $book->setComment($comment);
                     $book->setCover($coverFilename);
                     $book->setAvailability($availability);
-                    $book->setUpdatedAt($updatedAt);
+                    $book->setUpdatedAt($updatedAt);*/
+
+                    $book = new Book([
+                        'title' => $title,
+                        'author' => $author,
+                        'comment' => $comment,
+                        'cover' => $coverFilename,
+                        'availability' => $availability,
+                        'updated_at' => $updatedAt,
+                    ]);
 
                     $this->booksRepository->updateBook($book);
 

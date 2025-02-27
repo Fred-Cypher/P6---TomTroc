@@ -93,7 +93,7 @@
                     </td>
                     <td>
                         <div class="tableContainer">
-                            <a href="">Editer </a>
+                            <a href="index.php?action=updateBook&id=<?= $book->getId() ?>">Editer </a>
                             <a href="">Supprimer</a>
                         </div>
                     </td>
