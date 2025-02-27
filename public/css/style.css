@@ -15,6 +15,8 @@
     --darkgreen: #006D41; 
     --red: #C56D6D;
     --back: #FAF9F7;
+    --update: #EDF2F6;
+    --updateborder:#F0F0F0;
 }
 
 .link{
@@ -45,7 +47,8 @@
 /*** MAIN ***/
 main{
     border: 1px blue solid;
-    margin-bottom: 62px;
+    margin-bottom: 100px;
+    height: 100vh;
 }
 
 /*** FOOTER ***/
@@ -56,10 +59,103 @@ main{
     position: fixed;
     bottom: 0;
     background-color: white;
+    margin-top: 100px;
 }
 
 .footerSpan{
     padding: 0 20px 0 20px;
+}
+
+/*** ACCUEIL ***/
+
+.presentation{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--softgrey);
+}
+
+.textPresentation{
+    width: 330px;
+    height: 95px;
+    padding: 0 25px;
+}
+
+.picturePresentation{
+    width: 404px;
+    height: 539px;
+    object-fit: cover;
+}
+
+.pictureAuthor{
+    font-style: italic;
+    color: var(--textgrey);
+    text-align: end;
+    background-color: var(--softgrey);
+}
+
+.lastBooks{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--back);
+}
+
+.operation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--softgrey);
+}
+
+.operationStickers{
+    display: flex;
+    flex-basis: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--softgrey);
+}
+
+.sticker{
+    display: flex;
+    width: 215px;
+    height: 139px;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.values{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--softgrey);
+}
+
+.pictureValues{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.textValues{
+    width: 400px;
+    height: 350px;
+    background-color: var(--softgrey);
+}
+
+.titleValues{
+    background-color: var(--softgrey);
+}
+
+.tomValues{
+    background-color: var(--softgrey);
 }
 
 /*** IMAGES ***/
@@ -73,6 +169,12 @@ main{
 .mediumCover{
     width: 200px;
     height: 200px;
+    object-fit: cover;
+}
+
+.updateCover{
+    width: 488px;
+    height: 488px;
     object-fit: cover;
 }
 
@@ -220,4 +322,38 @@ main{
 .badgeUser span{
     margin-left: 10px;
     background-color: white;
+}
+
+/*** MODIFICATION LIVRE ***/
+
+.updateBook{
+    display: flex;
+}
+
+.inputUpdate{
+    display:none;
+}
+
+.labelUpdate{
+    text-decoration: underline;
+}
+
+.descriptionUpdate{
+    padding: 20px;
+}
+
+.formUpdateBook{
+    display: flex;
+    flex-direction: column;
+}
+
+.formUpdateBook label{
+    color : var(--textgrey);
+}
+
+.formUpdateBook input, 
+.formUpdateBook textarea,
+.formUpdateBook select{
+    background-color: var(--update);
+    border: solid 1px var(--updateborder);
 }
