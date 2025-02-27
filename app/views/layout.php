@@ -55,7 +55,7 @@
             </div>
         </nav>
     </header>
-    <main class="container">
+    <main>
         <?= $content ?>
     </main>
     <footer class="footer d-flex justify-content-end">

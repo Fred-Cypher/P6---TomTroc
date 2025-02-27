@@ -2,9 +2,21 @@
 
 namespace App\Controllers;
 
+use App\Models\BooksRepository;
+
 class MainController 
 {
+    private $booksRepository;
+
+    public function __construct()
+    {
+        $this->booksRepository = new BooksRepository;
+    }
+    
     public function index() {
+
+        $books = $this->booksRepository->getAllBooks();
+
         $title = "Tom Troc - Accueil";
         ob_start();
         require __DIR__ . '../../views/templates/home.php';
