@@ -9,11 +9,12 @@
             <p>
                 <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="updateCover">
             </p>
-            <label for="cover" class="labelUpdate">Modifier la photo</label>
-            <input type="file" name="cover" id="cover" class="inputUpdate">
+                <label for="cover" class="labelUpdate">Modifier la photo</label>
+                <input type="file" name="cover" id="cover" class="inputUpdate">
             </p>
         </article>
         <article class="descriptionUpdate">
+            <input type="hidden" name="id" id="id" value="<?= $book->getId() ?>">
             <p class="formUpdateBook">
                 <label for="title">Titre</label>
                 <input type="text" name="title" id="title" value="<?= $book->getTitle() ?>">
@@ -28,7 +29,7 @@
             </p>
             <p class="formUpdateBook">
                 <label for="availability">Disponibilité</label>
-                <select>
+                <select name="availability">
                     <option value="1">Disponible</option>
                     <option value="0">Indisponible</option>
                 </select>

@@ -25,16 +25,16 @@ class BooksRepository extends AbstractEntityManager
 
     function updateBook(Book $book)
     {
-        $sql = "UPDATE books SET title = :title, author = :author, comment = :comment, cover = :cover, availability = :availability,  updated_at = :updated_at
+        $sql = "UPDATE books SET id = :id, title = :title, author = :author, comment = :comment, cover = :cover, availability = :availability,  updated_at = :updated_at
         WHERE id = :id";
         $this->db->query($sql, [
+            'id' => $book->getId(),
             'title' => $book->getTitle(),
             'author' => $book->getAuthor(),
             'comment' => $book->getComment(),
             'cover' => $book->getCover(),
             'availability' => (int) $book->getAvailability(),
             'updated_at' => $book->getUpdatedAt()->format('Y-m-d H:i:s'),
-            'id' => $book->getId(),
         ]);
     }
 

@@ -41,7 +41,7 @@ class BooksController
                     $pictureService = new PictureService($params);
 
                     if (isset($_FILES['cover']) && $_FILES['cover']['error'] == UPLOAD_ERR_OK){
-                        $coverFilename = $pictureService->addCover($_FILES['cover']);
+                        $coverFilename = $pictureService->addPicture($_FILES['cover']);
                     } elseif ($_FILES['cover']['error'] == UPLOAD_ERR_CANT_WRITE) {
                         echo ("Erreur lors du chargement de l'image");
                     } else {
@@ -130,32 +130,27 @@ class BooksController
                     $pictureService = new PictureService($params);
 
                     if (isset($_FILES['cover']) && $_FILES['cover']['error'] == UPLOAD_ERR_OK) {
-                        $coverFilename = $pictureService->addCover($_FILES['cover']);
+                    if ($book->getCover()) {
+                        $pictureService->deletePicture($book->getCover());
+                    }
+                        $coverFilename = $pictureService->addPicture($_FILES['cover']);
                     } elseif ($_FILES['cover']['error'] == UPLOAD_ERR_CANT_WRITE) {
                         echo ("Erreur lors du chargement de l'image");
                     } else {
-                        $coverFilename = null;
+                        $coverFilename = $book->getCover();
                     }
 
-                    /*$book->setTitle($title);
+                    $book->setId($id);
+                    $book->setTitle($title);
                     $book->setAuthor($author);
                     $book->setComment($comment);
                     $book->setCover($coverFilename);
                     $book->setAvailability($availability);
-                    $book->setUpdatedAt($updatedAt);*/
-
-                    $book = new Book([
-                        'title' => $title,
-                        'author' => $author,
-                        'comment' => $comment,
-                        'cover' => $coverFilename,
-                        'availability' => $availability,
-                        'updated_at' => $updatedAt,
-                    ]);
+                    $book->setUpdatedAt($updatedAt);
 
                     $this->booksRepository->updateBook($book);
 
-                    Utils::redirect('home');
+                    Utils::redirect('privateProfile');
                 }
             } catch (Exception $e){
                 $message = "Erreur : " . $e->getMessage();

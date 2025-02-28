@@ -13,7 +13,7 @@ class PictureService
         $this->params = $params;
     }
 
-    public function addCover($picture, ?string $folder = '')
+    public function addPicture($picture, ?string $folder = '')
     {
         $file = md5(uniqid(rand(), true)) . '.webp';
 
@@ -52,5 +52,14 @@ class PictureService
         imagedestroy($pictureSource);
 
         return $file;
+    }
+
+    public function deletePicture($filename, ?string $folder = '')
+    {
+        $path = $this->params['images_directory'] . $folder . '/' . $filename;
+
+        if (file_exists($path)) {
+            unlink($path);
+        }
     }
 }
