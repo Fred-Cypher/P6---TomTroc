@@ -73,6 +73,11 @@ switch ($resquestAction) {
             Utils::redirect('login');
         }
         break;
+    case 'updateUser':
+        if (isAuthenticated()){
+            $controller = new UserController();
+            $controller->updateUser();
+        }
 
         // Admin access
     case 'admin':

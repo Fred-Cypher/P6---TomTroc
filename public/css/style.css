@@ -205,6 +205,23 @@ main{
     font-weight: bold;
 }
 
+/*** PROFIL ***/
+
+.profileForm input{
+    background-color: var(--update);
+    width: 322px;
+    height: 50px;
+    border-radius: 6px;
+    border: 1px solid var(--updateborder);
+}
+
+.placeholderPwd{
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
 /*** TABLEAUX ***/
 .profileTable{
     width: 100%;

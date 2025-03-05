@@ -39,7 +39,7 @@ class UserRepository extends AbstractEntityManager
         $result = $this->db->query($sql, ['pseudo' => $pseudo]);
         $user = $result->fetch();
         if ($user) {
-            $user['avatar'] = $user['avatar'] ?? 'defaultAvatar.jpg';
+            $user['avatar'] = $user['avatar'] ?? 'defaultAvatar.png';
             $user['created_at'] = new DateTime($user['created_at']);
             $user['updated_at'] = new DateTime($user['updated_at']);
             return new User($user);
@@ -53,10 +53,56 @@ class UserRepository extends AbstractEntityManager
         $result = $this->db->query($sql, ['email' => $email]);
         $user = $result->fetch();
         if($user) {
+            $user['avatar'] = $user['avatar'] ?? 'defaultAvatar.png';
             $user['created_at'] = new \DateTime($user['created_at']);
             $user['updated_at'] = new \DateTime($user['updated_at']);
             return new User($user);
         }
         return null;
+    }
+    
+    function getUserById(int $id): ?User
+    {
+        $sql = "SELECT * FROM users WHERE id = :id";
+        $result = $this->db->query($sql, ['id' => $id]);
+        $user = $result->fetch();
+        if($user){
+            $user['avatar'] = $user['avatar'] ?? 'defaultAvatar.png';
+            $user['created_at'] = new \DateTime($user['created_at']);
+            $user['updated_at'] = new \DateTime($user['updated_at']);
+            return new User($user);
+        }
+        return null;
+    }
+
+    function updateUser(User $user)
+    {
+        $sql = "UPDATE users SET pseudo = :pseudo, email = :email, avatar = :avatar, updated_at = :updated_at";
+
+        if (!empty($user->getPassword())) {
+            $sql .= ", password = :password";
+        }
+
+        $sql .= " WHERE id = :id";
+
+        if (!empty($user->getPassword())){
+            $this->db->query($sql, [
+                'id' => $user->getId(),
+                'pseudo' => $user->getPseudo(),
+                'email' => $user->getEmail(),
+                'password' => $user->getPassword(),
+                'avatar' => $user->getAvatar(),
+                'updated_at' => $user->getUpdatedAt()->format('Y-m-d H:i:s')
+            ]);
+        } else {
+            $this->db->query($sql, [
+            'id' => $user->getId(),
+            'pseudo' => $user->getPseudo(),
+            'email' => $user->getEmail(),
+            'avatar' => $user->getAvatar(),
+            'updated_at' => $user->getUpdatedAt()->format('Y-m-d H:i:s')
+        ]);
+        }
+
     }
 }

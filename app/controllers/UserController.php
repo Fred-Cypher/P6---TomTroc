@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\BooksRepository;
 use App\Models\User;
 use App\Models\UserRepository;
+use App\services\PictureService;
 use App\services\Utils;
 use DateTime;
 use Exception;
@@ -131,5 +132,61 @@ class UserController
     {
         session_destroy();
         Utils::redirect('home');
+    }
+
+    public function updateUser()
+    {
+        $id = Utils::request("id", -1);
+
+        try{
+            $userRepository = new UserRepository();
+            $user = $userRepository->getUserById($id);
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+                $pseudo = Utils::request("pseudo");
+                $email = Utils::request("email");
+                $updatedAt = new DateTime();
+
+                $params = ['images_directory' => 'uploads/avatars/'];
+
+                $pictureService = new PictureService($params);
+
+                if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == UPLOAD_ERR_OK) {
+                    if ($user->getAvatar()) {
+                        $pictureService->deletePicture($user->getAvatar());
+                    }
+                    $avatarFilename = $pictureService->addPicture($_FILES['avatar']);
+                } elseif ($_FILES['avatar']['error'] == UPLOAD_ERR_CANT_WRITE){
+                    echo ("Erreur lors du chargement de l'image");
+                } else {
+                    $avatarFilename = $user->getAvatar();
+                }
+
+
+                $user->setPseudo($pseudo);
+                $user->setEmail($email);
+                $user->setAvatar($avatarFilename);
+                $user->setUpdatedAt($updatedAt);
+
+                $newPassword = Utils::request("password");
+                if (!empty($newPassword)) {
+                    $user->setPassword(password_hash($newPassword, PASSWORD_BCRYPT));
+                }
+
+                $this->userRepository->updateUser($user);
+
+                Utils::redirect('home');
+            }
+        } catch (Exception $e) {
+            $message = "Erreur : " . $e->getMessage();
+            var_dump($message);
+            die;
+        }
+
+        $title = "Tom Troc - Profil";
+        ob_start();
+        require __DIR__ . '../../views/templates/privateProfile.php';
+        $content = ob_get_clean();
+        require __DIR__ . '../../views/layout.php';
     }
 }

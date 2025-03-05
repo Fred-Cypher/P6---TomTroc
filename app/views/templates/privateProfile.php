@@ -1,29 +1,32 @@
 <h2>Mon compte</h2>
 
 <section style="display:flex">
-    <article>
-        <p>
-            <img src="/uploads/avatars/<?= $user->getAvatar() ?>" alt="" class="avatar">
-            <a href="#">Modifier</a>
-        </p>
-        <p></p>
-        <p>Membre depuis...</p>
-        <p>BIBLIOTHEQUE</p>
-        <p>
-            <img src="/images/vector.svg" alt="">
-            4 livres
-        </p>
-    </article>
-    <article>
-        <p>Vos informations personnelles</p>
-        <form action="#">
+    <form action="index.php?action=updateUser" method="post" enctype="multipart/form-data" class="profileForm">
+        <article>
+            <p>
+                <img src="/uploads/avatars/<?= $user->getAvatar() ?>" alt="" class="avatar" id="avatarPreview">
+            </p>
+            <p>
+                <label for="avatar" class="labelUpdate">Modifier</label>
+                <input type="file" name="avatar" id="avatar" class="inputUpdate" onchange="previewImage(event)">
+            </p>
+            <p>Membre depuis...</p>
+            <p>BIBLIOTHEQUE</p>
+            <p>
+                <img src="/images/vector.svg" alt="">
+                4 livres
+            </p>
+        </article>
+        <article>
+            <p>Vos informations personnelles</p>
+            <input type="hidden" name="id" id="id" value="<?= $user->getId() ?>">
             <p>
                 <label for="email">Adresse email</label>
                 <input type="text" id="email" name="email" value="<?= $user->getEmail() ?>">
             </p>
             <p>
                 <label for="">Mot de passe</label>
-                <input type="password" id="password" name="password" value="<?= $user->getPassword() ?>">
+                <input type="password" id="password" name="password" placeholder="•••••••••" class="placeholderPwd">
             </p>
             <p>
                 <label for="">Pseudo</label>
@@ -32,8 +35,8 @@
             <p>
                 <button class="submit">Enregistrer</button>
             </p>
-        </form>
-    </article>
+        </article>
+    </form>
 </section>
 <section>
     <table class="profileTable">
@@ -61,7 +64,7 @@
         </thead>
         <tbody class="booksTable">
             <?php foreach ($books as $book): ?>
-                <tr>
+                <tr style="background-color: red">
                     <td>
                         <div class="tableContainer">
                             <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="smallCover">
@@ -102,3 +105,16 @@
         </tbody>
     </table>
 </section>
+
+<script>
+    function previewImage(event) {
+        var input = event.target;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('avatarPreview').src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
