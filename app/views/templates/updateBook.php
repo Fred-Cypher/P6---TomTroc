@@ -7,10 +7,11 @@
                 Photo
             </span>
             <p>
-                <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="updateCover">
+                <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="updateCover" id="coverPreview">
             </p>
+            <p>
                 <label for="cover" class="labelUpdate">Modifier la photo</label>
-                <input type="file" name="cover" id="cover" class="inputUpdate">
+                <input type="file" name="cover" id="cover" class="inputUpdate" onchange="previewImage(event)">
             </p>
         </article>
         <article class="descriptionUpdate">
@@ -40,3 +41,16 @@
         </article>
     </section>
 </form>
+
+<script>
+    function previewImage(event) {
+        var input = event.target;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('coverPreview').src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
