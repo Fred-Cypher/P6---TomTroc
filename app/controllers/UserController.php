@@ -152,7 +152,7 @@ class UserController
                 $pictureService = new PictureService($params);
 
                 if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == UPLOAD_ERR_OK) {
-                    if ($user->getAvatar()) {
+                    if ($user->getAvatar() && $user->getAvatar() !='defaultAvatar.png') {
                         $pictureService->deletePicture($user->getAvatar());
                     }
                     $avatarFilename = $pictureService->addPicture($_FILES['avatar']);
