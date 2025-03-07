@@ -17,8 +17,10 @@
         <p>
             <div>PROPRIÉTAIRE</div>
             <div class="badgeUser">
-                <img src="/uploads/avatars/<?= $book->getUserAvatar() ?>" alt="" class="mediumAvatar">
-                <span><?= $book->getUserPseudo() ?></span>
+                <a href="index.php?action=publicProfile&id=<?= $book->getUserId() ?>">
+                    <img src="/uploads/avatars/<?= $book->getUserAvatar() ?>" alt="" class="mediumAvatar">
+                    <span><?= $book->getUserPseudo() ?></span>
+                </a>
             </div>
         </p>
         <p>

@@ -47,6 +47,10 @@ switch ($resquestAction) {
         $controller = new BooksController();
         $controller->showBook();
         break;
+    case 'publicProfile' :
+        $controller = new UserController();
+        $controller->showUser();
+        break;
     
     // Private access
     case 'privateProfile':

@@ -189,4 +189,35 @@ class UserController
         $content = ob_get_clean();
         require __DIR__ . '../../views/layout.php';
     }
+
+    public function showUser()
+    {
+        try {
+            $id = Utils::request('id', -1);
+
+            $userRepository = new UserRepository();
+            $user = $userRepository->getUserById($id);
+
+            if ($user) {
+                $userId = $user->getId();
+                $books = $this->booksRepository->getBooksByUser($userId);
+
+                $title = "Tom Troc - Profil utilisateur"  ;
+                ob_start();
+                require __DIR__ . '../../views/templates/publicProfile.php';
+                $content = ob_get_clean();
+                require __DIR__ . '../../views/layout.php';
+            } else {
+                $title = "L'utilisateur demandé n'existe pas";
+                ob_start();
+                require __DIR__ . '/../views/templates/error.php';
+                $content = ob_get_clean();
+                require __DIR__ . '/../views/layout.php';
+            }
+        } catch (Exception $e) {
+            $message = "Erreur : " . $e->getMessage();
+            var_dump($message);
+            die;
+        }
+    }
 }
