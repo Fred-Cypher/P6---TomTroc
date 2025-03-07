@@ -164,4 +164,14 @@ class BooksController
         $content = ob_get_clean();
         require __DIR__ . '../../views/layout.php';
     }
+
+    public function deleteBook()
+    {
+        $id = Utils::request("id", -1);
+
+        $articleManager = new BooksRepository();
+        $articleManager->deleteBook($id);
+
+        Utils::redirect('privateProfile');
+    }
 }

@@ -73,6 +73,12 @@ switch ($resquestAction) {
             Utils::redirect('login');
         }
         break;
+    case 'deleteBook':
+        if (isAuthenticated()){
+            $controller = new BooksController();
+            $controller->deleteBook();
+        }
+        break;
     case 'updateUser':
         if (isAuthenticated()){
             $controller = new UserController();
