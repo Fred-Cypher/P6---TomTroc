@@ -97,7 +97,7 @@
                     <td>
                         <div class="tableContainer">
                             <a href="index.php?action=updateBook&id=<?= $book->getId() ?>">Editer </a>
-                            <a href="">Supprimer</a>
+                            <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>">Supprimer</a>
                         </div>
                     </td>
                 </tr>

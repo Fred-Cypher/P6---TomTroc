@@ -12,7 +12,7 @@ class UserRepository extends AbstractEntityManager
      * @param User $user
      * @return void
      */
-    function createUser(User $user): void
+    public function createUser(User $user): void
     {
         $sql = "INSERT INTO users (pseudo, email, password, avatar, role, created_at, updated_at)
         VALUES (:pseudo, :email, :password, :avatar, :role, :created_at, :updated_at)";
@@ -33,7 +33,7 @@ class UserRepository extends AbstractEntityManager
      * @param string $pseudo
      * @return User|null
      */
-    function getUserByPseudo(string $pseudo): ?User
+    public function getUserByPseudo(string $pseudo): ?User
     {
         $sql = "SELECT * FROM users WHERE pseudo = :pseudo";
         $result = $this->db->query($sql, ['pseudo' => $pseudo]);
@@ -47,7 +47,7 @@ class UserRepository extends AbstractEntityManager
         return null; 
     }
 
-    function getUserByEmail(string $email): ?User
+    public function getUserByEmail(string $email): ?User
     {
         $sql = "SELECT * FROM users WHERE email = :email";
         $result = $this->db->query($sql, ['email' => $email]);
@@ -61,7 +61,7 @@ class UserRepository extends AbstractEntityManager
         return null;
     }
     
-    function getUserById(int $id): ?User
+    public function getUserById(int $id): ?User
     {
         $sql = "SELECT * FROM users WHERE id = :id";
         $result = $this->db->query($sql, ['id' => $id]);
@@ -75,18 +75,13 @@ class UserRepository extends AbstractEntityManager
         return null;
     }
 
-    function updateUser(User $user)
+    public function updateUser(User $user)
     {
-        $sql = "UPDATE users SET pseudo = :pseudo, email = :email, avatar = :avatar, updated_at = :updated_at";
-
-        if (!empty($user->getPassword())) {
-            $sql .= ", password = :password";
-        }
-
-        $sql .= " WHERE id = :id";
-
-        if (!empty($user->getPassword())){
-            $this->db->query($sql, [
+        $sql = "UPDATE users SET pseudo = :pseudo, email = :email, password = :password, avatar = :avatar, updated_at = :updated_at
+        WHERE id = :id";
+        $this->db->query(
+            $sql,
+            [
                 'id' => $user->getId(),
                 'pseudo' => $user->getPseudo(),
                 'email' => $user->getEmail(),
@@ -94,15 +89,5 @@ class UserRepository extends AbstractEntityManager
                 'avatar' => $user->getAvatar(),
                 'updated_at' => $user->getUpdatedAt()->format('Y-m-d H:i:s')
             ]);
-        } else {
-            $this->db->query($sql, [
-            'id' => $user->getId(),
-            'pseudo' => $user->getPseudo(),
-            'email' => $user->getEmail(),
-            'avatar' => $user->getAvatar(),
-            'updated_at' => $user->getUpdatedAt()->format('Y-m-d H:i:s')
-        ]);
-        }
-
     }
 }
