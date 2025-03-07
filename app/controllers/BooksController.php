@@ -130,7 +130,7 @@ class BooksController
                     $pictureService = new PictureService($params);
 
                     if (isset($_FILES['cover']) && $_FILES['cover']['error'] == UPLOAD_ERR_OK) {
-                    if ($book->getCover()) {
+                    if ($book->getCover() && $book->getCover() != 'defaultBook.jpg') {
                         $pictureService->deletePicture($book->getCover());
                     }
                         $coverFilename = $pictureService->addPicture($_FILES['cover']);
@@ -169,9 +169,30 @@ class BooksController
     {
         $id = Utils::request("id", -1);
 
-        $articleManager = new BooksRepository();
-        $articleManager->deleteBook($id);
+        try {
+            $booksRepository = new BooksRepository();
+            $book = $booksRepository->getBookById($id);
 
-        Utils::redirect('privateProfile');
+            if($book){
+                $coverFilename = $book->getcover();
+
+                $booksRepository->deleteBook($id);
+
+                if($coverFilename && $coverFilename != "defaultBook.jpg"){
+                    $params = ['images_directory' => 'uploads/covers/'];
+                    $pictureService = new PictureService($params);
+                    $pictureService->deletePicture($coverFilename);
+                }
+
+                Utils::redirect('privateProfile');
+            } else {
+                throw new Exception("Livre non trouvé");
+            }
+        
+        } catch (Exception $e) {
+            $message = "Erreur : " . $e->getMessage();
+            var_dump($message);
+            die;
+        }
     }
 }
