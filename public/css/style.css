@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     background-color: var(--back);
+    font-family: "inter";
 }
 
 
@@ -28,6 +29,10 @@
     text-decoration: none;
 }
 
+.title{
+    font-family: "Playfair Display";
+}
+
 /*** HEADER ***/
 
 .header{
@@ -45,25 +50,28 @@
 }
 
 /*** MAIN ***/
-main{
+.main{
     border: 1px blue solid;
-    margin-bottom: 100px;
-    height: 100vh;
+    margin-bottom: 63px;
 }
 
 /*** FOOTER ***/
 .footer{
     border: 1px green solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
     height: 61px;
     width: 100%;
     position: fixed;
     bottom: 0;
     background-color: white;
-    margin-top: 100px;
 }
 
 .footerSpan{
     padding: 0 20px 0 20px;
+    background-color: white;
 }
 
 /*** ACCUEIL ***/

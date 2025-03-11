@@ -1,4 +1,4 @@
-<h2>Mon compte</h2>
+<h2 class="title">Mon compte</h2>
 
 <section style="display:flex">
     <form action="index.php?action=updateUser" method="post" enctype="multipart/form-data" class="profileForm">
