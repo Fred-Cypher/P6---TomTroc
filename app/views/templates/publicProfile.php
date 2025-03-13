@@ -11,7 +11,7 @@
             4 livres
         </p>
         <p>
-            <a href="#">
+            <a href="index.php?action=messages">
                 <button>Ecrire un message</button>
             </a>
         </p>

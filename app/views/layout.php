@@ -27,7 +27,7 @@
             </div>
             <div class="border border-info col-6 d-flex justify-content-evenly">
                 <span class="line">|</span>
-                <a href="#" class="link">
+                <a href="index.php?action=messages" class="link">
                     <img src="/images/icon_messagerie.svg" alt="Messagerie">
                     Messagerie
                 </a>

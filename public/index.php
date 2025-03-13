@@ -3,6 +3,7 @@
 use App\Controllers\AdminController;
 use App\Controllers\BooksController;
 use App\Controllers\MainController;
+use App\Controllers\MessagingController;
 use App\Controllers\UserController;
 use App\services\Utils;
 
@@ -88,14 +89,21 @@ switch ($resquestAction) {
             $controller = new UserController();
             $controller->updateUser();
         }
+        break;
+    case 'messages':
+        if (isAuthenticated()){
+            $controller = new MessagingController();
+            $controller->index();
+        }
+        break;
 
         // Admin access
     case 'admin':
         if (isAdmin()){
             $controller = new AdminController();
             $controller->index();
-            break;
         }
+        break;
     default:
         $controller = new MainController();
         $controller->error();

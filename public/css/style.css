@@ -382,3 +382,23 @@
     background-color: var(--update);
     border: solid 1px var(--updateborder);
 }
+
+/*** MESSAGERIE ***/
+.messaging{
+    display: flex;
+    flex-direction: row;
+}
+
+.thread{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--back);
+    width: 25%;
+}
+
+.conversation{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--softgrey);
+    width: 75%;
+}
