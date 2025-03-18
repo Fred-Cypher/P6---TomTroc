@@ -7,7 +7,7 @@
                 Photo
             </span>
             <p>
-                <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="updateCover" id="coverPreview">
+                <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="updateCover" id="coverPreview">
             </p>
             <p>
                 <label for="cover" class="labelUpdate">Modifier la photo</label>
@@ -18,15 +18,15 @@
             <input type="hidden" name="id" id="id" value="<?= $book->getId() ?>">
             <p class="formUpdateBook">
                 <label for="title">Titre</label>
-                <input type="text" name="title" id="title" value="<?= $book->getTitle() ?>">
+                <input type="text" name="title" id="title" value="<?= htmlspecialchars($book->getTitle()) ?>">
             </p>
             <p class="formUpdateBook">
                 <label for="author">Auteur</label>
-                <input type="text" name="author" id="author" value="<?= $book->getAuthor() ?>">
+                <input type="text" name="author" id="author" value="<?= htmlspecialchars($book->getAuthor()) ?>">
             </p>
             <p class="formUpdateBook">
                 <label for=" comment" class="form-label">Commentaire</label>
-                <textarea name="comment" id="comment" rows="5" cols="80"><?= $book->getComment() ?></textarea>
+                <textarea name="comment" id="comment" rows="5" cols="80"><?= htmlspecialchars($book->getComment()) ?></textarea>
             </p>
             <p class="formUpdateBook">
                 <label for="availability">Disponibilité</label>

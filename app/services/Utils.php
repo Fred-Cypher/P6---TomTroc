@@ -17,4 +17,20 @@ class Utils {
         header("Location: $url");
         exit();
     }
+
+    public static function format(string $string): string
+    {
+        $finalString = htmlspecialchars($string, ENT_QUOTES);
+
+        $lines = explode("\n", $finalString);
+
+        $finalString = "";
+        foreach ($lines as $line) {
+            if (trim($line) != "") {
+                $finalString .= "<p>$line</p>";
+            }
+        }
+
+        return $finalString;
+    }
 }

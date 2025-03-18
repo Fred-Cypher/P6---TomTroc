@@ -1,9 +1,14 @@
-<section style="display:flex">
+<?php
+
+use App\services\Utils;
+
+?>
+<section>
     <article>
         <p>
-            <img src="/uploads/avatars/<?= $user->getAvatar() ?>" alt="" class="avatar" id="avatarPreview">
+            <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar" id="avatarPreview">
         </p>
-        <p><?= $user->getPseudo() ?></p>
+        <p><?= Utils::format($user->getPseudo()) ?></p>
         <p>Membre depuis...</p>
         <p>BIBLIOTHEQUE</p>
         <p>
@@ -43,22 +48,22 @@
                 <tr style="background-color: red">
                     <td>
                         <div class="tableContainer">
-                            <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="smallCover">
+                            <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="smallCover">
                         </div>
                     </td>
                     <td>
                         <div class="tableContainer">
-                            <?= $book->getTitle() ?>
+                            <?= Utils::format($book->getTitle()) ?>
                         </div>
                     </td>
                     <td>
                         <div class="tableContainer">
-                            <?= $book->getAuthor() ?>
+                            <?= Utils::format($book->getAuthor()) ?>
                         </div>
                     </td>
                     <td>
                         <div class="tableContainer">
-                            <?= $book->getComment() ?>
+                            <?= Utils::format($book->getComment()) ?>
                         </div>
                     </td>
                     <td>

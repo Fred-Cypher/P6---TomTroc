@@ -1,10 +1,14 @@
+<?php
+
+use App\services\Utils;
+?>
 <h2 class="title">Mon compte</h2>
 
 <section style="display:flex">
     <form action="index.php?action=updateUser" method="post" enctype="multipart/form-data" class="profileForm">
         <article>
             <p>
-                <img src="/uploads/avatars/<?= $user->getAvatar() ?>" alt="" class="avatar" id="avatarPreview">
+                <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar" id="avatarPreview">
             </p>
             <p>
                 <label for="avatar" class="labelUpdate">Modifier</label>
@@ -22,7 +26,7 @@
             <input type="hidden" name="id" id="id" value="<?= $user->getId() ?>">
             <p>
                 <label for="email">Adresse email</label>
-                <input type="text" id="email" name="email" value="<?= $user->getEmail() ?>">
+                <input type="text" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>">
             </p>
             <p>
                 <label for="">Mot de passe</label>
@@ -30,7 +34,7 @@
             </p>
             <p>
                 <label for="">Pseudo</label>
-                <input type="text" id="pseudo" name="pseudo" value="<?= $user->getPseudo() ?>">
+                <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>">
             </p>
             <p>
                 <button class="submit">Enregistrer</button>
@@ -72,17 +76,17 @@
                     </td>
                     <td>
                         <div class="tableContainer">
-                            <?= $book->getTitle() ?>
+                            <?= Utils::format($book->getTitle()) ?>
                         </div>
                     </td>
                     <td>
                         <div class="tableContainer">
-                            <?= $book->getAuthor() ?>
+                            <?= Utils::format($book->getAuthor()) ?>
                         </div>
                     </td>
                     <td>
                         <div class="tableContainer">
-                            <?= $book->getComment() ?>
+                            <?= Utils::format($book->getComment()) ?>
                         </div>
                     </td>
                     <td>
