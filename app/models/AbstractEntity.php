@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Exception;
+
 abstract class AbstractEntity
 {
     // Par défaut l'id vaut -1, ce qui permet de vérifier facilement si l'entité est nouvelle ou pas. 
@@ -33,6 +35,8 @@ abstract class AbstractEntity
             $method = 'set' . str_replace('_', '', ucwords($key, '_'));
             if (method_exists($this, $method)) {
                 $this->$method($value);
+            }else  {
+                throw new Exception ("Vérifiez que le nom des champs correspond bien à celui des attributs des entités");
             }
         }
     }
