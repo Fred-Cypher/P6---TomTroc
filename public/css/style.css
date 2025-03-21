@@ -33,6 +33,15 @@
     font-family: "Playfair Display";
 }
 
+button{
+    background-color: var(--green);
+    padding: 22px 38px;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    margin-top: 30px;
+}
+
 /*** HEADER ***/
 
 .header{
@@ -42,17 +51,58 @@
 }
 
 .headerNav{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    position: relative;
+    align-items: center;
+    margin-top: 15px;
+    background-color: var(--softgrey)
+}
+
+.headerPublic{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    border: #00AC66 1px solid;
+    padding : 0 100px;
+    background-color: var(--softgrey)
+}
+
+.headerPrivate{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    padding : 0 100px;
     background-color: var(--softgrey);
+    border : 1px solid #C56D6D;
+}
+
+.header a{
+    background-color: var(--softgrey);
+    font-size: 14px;
 }
 
 .line{
     color: var(--textgrey);
 }
 
+.logo{
+    width: 155px;
+    height: 51px;
+    background-color: var(--softgrey);
+}
+
 /*** MAIN ***/
 .main{
     border: 1px blue solid;
     margin-bottom: 63px;
+    width: 100%;
+    margin-left: auto;
+    margin-left: auto;
+    background-color: var(--softgrey);
 }
 
 /*** FOOTER ***/
@@ -79,8 +129,9 @@
 .presentation{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    padding: 80px 30px 80px 30px;
     background-color: var(--softgrey);
 }
 
@@ -88,6 +139,21 @@
     width: 330px;
     height: 95px;
     padding: 0 25px;
+    background-color: var(--softgrey);
+}
+
+.presentationTitle{
+    font-family: "Playfair Display";
+    font-size: 36px;
+    background-color: var(--softgrey);
+    width: 329px;
+}
+
+.presentationContent{
+    font-size: 16px;
+    width: 328px;
+    margin-top: 20px;
+    background-color: var(--softgrey);
 }
 
 .picturePresentation{
@@ -98,9 +164,11 @@
 
 .pictureAuthor{
     font-style: italic;
+    font-size: 12px;
     color: var(--textgrey);
     text-align: end;
     background-color: var(--softgrey);
+    padding-top: 10px;
 }
 
 .lastBooks{
@@ -108,7 +176,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 702px;
     background-color: var(--back);
+}
+
+.lastBooksTitle{
+    font-size: 32px;
+    font-family: "Playfair Display";
+    font-weight: 400;
 }
 
 .operation{
@@ -116,7 +191,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 300px;
     background-color: var(--softgrey);
+}
+
+.operationTitle{
+    font-size: 32px;
+    font-family: "Playfair Display";
+    background-color: var(--softgrey);
+    font-weight: 400;
 }
 
 .operationStickers{
@@ -125,6 +208,13 @@
     justify-content: space-around;
     align-items: center;
     background-color: var(--softgrey);
+}
+
+.operation span{
+    font-weight: 300;
+    background-color: var(--softgrey);
+    width: 400px;
+    padding: 30px 0;
 }
 
 .sticker{
@@ -138,11 +228,19 @@
     border-radius: 15px;
 }
 
+.stickerText{
+    margin: 15px;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: white;
+}
+
 .values{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 1150px;
     background-color: var(--softgrey);
 }
 
@@ -160,9 +258,36 @@
 
 .titleValues{
     background-color: var(--softgrey);
+    font-size: 32px;
+    font-family: "Playfair Display";
+    font-weight: 400;
+    margin: 70px 0 30px 0;
 }
 
 .tomValues{
+    background-color: var(--softgrey);
+    font-size: 16px;
+    font-weight: 300;
+    width: 392px;
+}
+
+.sign{
+    background-color: var(--softgrey);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    border: #00AC66 1px solid;
+}
+
+.sign span{
+    background-color: var(--softgrey);
+    color: var(--textgrey);
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.sign img{
     background-color: var(--softgrey);
 }
 
@@ -289,6 +414,7 @@
     background-color: white;
     font-weight: bold;
     font-size: 16px;
+        text-decoration: none;
 }
 
 .exchangeBookAuthor{
