@@ -7,18 +7,7 @@
     </aside>
     <article class="conversation">
         <p>
-            <img src="" alt="">
-            Avatar autre utilisateur conversation si une conversation sélectionnée
-        </p>
-        <p>
-            Conversation
-            <div>
-                Messages
-            </div>
-            <form action="#" method="POST">
-                <input type="text" placeholder="Tapez votre message ici">
-                <button type="submit">Envoyer</button>
-            </form>
+            Espace vide
         </p>
     </article>
 </section>

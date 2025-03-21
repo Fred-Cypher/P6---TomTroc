@@ -5,6 +5,7 @@ use App\Controllers\BooksController;
 use App\Controllers\MainController;
 use App\Controllers\MessagingController;
 use App\Controllers\UserController;
+use App\Models\Message;
 use App\services\Utils;
 
 require_once '../autoload.php';
@@ -94,6 +95,13 @@ switch ($resquestAction) {
         if (isAuthenticated()){
             $controller = new MessagingController();
             $controller->index();
+        }
+        break;
+    case 'conversations':
+        if(isAuthenticated()){
+            $controller = new MessagingController();
+            $controller->showUserConversations();
+            $controller->sendMessage();
         }
         break;
 

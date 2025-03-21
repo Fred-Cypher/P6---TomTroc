@@ -29,7 +29,9 @@ use App\services\Utils;
             </div>
         </p>
         <p>
-            <button>Envoyer un message</button>
+            <a href="index.php?action=conversations&user2_id=<?= $book->getUserId() ?>">
+                <button>Envoyer un message</button>
+            </a>
         </p>
     </article>
 </section>
