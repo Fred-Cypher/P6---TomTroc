@@ -4,36 +4,16 @@ namespace App\Models;
 
 use DateTime;
 
-class Conversation {
-    private int $id;
+class Conversation extends AbstractEntity
+{
     private int $user1Id;
     private int $user2Id;
     private DateTime $createdAt;
-    private string $userIds;
+    private string $userHash;
 
     public function __construct(array $data = [])
     {
         $this->hydrate($data);
-    }
-
-    public function hydrate(array $data)
-    {
-        foreach ($data as $key => $value) {
-            $method = 'set' . str_replace('_', '', ucwords($key, '_'));
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function setId(int $id): void
-    {
-        $this->id = $id;
     }
 
     public function getUser1Id(): int
@@ -66,13 +46,13 @@ class Conversation {
         $this->createdAt = $createdAt;
     }
 
-    public function getUserIds(): string
+    public function getUserHash(): string
     {
-        return $this->userIds;
+        return $this->userHash;
     }
 
-    public function setUserids(string $userIds): void
+    public function setUserHash(string $userHash): void
     {
-        $this->userIds = $userIds;
+        $this->userHash = $userHash;
     }
 }

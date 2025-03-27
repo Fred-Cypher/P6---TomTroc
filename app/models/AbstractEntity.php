@@ -35,7 +35,7 @@ abstract class AbstractEntity
             $method = 'set' . str_replace('_', '', ucwords($key, '_'));
             if (method_exists($this, $method)) {
                 $this->$method($value);
-            }else  {
+            } else {
                 throw new Exception ("Vérifiez que le nom des champs correspond bien à celui des attributs des entités");
             }
         }

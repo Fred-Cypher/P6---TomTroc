@@ -4,8 +4,8 @@ namespace App\Models;
 
 use DateTime;
 
-class User {
-    private int $id;
+class User extends AbstractEntity
+{
     private string $pseudo;
     private string $email;
     private string $password;
@@ -19,25 +19,6 @@ class User {
         $this->hydrate($data);
     }
     
-    public function hydrate(array $data) {
-        foreach ($data as $key => $value) {
-            $method = 'set' . str_replace('_', '', ucwords($key, '_'));
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    public function setId(int $id):void
-    {
-        $this->id = $id;
-    }
-
     public function getPseudo(): string
     {
         return $this->pseudo;
