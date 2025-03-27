@@ -29,96 +29,41 @@ class MessagingController
         require __DIR__ . '../../views/layout.php';
     }
 
-    public function addConversation(){
-        $message ='';
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-            try{
-                $user1Id = $_SESSION['user']['id'];
-                $user2Id = Utils::request('user2_id');
-                $createdAt = new DateTime();
-
-                $conversation = new Conversation([
-                    'user1_id' => $user1Id,
-                    'user2_id' => $user2Id,
-                    'created_at' => $createdAt
-                ]);
-
-                var_dump($user2Id);
-                exit;
-
-                $this->conversationsRepository->getOrCreateConversation($conversation);
-
-                Utils::redirect('messages.php');
-            } catch (Exception $e) {
-                $message = "Erreur : " .$e->getMessage();
-            }
-        }
-    }
-
-    public function showUserConversations(): void
+    public function getMessages(?int $otherUserId = null)
     {
-        try{
-            $userId = $_SESSION['user']['id'];
+        $currentUserId = $_SESSION['user']['id'];
 
-            $conversationsRepository = new ConversationsRepository();
-            $conversations = $conversationsRepository->getConversationsByUser($userId); 
+        if(!$otherUserId) {
+            $conversations = $this->conversationsRepository->getUserConversations($currentUserId);
 
-            if (!$conversations){
-                throw new Exception("Les conversations demandées n'existent pas");
-            }
-        } catch (Exception $e) {
-            $message = "Erreur : " . $e->getMessage();
+            $title = "Tom Troc - Messagerie";
+            ob_start();
+            require __DIR__ . '../../views/templates/messages.php';
+            $content = ob_get_clean();
+            require __DIR__ . '../../views/layout.php';
+
+            return;
         }
 
-        $title = "Tom Troc - Messagerie";
-        ob_start();
-        require __DIR__ . '../../views/templates/conversations.php';
-        $content = ob_get_clean();
-        require __DIR__ . '../../views/layout.php';
-    }
+        $userHash = $this->conversationsRepository->generateUsersHash($currentUserId, $otherUserId);
+        $conversation = $this->conversationsRepository->findByHash($userHash);
 
-    public function sendMessage(){
-        $message= '';
+        if(!$conversation) {
+            $conversation = new Conversation();
+            $conversation->setUser1Id($currentUserId);
+            $conversation->setUser2Id($otherUserId);
+            $conversation->setUserHash($userHash);
+            $conversation->setCreatedAt(new DateTime());
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            try{
-                $conversationId = Utils::request('conversation_id');
-                $senderId = $_SESSION['user']['id'];
-                $content = Utils::request('content');
-                $createdAt = new DateTime();
-
-                $message = new Message([
-                    'conversation_id' => $conversationId,
-                    'sender_id' => $senderId,
-                    'content' => $content,
-                    'created_at' => $createdAt,
-                ]);
-
-                $this->messagesRepository->addMessage($message);
-
-                Utils::redirect('messages');
-            } catch (Exception $e) {
-                $message = "Erreur : " . $e->getMessage();
-            }
+            $this->conversationsRepository->createConversation($conversation);
+            $conversation = $this->conversationsRepository->findByHash($userHash);
         }
-    }
 
-    public function showMessages(){
-        $message = '';
+        $messages = $this->messagesRepository->getMessagesByConversationId($conversation['id']);
 
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            try {
-                $conversationId = Utils::request('conversation_id');
-                $messages = $this->messagesRepository->showMessagesByConversation($conversationId);
-
-                if (!$messages) {
-                    throw new Exception("La conversation demandée n'existe pas");
-                }
-            } catch (Exception $e) {
-                $message = "Erreur : " . $e->getMessage();
-                var_dump($message);
-                die;
+        foreach($messages as $message){
+            if ($message['sender_id'] !== $currentUserId){
+                $this->messagesRepository->markAsRead($message['id']);
             }
         }
 
@@ -127,5 +72,35 @@ class MessagingController
         require __DIR__ . '../../views/templates/messages.php';
         $content = ob_get_clean();
         require __DIR__ . '../../views/layout.php';
+    }
+
+    public function sendMessage($otherUserId, $content)
+    {
+        $currentUserId = $_SESSION['user']['id'];
+        
+        $userHash = $this->conversationsRepository->generateUsersHash($currentUserId, $otherUserId);
+        $conversation = $this->conversationsRepository->findByHash($userHash);
+
+        if (!$conversation) {
+            $conversation = new Conversation();
+            $conversation->setUser1Id($currentUserId);
+            $conversation->setUser2Id($otherUserId);
+            $conversation->setUserHash($userHash);
+            $conversation->setCreatedAt(new DateTime());
+
+            $this->conversationsRepository->createConversation($conversation);
+            $conversation = $this->conversationsRepository->findByHash($userHash);
+        }
+
+        $message = new Message();
+        $message->setConversationId($conversation['id']);
+        $message->setSenderId($currentUserId);
+        $message->setContent($content);
+        $message->setIsRead(false);
+        $message->setCreatedAt(new DateTime());
+
+        $this->messagesRepository->sendMessage($message);
+
+        Utils::redirect('messages');
     }
 }

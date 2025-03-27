@@ -20,16 +20,16 @@ use App\services\Utils;
             <?= Utils::format($book->getComment()) ?>
         </p>
         <p>
-            <div>PROPRIÉTAIRE</div>
-            <div class="badgeUser">
-                <a href="index.php?action=publicProfile&id=<?= $book->getUserId() ?>">
-                    <img src="/uploads/avatars/<?= htmlspecialchars($book->getUserAvatar()) ?>" alt="" class="mediumAvatar">
-                    <span><?= Utils::format($book->getUserPseudo()) ?></span>
-                </a>
-            </div>
+        <div>PROPRIÉTAIRE</div>
+        <div class="badgeUser">
+            <a href="index.php?action=publicProfile&id=<?= $book->getUserId() ?>">
+                <img src="/uploads/avatars/<?= htmlspecialchars($book->getUserAvatar()) ?>" alt="" class="mediumAvatar">
+                <span><?= Utils::format($book->getUserPseudo()) ?></span>
+            </a>
+        </div>
         </p>
         <p>
-            <a href="index.php?action=conversations&user2_id=<?= $book->getUserId() ?>">
+            <a href="index.php?action=messages&user2_id=<?= $book->getUserId() ?>">
                 <button>Envoyer un message</button>
             </a>
         </p>

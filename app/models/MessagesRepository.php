@@ -2,28 +2,42 @@
 
 namespace App\Models;
 
+use DateTime;
+
 class MessagesRepository extends AbstractEntityManager
 {
-    public function addMessage(Message $message): void
+    public function sendMessage(Message $message): void
     {
-        $sql = "INSERT INTO messages (conversation_id, sender_id, content, created_at) VALUES (:conversation_id, :sender_id, :content, :created_at";
+        $sql = "INSERT INTO messages (conversation_id, sender_id, content, is_read, created_at) VALUES (:conversation_id, :sender_id, :content, :is_read, :created_at)";
         $this->db->query($sql, [
             'conversation_id' => $message->getConversationId(),
             'sender_id' => $message->getSenderId(),
             'content' => $message->getContent(),
+            'is_read' => $message->getIsRead(),
             'created_at' => $message->getCreatedAt()->format('Y-m-d H:i:s'),
         ]);
     }
 
-    public function showMessagesByConversation(int $conversationId): array
+    public function getMessagesByConversationId(int $conversationId): array
     {
-        $sql = "SELECT m.content, u.pseudo, m.created_at, m.is_read
-                FROM messages m
-                JOIN users u ON m.sender_id = u.id
-                WHERE m.conversation_id = :conversation_id
-                ORDER BY m.created_at ASC";
-        $query = $this->db->query($sql, ['conversation_id' => $conversationId]);
+        $sql = "SELECT * FROM messages WHERE conversation_id = :conversation_id ORDER BY created_at ASC";
+        $result = $this->db->query($sql, ['conversation_id' => $conversationId]);
+        $messages = [];
 
-        return $query->fetchAll();
+        while($messageData = $result->fetch()){
+            if (isset($messageData['created_at']))
+            {
+                $messageData['created_at'] = new DateTime($messageData['created_at']);
+            }
+            $messages[] = new Message($messageData);
+        }
+
+        return $messages;
+    }
+
+    public function markAsRead($messageId): void
+    {
+        $sql = "UPDATE messages SET is_read = 1 WHERE id = :id";
+        $this->db->query($sql, ['id' => $messageId]);
     }
 }

@@ -94,14 +94,7 @@ switch ($resquestAction) {
     case 'messages':
         if (isAuthenticated()){
             $controller = new MessagingController();
-            $controller->index();
-        }
-        break;
-    case 'conversations':
-        if(isAuthenticated()){
-            $controller = new MessagingController();
-            $controller->showUserConversations();
-            $controller->sendMessage();
+            $controller->getMessages();
         }
         break;
 

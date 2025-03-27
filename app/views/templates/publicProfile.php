@@ -16,7 +16,7 @@ use App\services\Utils;
             4 livres
         </p>
         <p>
-            <a href="index.php?action=messages">
+            <a href="index.php?action=messages&user2_id=<?= $userId ?>">
                 <button>Ecrire un message</button>
             </a>
         </p>
