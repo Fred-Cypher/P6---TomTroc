@@ -38,7 +38,7 @@ class BooksRepository extends AbstractEntityManager
         ]);
     }
 
-    public function getAllBooks():array
+    public function getAllBooks(): array
     {
         $sql = "SELECT b.id, b.title, b.author, b.comment, b.cover, b.availability, b.created_at, b.updated_at, u.id as user_id, u.pseudo as user_pseudo
         FROM books b

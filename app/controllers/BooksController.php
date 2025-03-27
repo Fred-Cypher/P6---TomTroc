@@ -74,8 +74,6 @@ class BooksController
 
             } catch (Exception $e) {
                 $message = "Erreur : " . $e->getMessage();
-                var_dump($message);
-                die;
             }
         }
 
@@ -99,8 +97,6 @@ class BooksController
             } 
         } catch (Exception $e) {
             $message = "Erreur : " . $e->getMessage();
-            var_dump($message);
-            die;
         }
         
         $title = "Tom Troc - Détail";
@@ -154,8 +150,6 @@ class BooksController
                 }
             } catch (Exception $e){
                 $message = "Erreur : " . $e->getMessage();
-                var_dump($message);
-                die;
             }
 
         $title = "Tom Troc - Modifier un livre";
@@ -191,8 +185,6 @@ class BooksController
         
         } catch (Exception $e) {
             $message = "Erreur : " . $e->getMessage();
-            var_dump($message);
-            die;
         }
     }
 }
