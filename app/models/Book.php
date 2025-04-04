@@ -62,7 +62,7 @@ class Book extends AbstractEntity
         $this->userId = $userId;
     }
 
-    public function getcover(): string|null
+    public function getCover(): string|null
     {
         return $this->cover;
     }
@@ -87,7 +87,7 @@ class Book extends AbstractEntity
         return $this->createdAt;
     }
 
-    public function setCreatedAt(DateTime $createdAt): void
+    public function setCreatedAt(DateTime|string $createdAt): void
     {
         $this->createdAt = $createdAt;
     }

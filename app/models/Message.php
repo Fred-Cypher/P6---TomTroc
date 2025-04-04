@@ -52,9 +52,9 @@ class Message extends AbstractEntity
         return $this->isRead;
     }
 
-    public function setIsRead(bool $isRead): void
+    public function setIsRead(bool|int $isRead): void
     {
-        $this->isRead = $isRead;
+        $this->isRead = (int) $isRead;
     }
     public function getCreatedAt(): DateTime
     {
