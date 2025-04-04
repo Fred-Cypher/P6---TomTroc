@@ -13,7 +13,7 @@ class MessagesRepository extends AbstractEntityManager
             'conversation_id' => $message->getConversationId(),
             'sender_id' => $message->getSenderId(),
             'content' => $message->getContent(),
-            'is_read' => $message->getIsRead(),
+            'is_read' => (int) $message->getIsRead(),
             'created_at' => $message->getCreatedAt()->format('Y-m-d H:i:s'),
         ]);
     }
@@ -27,6 +27,22 @@ class MessagesRepository extends AbstractEntityManager
         while($messageData = $result->fetch()){
             if (isset($messageData['created_at']))
             {
+                $messageData['created_at'] = new DateTime($messageData['created_at']);
+            }
+            $messages[] = new Message($messageData);
+        }
+
+        return $messages;
+    }
+
+    public function getLastMessageByConversationId(int $conversationId): array
+    {
+        $sql = "SELECT * FROM messages WHERE conversation_id = :conversation_id ORDER BY created_at ASC LIMIT 1";
+        $result = $this->db->query($sql, ['conversation_id' => $conversationId]);
+        $messages = [];
+
+        while($messageData = $result->fetch()){
+            if (isset($messageData['created_at'])) {
                 $messageData['created_at'] = new DateTime($messageData['created_at']);
             }
             $messages[] = new Message($messageData);

@@ -16,9 +16,12 @@ use App\services\Utils;
             4 livres
         </p>
         <p>
-            <a href="index.php?action=messages&user2_id=<?= $userId ?>">
-                <button>Ecrire un message</button>
-            </a>
+            <?php if ($userId != $_SESSION['user']['id']) { ?>
+                <a href="index.php?action=messages&user2_id=<?= $userId ?>">
+                    <button>Ecrire un message</button>
+                </a>
+            <?php
+            } ?>
         </p>
     </article>
 </section>

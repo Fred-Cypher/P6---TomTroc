@@ -26,10 +26,18 @@
             </div>
             <div class="headerPrivate">
                 <span class="line">|</span>
-                <a href="index.php?action=messages" class="link">
-                    <img src="/images/icon_messagerie.svg" alt="Messagerie">
-                    Messagerie
-                </a>
+                <?php
+                if (isset($_SESSION['user'])) { ?>
+                    <a href="index.php?action=messaging" class="link">
+                        <img src="/images/icon_messagerie.svg" alt="Messagerie">
+                        Messagerie
+                    </a>
+                <?php } else { ?>
+                    <a href="index.php?action=login" class="link">
+                        <img src="/images/icon_mon_compte.svg" alt="Mon compte">
+                        Messagerie
+                    </a>
+                <?php } ?>
                 <a href="#" class="link">
                     <?php
                     if (isset($_SESSION['user'])) { ?>

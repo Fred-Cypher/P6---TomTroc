@@ -33,7 +33,8 @@ class ConversationsRepository extends AbstractEntityManager
     public function findByHash(string $userHash): ?Conversation
     {
         $sql = "SELECT * FROM conversations WHERE user_hash = :user_hash";
-        $result = $this->db->query($sql, ['user_hash'=> $userHash]);
+        $stmt = $this->db->query($sql, ['user_hash'=> $userHash]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$result) {
             return null;
@@ -68,7 +69,9 @@ class ConversationsRepository extends AbstractEntityManager
 
     public function getUserConversations(int $userId): array
     {  
-        $sql = "SELECT * FROM conversations WHERE user1_id = :user_id ORDER BY created_at DESC";
+        $userId = $_SESSION['user']['id'];
+
+        $sql = "SELECT * FROM conversations WHERE user1_id = :user_id OR user2_id = :user_id ORDER BY created_at DESC";
         $result = $this->db->query($sql, ['user_id' => $userId]);
         $conversations = [];
 

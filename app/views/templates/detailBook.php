@@ -29,9 +29,13 @@ use App\services\Utils;
         </div>
         </p>
         <p>
-            <a href="index.php?action=messages&user2_id=<?= $book->getUserId() ?>">
+            <?php if($book->getUserId()!= $_SESSION['user']['id']) { ?>
+                <a href="index.php?action=messages&user2_id=<?= $book->getUserId() ?>">
                 <button>Envoyer un message</button>
             </a>
+            <?php
+            } ?>
+            
         </p>
     </article>
 </section>
