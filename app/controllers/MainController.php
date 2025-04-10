@@ -15,7 +15,7 @@ class MainController
     
     public function index() {
 
-        $books = $this->booksRepository->getAllBooks();
+        $books = $this->booksRepository->getLastFourBooksRegistered();
 
         $title = "Tom Troc - Accueil";
         ob_start();

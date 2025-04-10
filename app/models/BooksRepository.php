@@ -102,4 +102,35 @@ class BooksRepository extends AbstractEntityManager
         $sql = "DELETE FROM books WHERE id = :id";
         $this->db->query($sql, ['id' => $id]);
     }
+
+    public function getLastFourBooksRegistered(){
+        $sql = "SELECT b.id, b.title, b.author, b.comment, b.cover, b.availability, b.created_at, b.updated_at, u.id as user_id, u.pseudo as user_pseudo
+        FROM books b
+        JOIN users u ON b.user_id = u.id
+        ORDER BY b.created_at DESC LIMIT 4 ";
+        $result = $this->db->query($sql);
+        $books = [];
+
+        while ($book = $result->fetch(PDO::FETCH_ASSOC)) {
+            if ($book) {
+                $book['cover'] = $book['cover'] ?? 'defaultBook.jpg';
+                $book['created_at'] = new DateTime($book['created_at']);
+                $book['updated_at'] = new DateTime($book['updated_at']);
+                $book['user_pseudo'] = $book['user_pseudo'];
+            }
+            $books[] = new Book($book);
+        }
+        return $books;
+    }
+
+    public function countBooksByUserId($userId){
+        $sql = "SELECT COUNT(*) AS bookscount 
+                FROM books 
+                WHERE user_id = :user_id";
+        $stmt = $this->db->query($sql, ['user_id' => $userId]);
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return (int) ($result['bookscount'] ?? 0 );
+    }
 }

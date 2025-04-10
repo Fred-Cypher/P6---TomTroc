@@ -11,40 +11,56 @@
 </section>
 <section class="lastBooks">
     <div class="lastBooksTitle">Les derniers livres ajoutés</div>
-    <div>
-        À venir : les quatre derniers livres enregistrés
-    </div>
-    <button>Voir tous les livres</button>
-</section>
-<section class="operation">
-    <div class="operationTitle">Comment ça marche ?</div>
-    <span>Échanger des livres avec TomTroc c'est simple et amusant ! Suivez ces étapes pour commencer :</span>
-    <div class="operationStickers">
-        <div class="sticker">
-            <p class="stickerText">
-                Inscrivez-vous gratuitement sur
-                notre plateforme
-            </p>
-        </div>
-        <div class="sticker">
-            <p class="stickerText">
-                Ajoutez les livres que vous souhaitez échanger à votre profil.
-            </p>
-        </div>
-        <div class="sticker">
-            <p class="stickerText">
-                Parcourez les livres disponibles chez d'autres membres.
-            </p>
-        </div>
-        <div class="sticker">
-            <p class="stickerText">
-                Proposez un échange et discutez avec d'autres passionnés de lecture.
-            </p>
-        </div>
+    <div class="lastBooksCards">
+        <?php foreach ($books as $book): ?>
+            <div class="bookCard">
+                <a href="index.php?action=detailBook&id=<?= $book->getId() ?>" class="cardLink">
+                    <p class="itemImage">
+                        <?php if (!$book->getAvailability()): ?>
+                            <span class="badgeDispo">non dispo.</span>
+                        <?php endif ?>
+                        <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="mediumCover">
+                    </p>
+                    <div class="bookInformation">
+                        <p class="exchangeBookTitle"><?= htmlspecialchars($book->getTitle()) ?></p>
+                        <p class="exchangeBookAuthor"><?= htmlspecialchars($book->getAuthor()) ?></p>
+                        <p class="exchangeBookSeller">Vendu par : <?= htmlspecialchars($book->getUserPseudo()) ?></p>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach; ?>
     </div>
     <button>Voir tous les livres</button>
 </section>
 <section class="values">
+    <div class="operation"> 
+        <div class="operationTitle">Comment ça marche ?</div>
+        <span>Échanger des livres avec TomTroc c'est simple et amusant ! Suivez ces étapes pour commencer :</span>
+        <div class="operationStickers">
+            <div class="sticker">
+                <p class="stickerText">
+                    Inscrivez-vous gratuitement sur
+                    notre plateforme
+                </p>
+            </div>
+            <div class="sticker">
+                <p class="stickerText">
+                    Ajoutez les livres que vous souhaitez échanger à votre profil.
+                </p>
+            </div>
+            <div class="sticker">
+                <p class="stickerText">
+                    Parcourez les livres disponibles chez d'autres membres.
+                </p>
+            </div>
+            <div class="sticker">
+                <p class="stickerText">
+                    Proposez un échange et discutez avec d'autres passionnés de lecture.
+                </p>
+            </div>
+        </div>
+        <button class="lightButton">Voir tous les livres</button>
+    </div>
     <img src="/images/mask_group.png" alt="" class="pictureValues">
     <div class="textValues">
         <div class="titleValues">Nos valeurs</div>
