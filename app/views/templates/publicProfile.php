@@ -13,12 +13,16 @@ use App\services\Utils;
         <p>BIBLIOTHEQUE</p>
         <p>
             <img src="/images/vector.svg" alt="">
-            4 livres
+            <?php if ($count < 2) {
+                    echo $count ?> livre <?php
+                } else {
+                    echo $count ?> livres <?php
+                } ?>
         </p>
         <p>
             <?php if ($userId != $_SESSION['user']['id']) { ?>
                 <a href="index.php?action=messages&user2_id=<?= $userId ?>">
-                    <button>Ecrire un message</button>
+                    <button class="lightButton">Ecrire un message</button>
                 </a>
             <?php
             } ?>

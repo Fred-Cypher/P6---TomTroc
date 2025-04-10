@@ -18,7 +18,11 @@ use App\services\Utils;
             <p>BIBLIOTHEQUE</p>
             <p>
                 <img src="/images/vector.svg" alt="">
-                4 livres
+                <?php if ($count < 2){
+                    echo $count ?> livre <?php
+                } else {
+                    echo $count ?> livres <?php
+                } ?>
             </p>
         </article>
         <article>
@@ -37,7 +41,7 @@ use App\services\Utils;
                 <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>">
             </p>
             <p>
-                <button class="submit">Enregistrer</button>
+                <button class="submit lightButton">Enregistrer</button>
             </p>
         </article>
     </form>
@@ -68,20 +72,20 @@ use App\services\Utils;
         </thead>
         <tbody class="booksTable">
             <?php foreach ($books as $book): ?>
-                <tr style="background-color: red">
+                <tr>
                     <td>
                         <div class="tableContainer">
-                            <img src="/uploads/covers/<?= $book->getCover() ?>" alt="" class="smallCover">
+                            <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="smallCover">
                         </div>
                     </td>
                     <td>
                         <div class="tableContainer">
-                            <?= Utils::format($book->getTitle()) ?>
+                            <?= htmlspecialchars($book->getTitle()) ?>
                         </div>
                     </td>
                     <td>
                         <div class="tableContainer">
-                            <?= Utils::format($book->getAuthor()) ?>
+                            <?= htmlspecialchars($book->getAuthor()) ?>
                         </div>
                     </td>
                     <td>

@@ -32,6 +32,7 @@ class UserController
             if ($user){
                 $userId = $user->getId();
                 $books = $this->booksRepository->getBooksByUser($userId);
+                $count = $this->booksRepository->countBooksByUserId($userId);
                 
                 $title = "Tom Troc - Profil";
                 ob_start();
@@ -201,6 +202,7 @@ class UserController
             if ($user) {
                 $userId = $user->getId();
                 $books = $this->booksRepository->getBooksByUser($userId);
+                $count = $this->booksRepository->countBooksByUserId($userId);
 
                 $title = "Tom Troc - Profil utilisateur"  ;
                 ob_start();
