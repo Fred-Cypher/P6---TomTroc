@@ -22,28 +22,16 @@ class MessagingController
         $this->userRepository = new UserRepository;
     }
 
-    public function index()
-    {
-        $currentUserId = $_SESSION['user']['id'];
-        $conversations = $this->conversationsRepository->getUserConversations($currentUserId);
-        foreach ($conversations as $conversation) {
-            $user2 = $this->userRepository->getUserById($conversation->getUser2Id());
-        }
-
-        $title = "Tom Troc - Messagerie";
-        ob_start();
-        require __DIR__ . '../../views/templates/messages.php';
-        $content = ob_get_clean();
-        require __DIR__ . '../../views/layout.php';
-    }
-
     public function getMessages(?int $otherUserId = null)
     {
         $currentUserId = $_SESSION['user']['id'];
-        $otherUserId = $_REQUEST['user2_id'];
 
-        if(!$otherUserId) {
+        if(!isset($_REQUEST['user2_id'])) {
             $conversations = $this->conversationsRepository->getUserConversations($currentUserId);
+
+            foreach ($conversations as $conversation) {
+                $lastMessage = $this->messagesRepository->getLastMessageByConversationId($conversation->getId());
+            }
 
             $title = "Tom Troc - Messagerie";
             ob_start();
@@ -54,6 +42,7 @@ class MessagingController
             return;
         }
 
+        $otherUserId = $_REQUEST['user2_id'];
         $conversations = $this->conversationsRepository->getUserConversations($currentUserId);
 
         $userHash = $this->conversationsRepository->generateUsersHash($currentUserId, $otherUserId);
@@ -72,6 +61,11 @@ class MessagingController
 
         $messages = $this->messagesRepository->getMessagesByConversationId($conversation->getId());
 
+        foreach ($conversations as $conversation) {
+            $lastMessage = $this->messagesRepository->getLastMessageByConversationId($conversation->getId());
+            $otherUser = $this->userRepository->getUserById($otherUserId);
+        }
+
         /*foreach($messages as $message){
             if ($message->getSenderId() !== $currentUserId){
                 $this->messagesRepository->markAsRead($message['id']);
@@ -89,7 +83,7 @@ class MessagingController
     {
         $currentUserId = $_SESSION['user']['id'];
         $otherUserId = (int) $_POST['otherUserId'];
-        $content = trim($_POST['content']);
+        $content = trim($_POST['content']); // A SECURISER ! 
 
         $userHash = $this->conversationsRepository->generateUsersHash($currentUserId, $otherUserId);
         $conversation = $this->conversationsRepository->findByHash($userHash);
@@ -114,6 +108,6 @@ class MessagingController
 
         $this->messagesRepository->sendMessage($message);
 
-        Utils::redirect('messaging');
+        Utils::redirect('messages');
     }
 }

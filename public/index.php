@@ -90,12 +90,6 @@ switch ($resquestAction) {
             $controller->updateUser();
         }
         break;
-    case 'messaging':
-        if (isAuthenticated()) {
-            $controller = new MessagingController();
-            $controller->index();
-        }
-        break;
     case 'messages':
         if (isAuthenticated()){
             $controller = new MessagingController();

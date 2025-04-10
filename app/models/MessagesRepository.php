@@ -35,25 +35,28 @@ class MessagesRepository extends AbstractEntityManager
         return $messages;
     }
 
-    public function getLastMessageByConversationId(int $conversationId): array
+    public function getLastMessageByConversationId(int $conversationId): ?Message
     {
-        $sql = "SELECT * FROM messages WHERE conversation_id = :conversation_id ORDER BY created_at ASC LIMIT 1";
+        $sql = "SELECT * FROM messages WHERE conversation_id = :conversation_id ORDER BY created_at DESC LIMIT 1";
         $result = $this->db->query($sql, ['conversation_id' => $conversationId]);
-        $messages = [];
 
-        while($messageData = $result->fetch()){
+        $messageData = $result->fetch();
+        if ($messageData) {
             if (isset($messageData['created_at'])) {
                 $messageData['created_at'] = new DateTime($messageData['created_at']);
             }
-            $messages[] = new Message($messageData);
+            return new Message($messageData);
         }
-
-        return $messages;
+        return null;
     }
 
     public function markAsRead($messageId): void
     {
         $sql = "UPDATE messages SET is_read = 1 WHERE id = :id";
         $this->db->query($sql, ['id' => $messageId]);
+    }
+
+    public function getUserForMessageId(){
+
     }
 }

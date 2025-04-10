@@ -4,16 +4,24 @@
     <aside class="thread">
         Fil de discussion
         <p>
-            <?php 
-                if($conversations){
-                    foreach($conversations as $conversation){
-                        echo $conversation->getId() . '-' .$conversation->getUser2Id() . '<br>';
+            <?php
+            if ($conversations) {
+                foreach ($conversations as $conversation) {
+                    $lastMessage = $this->messagesRepository->getLastMessageByConversationId($conversation->getId());
+                    $otherUser = $this->userRepository->getUserById($conversation->getUser2Id());
+                    if ($lastMessage) {
+                        echo '<a href="index.php?action=messages&user2_id='.  $conversation->getUser2Id() .'"><img src="/uploads/avatars/'. $otherUser->getAvatar() . '" alt="" class="mediumAvatar">';
+                        echo $otherUser->getPseudo() . '<br>';
+                        echo $lastMessage->getCreatedAt()->format('H:i') . '<br>';
+                        echo "Message : " . $lastMessage->getContent() . '</a><br>';
+                    } else {
+                        echo "Aucun message trouvé." . '<br>';
                     }
-                }  
+                }
+            }
             ?>
         </p>
         <!-- Si conversations NOT EMPTY renvoie les conversation du $_SESSION user, avec le dernier message tronqué-->
-        <div>Avatar, pseudo utilisateur et heure et début texte dernier message</div>
     </aside>
     <article class="conversation">
         <p>
@@ -28,7 +36,7 @@
                 ?>
         <form action="index.php?action=sendMessage" method="POST">
             <input type="hidden" name="otherUserId" value="<?= $otherUserId ?>">
-            <input name="content"></input>
+            <input name="content" placeholder="Tapez votre message ici"></input>
             <button type="submit">Envoyer</button>
         </form>
     <?php } else: { ?>
@@ -42,4 +50,4 @@
     <!-- affiche le bouton si CONVERSATION existe-->
     </p>
     </article>
-</section>
+</section>  

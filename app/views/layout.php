@@ -28,7 +28,7 @@
                 <span class="line">|</span>
                 <?php
                 if (isset($_SESSION['user'])) { ?>
-                    <a href="index.php?action=messaging" class="link">
+                    <a href="index.php?action=messages" class="link">
                         <img src="/images/icon_messagerie.svg" alt="Messagerie">
                         Messagerie
                     </a>
