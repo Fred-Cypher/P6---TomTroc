@@ -31,6 +31,11 @@
                     <a href="index.php?action=messages" class="link">
                         <img src="/images/icon_messagerie.svg" alt="Messagerie">
                         Messagerie
+                        <?php if ($unreadCount > 0): ?>
+                            <span class="badge"><?php $unreadCount = $unreadCount ?? 0; ?></span>
+                        <?php else: ?>
+                            <span>0</span>
+                        <?php endif; ?>
                     </a>
                 <?php } else { ?>
                     <a href="index.php?action=login" class="link">

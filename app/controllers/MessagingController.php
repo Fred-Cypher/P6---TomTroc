@@ -25,12 +25,17 @@ class MessagingController
     public function getMessages(?int $otherUserId = null)
     {
         $currentUserId = $_SESSION['user']['id'];
+        $unreadCount = $this->messagesRepository->countUnreadMessages($_SESSION['user']['id']);
 
         if(!isset($_REQUEST['user2_id'])) {
             $conversations = $this->conversationsRepository->getUserConversations($currentUserId);
 
             foreach ($conversations as $conversation) {
                 $lastMessage = $this->messagesRepository->getLastMessageByConversationId($conversation->getId());
+                $otherUserId = ($conversation->getUser1Id() == $currentUserId) ? $conversation->getUser2Id() : $conversation->getUser1Id();
+                $otherUser = $this->userRepository->getUserById($otherUserId);
+                $conversation->lastMessage = $lastMessage;
+                $conversation->otherUser = $otherUser;
             }
 
             $title = "Tom Troc - Messagerie";
@@ -60,22 +65,22 @@ class MessagingController
         }
 
         $messages = $this->messagesRepository->getMessagesByConversationId($conversation->getId());
+        $this->messagesRepository->markMessagesAsRead($conversation->getId(), $currentUserId);
+
 
         foreach ($conversations as $conversation) {
             $lastMessage = $this->messagesRepository->getLastMessageByConversationId($conversation->getId());
+            $otherUserId = ($conversation->getUser1Id() == $currentUserId) ? $conversation->getUser2Id() : $conversation->getUser1Id();
             $otherUser = $this->userRepository->getUserById($otherUserId);
+            $conversation->lastMessage = $lastMessage;
+            $conversation->otherUser = $otherUser;
         }
-
-        /*foreach($messages as $message){
-            if ($message->getSenderId() !== $currentUserId){
-                $this->messagesRepository->markAsRead($message['id']);
-            }
-        }*/
 
         $title = "Tom Troc - Messagerie";
         ob_start();
         require __DIR__ . '../../views/templates/messages.php';
         $content = ob_get_clean();
+        $unreadCount = $unreadCount ?? 0;
         require __DIR__ . '../../views/layout.php';
     }
 

@@ -50,13 +50,37 @@ class MessagesRepository extends AbstractEntityManager
         return null;
     }
 
-    public function markAsRead($messageId): void
+    /*public function markAsRead($messageId): void
     {
         $sql = "UPDATE messages SET is_read = 1 WHERE id = :id";
         $this->db->query($sql, ['id' => $messageId]);
+    }*/
+
+    public function countUnreadMessages(int $userId): int
+    {
+        $sql = "SELECT COUNT(*) as unread_count FROM messages 
+            INNER JOIN conversations ON messages.conversation_id = conversations.id 
+            WHERE messages.is_read = 0 
+            AND messages.sender_id != :userId 
+            AND (conversations.user1_id = :userId OR conversations.user2_id = :userId)";
+
+        $result = $this->db->query($sql, ['userId' => $userId]);
+        $data = $result->fetch();
+
+        return $data ? (int) $data['unread_count'] : 0;
     }
 
-    public function getUserForMessageId(){
+    public function markMessagesAsRead(int $conversationId, int $userId): void
+    {
+        $sql = "UPDATE messages 
+            SET is_read = 1 
+            WHERE conversation_id = :conversationId 
+            AND sender_id != :userId 
+            AND is_read = 0";
 
+        $this->db->query($sql, [
+            'conversationId' => $conversationId,
+            'userId' => $userId
+        ]);
     }
 }
