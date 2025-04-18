@@ -403,22 +403,43 @@ button{
 }
 
 /*** CARTES LIVRE***/
+.exchangeHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+    background-color: var(--softgrey);
+    max-width: 900px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.exchangeTitle{
+    background-color: var(--softgrey);
+    display: flex;
+    justify-self: flex-start;
+}
+
 .exchangeBooks{
     display: flex;
     flex-direction: row;
+    margin: auto;
+    max-width: 1000px;
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
+    background-color: var(--softgrey)
 }
 
 .bookCard{
     width: 200px;
+    /*width: 20%;*/
     height: 324px;
     background-color: white;
     border : 1px solid rebeccapurple;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    margin: 15px;
+    margin: 0 15px 30px;
 }
 
 .bookInformation{
@@ -460,15 +481,44 @@ button{
     position: absolute;
     /*right: 10px;*/
     top: 16px;
-    left: 116px;
+    left: 95px;
     background: var(--red);
     text-align: center;
     border-radius: 30px;
     color: white;
-    padding: 4px 13px;
+    padding: 4px 10px;
     font-size: 9px;
     width: 71px;
     height: 18px;
+}
+
+/*** RECHERCHE ***/
+
+.exchangeSearch{
+    position: relative;
+    display: flex;
+    left: 380px;
+}
+
+.inputSearch{
+    display: flex;
+    justify-self: flex-end;
+    padding-left: 40px;
+    border-radius: 10px;
+    border: none;
+    height: 35px;
+    width: 300px;
+    color: var(--textgrey);
+}
+
+.loupe{
+    height: 16px;
+    width: auto;
+    color : var(--textgrey);
+    position: absolute;
+    left: 10px; 
+    top: 50%; 
+    transform: translateY(-50%);
 }
 
 /*** PAGE LIVRE ***/
@@ -548,4 +598,58 @@ button{
     flex-direction: column;
     background-color: var(--softgrey);
     width: 75%;
+}
+
+/*** INSCRIPTION/CONNEXION ***/
+
+.authentication{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--softgrey);
+}
+
+.authenticationText{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 25%;
+}
+
+.authenticationTitle{
+    background-color: var(--softgrey);
+}
+
+.authenticationForm{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--softgrey);
+}
+
+.authenticationLabel{
+    color: var(--textgrey);
+    background-color: var(--softgrey);
+}
+
+.authenticationInput{
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+}
+
+.authenticationQuestion{
+    padding-top: 30px;
+    background-color: var(--softgrey);
+}
+
+.authenticationQuestion a{
+    background-color: var(--softgrey);
+    text-decoration: none;
+    text-decoration-line: underline;
+    color: black;
+}
+
+.authenticationPicture{
+    width: 720px;
+    height: auto;
+    object-fit: cover;
 }
