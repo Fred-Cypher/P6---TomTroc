@@ -14,15 +14,16 @@ use App\services\Utils;
                 <label for="avatar" class="labelUpdate">Modifier</label>
                 <input type="file" name="avatar" id="avatar" class="inputUpdate" onchange="previewImage(event)">
             </p>
-            <p>Membre depuis...</p>
+            <p>Membre depuis <?= $registeredSince ?></p>
             <p>BIBLIOTHEQUE</p>
             <p>
                 <img src="/images/vector.svg" alt="">
-                <?php if ($count < 2){
+                <?php if ($count < 2) {
                     echo $count ?> livre <?php
-                } else {
-                    echo $count ?> livres <?php
-                } ?>
+                    } else {
+                        echo $count ?> livres <?php
+                    } 
+                ?>
             </p>
         </article>
         <article>

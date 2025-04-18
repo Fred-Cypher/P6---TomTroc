@@ -9,12 +9,12 @@ use App\services\Utils;
             <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar" id="avatarPreview">
         </p>
         <p><?= Utils::format($user->getPseudo()) ?></p>
-        <p>Membre depuis...</p>
+        <p>Membre depuis <?= $registeredSince ?></p>
         <p>BIBLIOTHEQUE</p>
         <p>
             <img src="/images/vector.svg" alt="">
             <?php if ($count < 2) {
-                    echo $count ?> livre <?php
+                echo $count ?> livre <?php
                 } else {
                     echo $count ?> livres <?php
                 } ?>

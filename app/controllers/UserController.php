@@ -33,6 +33,8 @@ class UserController
                 $userId = $user->getId();
                 $books = $this->booksRepository->getBooksByUser($userId);
                 $count = $this->booksRepository->countBooksByUserId($userId);
+                $inscriptionDate = $user->getCreatedAt();
+                $registeredSince = $this->userRepository->getRegisteredSince($inscriptionDate);
                 
                 $title = "Tom Troc - Profil";
                 ob_start();
@@ -203,6 +205,8 @@ class UserController
                 $userId = $user->getId();
                 $books = $this->booksRepository->getBooksByUser($userId);
                 $count = $this->booksRepository->countBooksByUserId($userId);
+                $inscriptionDate = $user->getCreatedAt();
+                $registeredSince = $this->userRepository->getRegisteredSince($inscriptionDate);
 
                 $title = "Tom Troc - Profil utilisateur"  ;
                 ob_start();
