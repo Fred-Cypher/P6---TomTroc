@@ -90,4 +90,25 @@ class UserRepository extends AbstractEntityManager
                 'updated_at' => $user->getUpdatedAt()->format('Y-m-d H:i:s')
             ]);
     }
+
+    public function getRegisteredSince(DateTime $createdAt)
+    {
+        $now = new DateTime();
+        $interval = $createdAt->diff($now);
+
+        $years = $interval->y;
+        $months = $interval->m;
+
+        $parts = [];
+
+        if ($years > 0) {
+            $parts[] = "$years " . ($years === 1 ? "an" : "ans");
+        }
+
+        if ($months > 0) {
+            $parts[] = "$months " . ($months === 1 ? "mois" : "mois");
+        }
+
+        return count($parts) ? implode(' et ', $parts) : "moins d'un mois";
+    }
 }
