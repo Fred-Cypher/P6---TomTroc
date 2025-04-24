@@ -5,13 +5,27 @@ use App\Controllers\BooksController;
 use App\Controllers\MainController;
 use App\Controllers\MessagingController;
 use App\Controllers\UserController;
+use App\Models\MessagesRepository;
 use App\services\Utils;
 
 require_once '../autoload.php';
 
 $db = require '../config/config.php';
 
-$resquestAction = Utils::request('action');
+$requestAction = Utils::request('action');
+$searchTerm = Utils::request('search');
+
+function defineUnreadCount($db){
+    if (isset($_SESSION['user']['id'])){
+        $messagesRepository = new MessagesRepository($db);
+        $unreadCount = $messagesRepository->countUnreadMessages($_SESSION['user']['id']);
+        define('UNREAD_COUNT', $unreadCount);
+    } else {
+        define('UNREAD_COUNT', 0);
+    }
+}
+
+defineUnreadCount($db);
 
 function isAuthenticated(){
     return isset($_SESSION['user']['id']);
@@ -21,7 +35,7 @@ function isAdmin(){
     return (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN');
 }
 
-switch ($resquestAction) {
+switch ($requestAction) {
     // Public access
     case '':
     case 'home' :
@@ -42,7 +56,7 @@ switch ($resquestAction) {
         break;
     case 'books' :
         $controller= new BooksController();
-        $controller->index();
+        $controller->index($searchTerm);
         break;
     case 'detailBook' :
         $controller = new BooksController();
@@ -52,7 +66,7 @@ switch ($resquestAction) {
         $controller = new UserController();
         $controller->showUser();
         break;
-    
+
     // Private access
     case 'privateProfile':
         if (isAuthenticated()){
