@@ -69,8 +69,6 @@ class ConversationsRepository extends AbstractEntityManager
 
     public function getUserConversations(int $userId): array
     {  
-        $userId = $_SESSION['user']['id'];
-
         $sql = "SELECT * FROM conversations WHERE user1_id = :user_id OR user2_id = :user_id ORDER BY created_at DESC";
         $result = $this->db->query($sql, ['user_id' => $userId]);
         $conversations = [];

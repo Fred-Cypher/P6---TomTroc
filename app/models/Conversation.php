@@ -55,4 +55,9 @@ class Conversation extends AbstractEntity
     {
         $this->userHash = $userHash;
     }
+
+    public function getOtherUserId(int $currentUserId): int
+    {
+        return $this->user1Id === $currentUserId ? $this->user2Id : $this->user1Id;
+    }
 }

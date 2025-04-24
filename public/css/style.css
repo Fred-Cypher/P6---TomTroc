@@ -347,7 +347,12 @@ button{
     object-fit: cover;
 }
 
-
+.smallAvatar{
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    object-fit: cover;
+}
 /*** FORMULAIRES ***/
 .asterisk{
     color: red;
@@ -598,6 +603,14 @@ button{
     flex-direction: column;
     background-color: var(--softgrey);
     width: 75%;
+}
+
+.messageOtherUser{
+    text-align: left;
+}
+
+.messageCurrentUser{
+    text-align: right;
 }
 
 /*** INSCRIPTION/CONNEXION ***/
