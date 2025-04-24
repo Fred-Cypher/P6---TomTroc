@@ -1,17 +1,17 @@
 <section class="exchangeHeader">
     <h2 class="exchangeTitle">Nos livres à l'échange</h2>
-    <form action="" class="exchangeSearch"> 
-        <input type="search" placeholder="Rechercher un livre" class="inputSearch">
-        <img src="/images/loupe.svg" alt="" class="loupe">
+    <form action="index.php" method="get" class="exchangeSearch">
+        <input type="hidden" name="action" value="books">
+        <input type="search" placeholder="Rechercher un livre" class="inputSearch" name="search">
+        <button type="submit" class="loupe-button">
+            <img src="/images/loupe.svg" alt="" class="loupe">
+        </button>
     </form>
+    
 </section>
 <section class="exchangeBooks">
-    
-    <?php
 
-    use App\services\Utils;
-
-    foreach ($books as $book): ?>
+    <?php foreach ($books as $book): ?>
         <article class="bookCard">
             <a href="index.php?action=detailBook&id=<?= $book->getId() ?>" class="cardLink">
                 <p class="itemImage">

@@ -133,4 +133,26 @@ class BooksRepository extends AbstractEntityManager
 
         return (int) ($result['bookscount'] ?? 0 );
     }
+
+    public function searchBooksByTitle(string $searchTerm): array
+    {
+        $searchTerm = '%' . strtolower($searchTerm) . '%';
+        $sql = "SELECT b.id, b.title, b.author, b.comment, b.cover, b.availability, b.created_at, b.updated_at, u.id as user_id, u.pseudo as user_pseudo
+        FROM books b
+        JOIN users u ON b.user_id = u.id
+        WHERE LOWER(b.title) LIKE :searchTerm";
+        $result = $this->db->query($sql, [':searchTerm' => $searchTerm]);
+        $books = [];
+
+        while ($book = $result->fetch(PDO::FETCH_ASSOC)) {
+            if ($book) {
+                $book['cover'] = $book['cover'] ?? 'defaultBook.jpg';
+                $book['created_at'] = new DateTime($book['created_at']);
+                $book['updated_at'] = new DateTime($book['updated_at']);
+                $book['user_pseudo'] = $book['user_pseudo'];
+            }
+            $books[] = new Book($book);
+        }
+        return $books;
+    }
 }

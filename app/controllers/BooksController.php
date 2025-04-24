@@ -19,7 +19,13 @@ class BooksController
 
     public function index()
     {
-        $books = $this->booksRepository->getAllBooks();
+        $searchTerm = $_GET['search'] ?? null;
+
+        if ($searchTerm) {
+            $books = $this->booksRepository->searchBooksByTitle($searchTerm);
+        } else {
+            $books = $this->booksRepository->getAllBooks();
+        }
 
         $title = "Tom Troc - Nos livres à l'échange";
         ob_start();
