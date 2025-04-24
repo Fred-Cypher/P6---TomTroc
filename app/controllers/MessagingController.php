@@ -67,7 +67,6 @@ class MessagingController
         $messages = $this->messagesRepository->getMessagesByConversationId($conversation->getId());
         $this->messagesRepository->markMessagesAsRead($conversation->getId(), $currentUserId);
 
-
         foreach ($conversations as $conversation) {
             $lastMessage = $this->messagesRepository->getLastMessageByConversationId($conversation->getId());
             $otherUserId = ($conversation->getUser1Id() == $currentUserId) ? $conversation->getUser2Id() : $conversation->getUser1Id();

@@ -31,7 +31,6 @@ class MessagesRepository extends AbstractEntityManager
             }
             $messages[] = new Message($messageData);
         }
-
         return $messages;
     }
 
@@ -49,12 +48,6 @@ class MessagesRepository extends AbstractEntityManager
         }
         return null;
     }
-
-    /*public function markAsRead($messageId): void
-    {
-        $sql = "UPDATE messages SET is_read = 1 WHERE id = :id";
-        $this->db->query($sql, ['id' => $messageId]);
-    }*/
 
     public function countUnreadMessages(int $userId): int
     {

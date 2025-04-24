@@ -182,8 +182,6 @@ class UserController
             }
         } catch (Exception $e) {
             $message = "Erreur : " . $e->getMessage();
-            var_dump($message);
-            die;
         }
 
         $title = "Tom Troc - Profil";
@@ -222,8 +220,6 @@ class UserController
             }
         } catch (Exception $e) {
             $message = "Erreur : " . $e->getMessage();
-            var_dump($message);
-            die;
         }
     }
 }
