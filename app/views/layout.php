@@ -21,14 +21,14 @@
         <nav class="headerNav">
             <div class="headerPublic">
                 <img src="/images/logo.svg" alt="Logo Tom Troc" class="logo">
-                <a href="index.php?action=home" class="link">Accueil</a>
-                <a href="index.php?action=books" class="link">Nos livres à l'échange</a>
+                <a href="index.php?action=home" <?= ($_GET['action'] === 'home') ? 'class="nolink"' : 'class="link"' ?>>Accueil</a>
+                <a href="index.php?action=books" <?= ($_GET['action'] === 'books') ? 'class="nolink"' : 'class="link"' ?>>Nos livres à l'échange</a>
             </div>
             <div class="headerPrivate">
                 <span class="line">|</span>
                 <?php
                 if (isset($_SESSION['user'])) { ?>
-                    <a href="index.php?action=messages" class="link">
+                    <a href="index.php?action=messages" <?= ($_GET['action'] === 'messages') ? 'class="nolink"' : 'class="link"' ?>>
                         <img src="/images/icon_messagerie.svg" alt="Messagerie">
                         Messagerie
                         <?php if (UNREAD_COUNT > 0): ?>
@@ -43,20 +43,18 @@
                         Messagerie
                     </a>
                 <?php } ?>
-                <a href="#" class="link">
-                    <?php
-                    if (isset($_SESSION['user'])) { ?>
-                        <a href="index.php?action=privateProfile" class="link">
-                            <img src="/images/icon_mon_compte.svg" alt="Mon compte">
-                            Mon compte
-                        </a>
-                    <?php } else { ?>
-                        <a href="index.php?action=login" class="link">
-                            <img src="/images/icon_mon_compte.svg" alt="Mon compte">
-                            Mon compte
-                        </a>
-                    <?php } ?>
-                </a>
+                <?php
+                if (isset($_SESSION['user'])) { ?>
+                    <a href="index.php?action=privateProfile" <?= ($_GET['action'] === 'privateProfil') ? 'class="nolink"' : 'class="link"' ?>>
+                        <img src="/images/icon_mon_compte.svg" alt="Mon compte">
+                        Mon compte
+                    </a>
+                <?php } else { ?>
+                    <a href="index.php?action=login" class="link">
+                        <img src="/images/icon_mon_compte.svg" alt="Mon compte">
+                        Mon compte
+                    </a>
+                <?php } ?>
                 <?php
                 if (isset($_SESSION['user'])) { ?>
                     <a href="index.php?action=logout" class="link">
