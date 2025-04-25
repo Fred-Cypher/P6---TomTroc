@@ -45,7 +45,7 @@
                 <?php } ?>
                 <?php
                 if (isset($_SESSION['user'])) { ?>
-                    <a href="index.php?action=privateProfile" <?= ($_GET['action'] === 'privateProfil') ? 'class="nolink"' : 'class="link"' ?>>
+                    <a href="index.php?action=privateProfile" <?= ($_GET['action'] === 'privateProfile') ? 'class="nolink"' : 'class="link"' ?>>
                         <img src="/images/icon_mon_compte.svg" alt="Mon compte">
                         Mon compte
                     </a>
@@ -61,7 +61,7 @@
                         Déconnexion
                     </a>
                 <?php } else { ?>
-                    <a href="index.php?action=login" class="link">
+                    <a href="index.php?action=login" <?= ($_GET['action'] === 'login') ? 'class="nolink"' : 'class="link"' ?>>
                         Connexion
                     </a>
                 <?php } ?>
