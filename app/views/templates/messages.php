@@ -28,29 +28,29 @@
             <?php
             if (isset($_REQUEST['user2_id'])) : {
                     if ($conversation) { ?>
-                        <img src="/uploads/avatars/<?= $otherUser->getAvatar() ?>" alt="" class="mediumAvatar">
-                        <p><?= $otherUser->getPseudo() ?></p>
-                        <?php foreach ($messages as $message) {
+                        <img src="/uploads/avatars/<?= $otherUserAvatar ?>" alt="" class="mediumAvatar">
+        <p><?= $otherUserPseudo ?></p>
+        <?php foreach ($messages as $message) {
                             if ($message->getSenderId() != $_SESSION['user']['id']) { ?>
-                                <img src="/uploads/avatars/<?= $conversation->otherUser->getAvatar() ?>" alt="" class="smallAvatar">
-                    <p class="messageOtherUser">
-                        <?= $message->getCreatedAt()->format('H:i') ?>
-                        <?php echo $message->getContent(); ?> <br>
-                    <?php } else { ?>
-                    <p class="messageCurrentUser">
-                        <?= $message->getCreatedAt()->format('H:i') ?>
-                        <?php echo $message->getContent(); ?>
-                    </p>
-                <?php } ?>
+                <img src="/uploads/avatars/<?= $conversation->otherUser->getAvatar() ?>" alt="" class="smallAvatar">
+                <p class="messageOtherUser">
+                    <?= $message->getCreatedAt()->format('H:i') ?>
+                    <?php echo $message->getContent(); ?> <br>
+                <?php } else { ?>
+                <p class="messageCurrentUser">
+                    <?= $message->getCreatedAt()->format('H:i') ?>
+                    <?php echo $message->getContent(); ?>
+                </p>
+            <?php } ?>
 
-            <?php };
+    <?php };
                     }
-?>
-<form action="index.php?action=sendMessage" method="POST">
-    <input type="hidden" name="otherUserId" value="<?= $otherUserId ?>">
-    <input name="content" placeholder="Tapez votre message ici"></input>
-    <button type="submit">Envoyer</button>
-</form>
+    ?>
+    <form action="index.php?action=sendMessage" method="POST">
+        <input type="hidden" name="otherUserId" value="<?= $otherUserId ?>">
+        <input name="content" placeholder="Tapez votre message ici"></input>
+        <button type="submit">Envoyer</button>
+    </form>
 <?php }
             else: { ?>
     <p>Pas de message à afficher. <br>

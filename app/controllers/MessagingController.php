@@ -67,12 +67,17 @@ class MessagingController
         $messages = $this->messagesRepository->getMessagesByConversationId($conversation->getId());
         $this->messagesRepository->markMessagesAsRead($conversation->getId(), $currentUserId);
 
+        $otherUserAvatar = $this->userRepository->getUserById($_GET['user2_id'])->getAvatar();
+        $otherUserPseudo = $this->userRepository->getUserById($_GET['user2_id'])->getPseudo();
+
         foreach ($conversations as $conversation) {
             $lastMessage = $this->messagesRepository->getLastMessageByConversationId($conversation->getId());
             $otherUserId = ($conversation->getUser1Id() == $currentUserId) ? $conversation->getUser2Id() : $conversation->getUser1Id();
             $otherUser = $this->userRepository->getUserById($otherUserId);
             $conversation->lastMessage = $lastMessage;
             $conversation->otherUser = $otherUser;
+            $conversation->otherUserAvatar = $otherUserAvatar;
+            $conversation->otherUserPseudo = $otherUserPseudo;
         }
 
         $title = "Tom Troc - Messagerie";
