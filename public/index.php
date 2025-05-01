@@ -35,6 +35,10 @@ function isAdmin(){
     return (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN');
 }
 
+if(!$requestAction) {
+    header("Location: index.php?action=home");
+}
+
 switch ($requestAction) {
     // Public access
     case '':
@@ -66,6 +70,14 @@ switch ($requestAction) {
         $controller = new UserController();
         $controller->showUser();
         break;
+    case 'error401':
+        $controller = new MainController();
+        $controller->error401();
+        break;
+    case 'deniedAccess' :
+        $controller = new AdminController();
+        $controller->deniedAccess();
+        break;
 
     // Private access
     case 'privateProfile':
@@ -73,7 +85,7 @@ switch ($requestAction) {
             $controller = new UserController();
             $controller->index();
         } else {
-            Utils::redirect('login');
+            Utils::redirect('error401');
         }
         break;
     case 'addBook':
@@ -81,7 +93,7 @@ switch ($requestAction) {
             $controller = new BooksController();
             $controller->addBook();
         } else {
-            Utils::redirect('login');
+            Utils::redirect('error401');
         }
         break;
     case 'updateBook':
@@ -89,31 +101,39 @@ switch ($requestAction) {
             $controller = new BooksController();
             $controller->updateBook();
         } else {
-            Utils::redirect('login');
+            Utils::redirect('error401');
         }
         break;
     case 'deleteBook':
         if (isAuthenticated()){
             $controller = new BooksController();
             $controller->deleteBook();
+        } else {
+            Utils::redirect('error401');
         }
         break;
     case 'updateUser':
         if (isAuthenticated()){
             $controller = new UserController();
             $controller->updateUser();
+        } else {
+            Utils::redirect('error401');
         }
         break;
     case 'messages':
         if (isAuthenticated()){
             $controller = new MessagingController();
             $controller->getMessages();
+        } else {
+            Utils::redirect('error401');
         }
         break;
     case 'sendMessage' :
         if (isAuthenticated()){
             $controller = new MessagingController();
             $controller->sendMessage();
+        } else {
+            Utils::redirect('error401');
         }
         break;
 
@@ -122,6 +142,8 @@ switch ($requestAction) {
         if (isAdmin()){
             $controller = new AdminController();
             $controller->index();
+        } else {
+            Utils::redirect('deniedAccess');
         }
         break;
     default:
