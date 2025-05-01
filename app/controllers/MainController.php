@@ -37,4 +37,13 @@ class MainController
         $content = ob_get_clean();
         require __DIR__ . '../../views/layout.php';
     }
+
+    public function error401()
+    {
+        $title = "Accès refusé";
+        ob_start();
+        require __DIR__ . '../../views/templates/error401.php';
+        $content = ob_get_clean();
+        require __DIR__ . '../../views/layout.php';
+    }
 }

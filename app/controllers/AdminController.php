@@ -12,4 +12,12 @@ class AdminController
         $content = ob_get_clean();
         require __DIR__ . '../../views/layout.php';
     }
+
+    public function deniedAccess(){
+        $title = "Accès refusé";
+        ob_start();
+        require __DIR__ . '../../views/templates/deniedAccess.php';
+        $content = ob_get_clean();
+        require __DIR__ . '../../views/layout.php';
+    }
 }
