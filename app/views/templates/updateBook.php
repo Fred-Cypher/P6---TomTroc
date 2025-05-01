@@ -36,7 +36,7 @@
                 </select>
             </p>
             <p>
-                <button class="submit">Valider</button>
+                <button class="button">Valider</button>
             </p>
         </article>
     </section>

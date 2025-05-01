@@ -49,7 +49,7 @@
     <form action="index.php?action=sendMessage" method="POST">
         <input type="hidden" name="otherUserId" value="<?= $otherUserId ?>">
         <input name="content" placeholder="Tapez votre message ici"></input>
-        <button type="submit">Envoyer</button>
+        <button type="submit" class="button">Envoyer</button>
     </form>
 <?php }
             else: { ?>

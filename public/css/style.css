@@ -18,6 +18,7 @@
     --back: #FAF9F7;
     --update: #EDF2F6;
     --updateborder:#F0F0F0;
+    --available:#6DC541;
 }
 
 .link{
@@ -33,7 +34,7 @@
     font-family: "Playfair Display";
 }
 
-button{
+.button{
     background-color: var(--green);
     padding: 22px 38px;
     color: white;
@@ -41,8 +42,8 @@ button{
     font-size: 16px;
     border-radius: 10px;
     border: none;
-    margin-top: 30px;
 }
+
 
 /*** HEADER ***/
 
@@ -97,6 +98,12 @@ button{
     background-color: var(--softgrey);
 }
 
+.nolink{
+    font-weight: bold;
+    text-decoration: none;
+    pointer-events: none;
+}
+
 /*** MAIN ***/
 .main{
     border: 1px blue solid;
@@ -128,11 +135,15 @@ button{
 
 /*** ACCUEIL ***/
 
+.homeButton{
+    margin-top: 50px;
+    background-color: transparent;
+}
+
 .presentation{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: center;
     padding: 80px 30px 80px 30px;
     background-color: var(--softgrey);
 }
@@ -142,6 +153,7 @@ button{
     height: 95px;
     padding: 0 25px;
     background-color: var(--softgrey);
+    padding-top: 150px;
 }
 
 .presentationTitle{
@@ -178,7 +190,7 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 702px;
+    height: 670px;
     background-color: var(--back);
 }
 
@@ -186,6 +198,7 @@ button{
     font-size: 32px;
     font-family: "Playfair Display";
     font-weight: 400;
+    margin-bottom: 50px;
 }
 
 .lastBooksCards{
@@ -260,6 +273,12 @@ button{
     border: 1px solid var(--green);
 }
 
+.lightButton:hover{
+    background-color: var(--darkgreen);
+    color: white;
+    border: 1px solid var(--darkgreen);
+}
+
 .pictureValues{
     width: 100%;
     height: 230px;
@@ -291,7 +310,7 @@ button{
     background-color: var(--softgrey);
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 40px;
     border: #00AC66 1px solid;
 }
 
@@ -303,8 +322,16 @@ button{
     font-style: italic;
 }
 
-.sign img{
-    background-color: var(--softgrey);
+.signVector{
+    background-color: transparent;
+}
+
+.signVector img{
+    background-color: transparent;
+    margin-left: 400px;
+    margin-top: 80px;
+    width: 120px;
+    height: 102px;
 }
 
 /*** IMAGES ***/
@@ -359,14 +386,125 @@ button{
     font-weight: bold;
 }
 
+.updateLabelInput{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 /*** PROFIL ***/
 
-.profileForm input{
-    background-color: var(--update);
+.profile{
+    width: 1135px;
+    margin: auto;
+}
+
+.profileDetail{
+    display: flex;
+    width: 1135px;
+    height: 508px;
+    margin: auto;
+    background-color: var(--softgrey);
+    border: 1px solid blue;
+}
+
+.profileTitle{
+    font-size: 26px;
+    font-weight: 400;
+    background-color: var(--softgrey);
+    margin-left: 150px;
+}
+
+.profileDefinition{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 547px;
+    height: 508px;
+    border-radius: 20px;
+}
+
+.profileAvatar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 254px;
+    border-bottom: 1px solid var(--softgrey);
+}
+
+.profileBlockText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 114px;
+}
+
+.profilePseudo{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.memberSince{
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--textgrey);
+    margin-top: 10px;
+}
+
+.bibliotheque{
+    font-size: 8px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.booksNumber{
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.booksNumber img{
+    height: 13px;
+}
+
+.profileData{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 555px;
+    height: 508px;
+    border-radius: 20px;
+    margin-left: 33px;
+}
+
+.profileDataTitle{
+    margin: 30px 0 0 115px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.profileUpdateForm{
+    margin: auto;
     width: 322px;
+    height: 300px;
+}
+
+.updateUserLabel{
+    font-size: 14px;
+    color: var(--textgrey);
+    font-weight: 400;
+}
+
+.updateUserInput{
+    background-color: var(--update);
     height: 50px;
     border-radius: 6px;
     border: 1px solid var(--updateborder);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 20px;
 }
 
 .placeholderPwd{
@@ -375,36 +513,160 @@ button{
     font-size: 14px;
 }
 
+.buttonUserUpdate{
+    margin: 0 0 30px 115px;
+}
+
+.profileBooks{
+    width: 100%;
+    border: 1px solid black;
+    width: 1140px;
+    margin: auto;
+    margin-top: 33px;
+    border-radius: 20px;
+}
 
 /*** TABLEAUX ***/
 .profileTable{
-    width: 100%;
-    border: 1px solid black;
+    border-radius: 20px;
 }
 
-.tableContainer{    
-    height: 100px;
+.profileThead{
+    height: 60px;
+    font-size: 8px;
+    font-weight: 600;
+    color: var(--darkgrey);
+}
+
+.tableContainer{
+    height: 130px;
     display: flex;
     align-items: center;
-    padding: 15px;
+    color: var(--darkgrey);
+    font-size: 12px;
+    font-weight: 400;
+    background-color: transparent;
+}
+
+.tableTitlePicture{
+    width: 150px;
+    padding-left: 60px;
+    text-align: left;
+    background-color: transparent;
+    border-top-left-radius: 20px;
+}
+
+.tablePicture{
+    width: 150px;
+    padding-left: 60px;
+    text-align: left;
+    background-color: transparent;
+}
+
+.tableTitle{
+    width: 181px;
+    padding-left: 10px;
+    text-align: left;
+    background-color: transparent;
+}
+
+.tableAuthor{
+    width: 175px;
+    padding-left: 10px;
+    text-align: left;
+    background-color: transparent;
+}
+
+.tableDescription{
+    width: 213px;
+    padding-left: 10px;
+    text-align: left;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.tableComment{
+    width: 180px;
+    height: auto;
+    font-style: italic;
+    background-color: transparent;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 30px;
+}
+
+.tableAvailability{
+    width: 110px;
+    text-align: left;
+    padding-left: 30px;
+    background-color: transparent;
+}
+
+.tableTitleActions{
+    width: 200px;
+    padding-left: 20px;
+    text-align: left;
+    background-color: transparent;
+    border-top-right-radius: 20px;
+}
+
+.tableActions{
+    width: 200px;
+    padding-left: 20px;
+    text-align: left;
+    background-color: transparent;
 }
 
 .booksTable tr:nth-child(even){
     background-color: var(--softgrey);
 }
 
+.booksTable tr:last-child .tablePicture{
+    border-end-start-radius: 20px;
+}
+
+.booksTable tr:last-child .tableActions{
+    border-end-end-radius: 20px;
+}
+
 .available{
-    background-color: var(--green);
-    color: var(--softgrey);
-    padding: 3px 10px;
+    background-color: var(--available);
+    color: white;
+    padding: 4px 13px 0 15px;
     border-radius: 15px;
+    font-size: 9px;
+    font-weight: 500;
+    width: 50px;
+    height: 15px;
 }
 
 .unavailable{
     background-color: var(--red);
     color: var(--softgrey);
-    padding: 3px 10px;
+    padding: 4px 13px 0 15px;
     border-radius: 15px;
+    font-size: 9px;
+    font-weight: 500;
+    width: 50px;
+    height: 15px;
+}
+
+.tableEdit{
+    color:#292929;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.tableDelete{
+    color:red;
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: underline;
+    margin-left: 30px;
 }
 
 /*** CARTES LIVRE***/
@@ -441,10 +703,11 @@ button{
     /*width: 20%;*/
     height: 324px;
     background-color: white;
-    border : 1px solid rebeccapurple;
+    /*border : 1px solid rebeccapurple;*/
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     margin: 0 15px 30px;
+    box-shadow: 0 4px 24px 0 #00000003;
 }
 
 .bookInformation{
@@ -482,19 +745,19 @@ button{
     display:inline-block;
 }
 
-.badgeDispo{
+.badgeNonDispo{
     position: absolute;
     /*right: 10px;*/
     top: 16px;
-    left: 95px;
-    background: var(--red);
-    text-align: center;
-    border-radius: 30px;
-    color: white;
-    padding: 4px 10px;
+    left: 116px;
+    background-color: var(--red);
+    color: var(--softgrey);
+    padding: 4px 13px 0 15px;
+    border-radius: 15px;
     font-size: 9px;
-    width: 71px;
-    height: 18px;
+    font-weight: 500;
+    width: 50px;
+    height: 15px;
 }
 
 /*** RECHERCHE ***/
@@ -502,7 +765,9 @@ button{
 .exchangeSearch{
     position: relative;
     display: flex;
-    left: 380px;
+    left: 350px;
+    background-color: transparent;
+    width: 322px;
 }
 
 .inputSearch{
@@ -510,7 +775,7 @@ button{
     justify-self: flex-end;
     padding-left: 40px;
     border-radius: 10px;
-    border: none;
+    border: 1px solid var(--updateborder);
     height: 35px;
     width: 300px;
     color: var(--textgrey);
@@ -524,6 +789,10 @@ button{
     left: 10px; 
     top: 50%; 
     transform: translateY(-50%);
+}
+
+.loupe-button{
+    border: none;
 }
 
 /*** PAGE LIVRE ***/
@@ -613,23 +882,51 @@ button{
     text-align: right;
 }
 
+.messagingLink{
+    position: relative;
+    display:inline-block;
+}
+
+.badgeCount{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 19px;
+    right: 405px;
+    width: 10px;
+    height: 15px;
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--softgrey);
+    background-color: var(--darkgrey);
+    border-radius: 7px;
+}
+
 /*** INSCRIPTION/CONNEXION ***/
 
 .authentication{
     display: flex;
     flex-direction: row;
     background-color: var(--softgrey);
+    text-align: left;
 }
 
 .authenticationText{
     display: flex;
     flex-direction: column;
-    margin: auto;
-    width: 25%;
+    margin : 130px 220px 130px 130px;
+    width: 50%;
+    background-color: var(--softgrey);
+    border: 1px solid green;
 }
 
 .authenticationTitle{
     background-color: var(--softgrey);
+    font-size: 36px;
+    font-weight: 400;
+    font-family: "Playfair Display";
+    padding-bottom: 50px;
 }
 
 .authenticationForm{
@@ -641,17 +938,23 @@ button{
 .authenticationLabel{
     color: var(--textgrey);
     background-color: var(--softgrey);
+    font-size: 14px;
+    padding-bottom: 15px;
 }
 
 .authenticationInput{
-    border-radius: 5px;
-    border: none;
-    height: 30px;
+    border-radius: 6px;
+    border: 1px solid var(--updateborder);
+    height: 50px;
+    margin-bottom: 30px;
 }
 
 .authenticationQuestion{
+    display: flex;
     padding-top: 30px;
     background-color: var(--softgrey);
+    text-align: left;
+    font-size: 14px;
 }
 
 .authenticationQuestion a{
@@ -659,8 +962,12 @@ button{
     text-decoration: none;
     text-decoration-line: underline;
     color: black;
+    padding-left: 5px;
 }
 
+.authenticationIllustration{
+    width: 50%;
+}
 .authenticationPicture{
     width: 720px;
     height: auto;

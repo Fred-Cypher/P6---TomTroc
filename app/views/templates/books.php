@@ -3,7 +3,7 @@
     <form action="index.php" method="get" class="exchangeSearch">
         <input type="hidden" name="action" value="books">
         <input type="search" placeholder="Rechercher un livre" class="inputSearch" name="search">
-        <button type="submit" class="loupe-button">
+        <button type="submit" class="loupe-button" >
             <img src="/images/loupe.svg" alt="" class="loupe">
         </button>
     </form>
@@ -16,7 +16,7 @@
             <a href="index.php?action=detailBook&id=<?= $book->getId() ?>" class="cardLink">
                 <p class="itemImage">
                     <?php if (!$book->getAvailability()): ?>
-                        <span class="badgeDispo">non dispo.</span>
+                        <span class="badgeNonDispo">non dispo.</span>
                     <?php endif ?>
                     <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="mediumCover">
                 </p>

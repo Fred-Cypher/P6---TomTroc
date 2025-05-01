@@ -2,99 +2,110 @@
 
 use App\services\Utils;
 ?>
-<h2 class="title">Mon compte</h2>
+<h2 class="title profileTitle">Mon compte</h2>
 
-<section style="display:flex">
+<section class="profile">
     <form action="index.php?action=updateUser" method="post" enctype="multipart/form-data" class="profileForm">
-        <article>
-            <p>
-                <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar" id="avatarPreview">
-            </p>
-            <p>
-                <label for="avatar" class="labelUpdate">Modifier</label>
-                <input type="file" name="avatar" id="avatar" class="inputUpdate" onchange="previewImage(event)">
-            </p>
-            <p>Membre depuis <?= $registeredSince ?></p>
-            <p>BIBLIOTHEQUE</p>
-            <p>
-                <img src="/images/vector.svg" alt="">
-                <?php if ($count < 2) {
-                    echo $count ?> livre <?php
-                    } else {
-                        echo $count ?> livres <?php
-                    } 
-                ?>
-            </p>
-        </article>
-        <article>
-            <p>Vos informations personnelles</p>
-            <input type="hidden" name="id" id="id" value="<?= $user->getId() ?>">
-            <p>
-                <label for="email">Adresse email</label>
-                <input type="text" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>">
-            </p>
-            <p>
-                <label for="">Mot de passe</label>
-                <input type="password" id="password" name="password" placeholder="•••••••••" class="placeholderPwd">
-            </p>
-            <p>
-                <label for="">Pseudo</label>
-                <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>">
-            </p>
-            <p>
-                <button class="submit lightButton">Enregistrer</button>
-            </p>
-        </article>
+        <div class="profileDetail">
+            <article class="profileDefinition">
+                <div class="profileAvatar">
+                    <div>
+                        <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar" id="avatarPreview">
+                    </div>
+                    <div>
+                        <label for="avatar" class="labelUpdate">Modifier</label>
+                        <input type="file" name="avatar" id="avatar" class="inputUpdate" onchange="previewImage(event)">
+                    </div>
+                </div>
+                <div class="profileBlockText">
+                    <p class="profilePseudo"><?= htmlspecialchars($user->getPseudo()) ?></p>
+                    <p class="memberSince">Membre depuis <?= $registeredSince ?></p>
+                    <div>
+                        <p class="bibliotheque">BIBLIOTHEQUE</p>
+                        <p class="booksNumber">
+                            <img src="/images/vector.svg" alt="">
+                            <?php if ($count < 2) {
+                                echo $count ?> livre <?php
+                                                    } else {
+                                                        echo $count ?> livres <?php
+                                                                            }
+                                                                                ?>
+                        </p>
+                    </div>
+                </div>
+            </article>
+            <article class="profileData">
+                <p class="profileDataTitle">Vos informations personnelles</p>
+                <div class="profileUpdateForm">
+                    <input type="hidden" name="id" id="id" value="<?= $user->getId() ?>">
+                    <p class="updateLabelInput">
+                        <label for="email" class="updateUserLabel">Adresse email</label>
+                        <input type="text" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" class="updateUserInput">
+                    </p>
+                    <p class="updateLabelInput">
+                        <label for="password" class="updateUserLabel">Mot de passe</label>
+                        <input type="password" id="password" name="password" placeholder="•••••••••" class="updateUserInput placeholderPwd">
+                    </p>
+                    <p class="updateLabelInput">
+                        <label for="pseudo" class="updateUserLabel">Pseudo</label>
+                        <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>" class="updateUserInput">
+                    </p>
+                </div>
+                <p class="buttonUserUpdate">
+                    <button class="button lightButton">Enregistrer</button>
+                </p>
+            </article>
+        </div>
     </form>
 </section>
-<section>
+<section class="profileBooks">
     <table class="profileTable">
-        <thead>
+        <thead class="profileThead">
             <tr>
-                <th>
-                    <div>PHOTO</div>
+                <th class="tableTitlePicture">
+                    PHOTO
                 </th>
-                <th>
-                    <div>TITRE</div>
+                <th class="tableTitle">
+                    TITRE
                 </th>
-                <th>
-                    <div>AUTEUR</div>
+                <th class="tableAuthor">
+                    AUTEUR
                 </th>
-                <th>
-                    <div>DESCRIPTION</div>
+                <th class="tableDescription">
+                    DESCRIPTION
                 </th>
-                <th>
-                    <div>DISPONIBILITE</div>
+                <th class="tableAvailability">
+                    DISPONIBILITE
                 </th>
-                <th>
-                    <div>ACTION</div>
+                <th class="tableTitleActions">
+                    ACTION
                 </th>
             </tr>
         </thead>
         <tbody class="booksTable">
-            <?php foreach ($books as $book): ?>
+            <?php foreach ($books as $index => $book): ?>
                 <tr>
-                    <td>
+                    <td class="tablePicture">
                         <div class="tableContainer">
                             <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="smallCover">
                         </div>
                     </td>
-                    <td>
+                    <td class="tableTitle">
                         <div class="tableContainer">
                             <?= htmlspecialchars($book->getTitle()) ?>
                         </div>
                     </td>
-                    <td>
+                    <td class="tableAuthor">
                         <div class="tableContainer">
                             <?= htmlspecialchars($book->getAuthor()) ?>
                         </div>
                     </td>
-                    <td>
-                        <div class="tableContainer">
-                            <?= Utils::format($book->getComment()) ?>
+                    <td class="tableDescription">
+                        <div class="tableContainer tableComment">
+                            <?= htmlspecialchars($book->getComment()) ?>
                         </div>
                     </td>
-                    <td>
+                    <td class="tableAvailability">
                         <div class="tableContainer">
                             <?php if ($book->getAvailability() == 1): ?>
                                 <span class="available">Disponible</span>
@@ -103,10 +114,10 @@ use App\services\Utils;
                             <?php endif; ?>
                         </div>
                     </td>
-                    <td>
+                    <td class="tableActions">
                         <div class="tableContainer">
-                            <a href="index.php?action=updateBook&id=<?= $book->getId() ?>">Editer </a>
-                            <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>">Supprimer</a>
+                            <a href="index.php?action=updateBook&id=<?= $book->getId() ?>" class="tableEdit">Éditer </a>
+                            <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" class="tableDelete">Supprimer</a>
                         </div>
                     </td>
                 </tr>

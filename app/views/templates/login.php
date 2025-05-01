@@ -11,7 +11,7 @@
             <input type="text" name="email" id="email" class="authenticationInput" required>
             <label for="password" class="authenticationLabel">Mot de passe</label>
             <input type="password" name="password" id="password" class="authenticationInput" required>
-            <button class="submit">Se connecter</button>
+            <button class="button">Se connecter</button>
         </form>
 
         <p class="authenticationQuestion">Pas de compte ? <a href="index.php?action=register">Inscrivez-vous</a></p>

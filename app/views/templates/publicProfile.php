@@ -22,7 +22,7 @@ use App\services\Utils;
         <p>
             <?php if ($userId != $_SESSION['user']['id']) { ?>
                 <a href="index.php?action=messages&user2_id=<?= $userId ?>">
-                    <button class="lightButton">Ecrire un message</button>
+                    <button class="button lightButton">Ecrire un message</button>
                 </a>
             <?php
             } ?>

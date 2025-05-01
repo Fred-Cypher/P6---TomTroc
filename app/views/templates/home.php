@@ -2,7 +2,11 @@
     <div class="textPresentation">
         <p class="presentationTitle">Rejoignez nos lecteurs passionnés</p>
         <p class="presentationContent">Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres. </p>
-        <button>Découvrir</button>
+        <p class="homeButton">
+            <a href="index.php?action=books">
+                <button class="button">Découvrir</button>
+            </a>
+        </p>
     </div>
     <div>
         <img src="/images/hamza-nouasria-KXrvPthkmYQ-unsplash1-1.png" alt="" class="picturePresentation">
@@ -30,10 +34,12 @@
             </div>
         <?php endforeach; ?>
     </div>
-    <button>Voir tous les livres</button>
+    <a href="index.php?action=books">
+        <button class="button">Voir tous les livres</button>
+    </a>
 </section>
 <section class="values">
-    <div class="operation"> 
+    <div class="operation">
         <div class="operationTitle">Comment ça marche ?</div>
         <span>Échanger des livres avec TomTroc c'est simple et amusant ! Suivez ces étapes pour commencer :</span>
         <div class="operationStickers">
@@ -59,7 +65,12 @@
                 </p>
             </div>
         </div>
-        <button class="lightButton">Voir tous les livres</button>
+        <p class="homeButton">
+            <a href="index.php?action=books">
+                <button class="lightButton button">Voir tous les livres</button>
+            </a>
+        </p>
+
     </div>
     <img src="/images/mask_group.png" alt="" class="pictureValues">
     <div class="textValues">
@@ -72,7 +83,9 @@
             Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter, de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les étagères.</p>
         <p class="sign">
             <span>L'équipe Tom Troc</span>
-            <img src="/images/vector2.svg" alt="">
         </p>
+    </div>
+    <div class="signVector">
+        <img src="/images/vector2.svg" alt="">
     </div>
 </section>

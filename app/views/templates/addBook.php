@@ -25,6 +25,6 @@
         </select>
     </p>
     <p>
-        <button class="submit">Enregistrer le livre</button>
+        <button class="submit" class="button">Enregistrer le livre</button>
     </p>
 </form>
