@@ -29,7 +29,7 @@
                 <?php
                 if (isset($_SESSION['user'])) { ?>
                     <a href="index.php?action=messages" <?= ($_GET['action'] === 'messages') ? 'class="nolink"' : 'class="link"' ?>>
-                        <p class="messaginglink">
+                        <p class="messagingLink">
                             <img src="/images/icon_messagerie.svg" alt="Messagerie">
                             Messagerie
                             <?php if (UNREAD_COUNT > 0): ?>
@@ -41,10 +41,12 @@
                         
                     </a>
                 <?php } else { ?>
-                    <a href="index.php?action=login" class="link">
-                        <img src="/images/icon_mon_compte.svg" alt="Mon compte">
-                        Messagerie
-                    </a>
+                    <p class="messagingLink">
+                        <a href="index.php?action=login" class="link">
+                            <img src="/images/icon_mon_compte.svg" alt="Mon compte">
+                            Messagerie
+                        </a>
+                    </p>
                 <?php } ?>
                 <?php
                 if (isset($_SESSION['user'])) { ?>

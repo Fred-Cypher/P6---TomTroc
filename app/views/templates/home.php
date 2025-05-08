@@ -21,7 +21,7 @@
                 <a href="index.php?action=detailBook&id=<?= $book->getId() ?>" class="cardLink">
                     <p class="itemImage">
                         <?php if (!$book->getAvailability()): ?>
-                            <span class="badgeDispo">non dispo.</span>
+                            <span class="badgeNonDispo">non dispo.</span>
                         <?php endif ?>
                         <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="mediumCover">
                     </p>

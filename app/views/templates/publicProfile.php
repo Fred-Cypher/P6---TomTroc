@@ -1,24 +1,23 @@
-<?php
-
-use App\services\Utils;
-
-?>
-<section>
-    <article>
-        <p>
+<section class="publicProfile">
+    <article class="publicProfileDetail">
+        <div class="profileAvatar">
             <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar" id="avatarPreview">
-        </p>
-        <p><?= Utils::format($user->getPseudo()) ?></p>
-        <p>Membre depuis <?= $registeredSince ?></p>
-        <p>BIBLIOTHEQUE</p>
-        <p>
-            <img src="/images/vector.svg" alt="">
-            <?php if ($count < 2) {
-                echo $count ?> livre <?php
-                } else {
-                    echo $count ?> livres <?php
-                } ?>
-        </p>
+        </div>
+        <p class="profilePseudo"><?= htmlspecialchars($user->getPseudo()) ?></p>
+        <p class="memberSince">Membre depuis <?= $registeredSince ?></p>
+
+        <div>
+            <p class="bibliotheque">BIBLIOTHEQUE</p>
+            <p class="booksNumber">
+                <img src="/images/vector.svg" alt="">
+                <?php if ($count < 2) {
+                    echo $count ?> livre <?php
+                                        } else {
+                                            echo $count ?> livres <?php
+                                                                } ?>
+            </p>
+        </div>
+
         <p>
             <?php if ($userId != $_SESSION['user']['id']) { ?>
                 <a href="index.php?action=messages&user2_id=<?= $userId ?>">
@@ -28,62 +27,40 @@ use App\services\Utils;
             } ?>
         </p>
     </article>
-</section>
-<section>
-    <table class="profileTable">
-        <thead>
-            <tr>
-                <th>
-                    <div>PHOTO</div>
-                </th>
-                <th>
-                    <div>TITRE</div>
-                </th>
-                <th>
-                    <div>AUTEUR</div>
-                </th>
-                <th>
-                    <div>DESCRIPTION</div>
-                </th>
-                <th>
-                    <div>DISPONIBILITE</div>
-                </th>
-            </tr>
-        </thead>
-        <tbody class="booksTable">
-            <?php foreach ($books as $book): ?>
-                <tr style="background-color: red">
-                    <td>
-                        <div class="tableContainer">
-                            <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="smallCover">
+    <article class="publicProfileBooks">
+        <div class="publicProfileTable">
+            <div class="profileThead">
+                <div class="tableTitlePicture">PHOTO</div>
+                <div class="tableTitle">TITRE</div>
+                <div class="tableAuthor">AUTEUR</div>
+                <div class="tableDescription">DESCRIPTION</div>
+            </div>
+            <div class="booksTable">
+                <?php foreach ($books as $book): ?>
+                    <div class="booksRow">
+                        <div class="tablePicture">
+                            <div class="tableContainer">
+                                <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="smallCover">
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="tableContainer">
-                            <?= Utils::format($book->getTitle()) ?>
+                        <div class="tableTitle">
+                            <div class="tableContainer">
+                                <?= htmlspecialchars($book->getTitle()) ?>
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="tableContainer">
-                            <?= Utils::format($book->getAuthor()) ?>
+                        <div class="tableAuthor">
+                            <div class="tableContainer">
+                                <?= htmlspecialchars($book->getAuthor()) ?>
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="tableContainer">
-                            <?= Utils::format($book->getComment()) ?>
+                        <div class="tableDescription">
+                            <div class="tableContainer tableComment">
+                                <?= htmlspecialchars($book->getComment()) ?>
+                            </div>
                         </div>
-                    </td>
-                    <td>
-                        <div class="tableContainer">
-                            <?php if ($book->getAvailability() == 1): ?>
-                                <span class="available">Disponible</span>
-                            <?php else: ?>
-                                <span class="unavailable">Non dispo.</span>
-                            <?php endif; ?>
-                        </div>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </article>
 </section>

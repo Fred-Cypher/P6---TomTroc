@@ -27,7 +27,7 @@ class Utils {
         $finalString = "";
         foreach ($lines as $line) {
             if (trim($line) != "") {
-                $finalString .= "<p>$line</p>";
+                $finalString .= "<p>$line</p><br>";
             }
         }
 

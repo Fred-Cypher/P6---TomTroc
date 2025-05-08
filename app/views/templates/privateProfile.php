@@ -1,7 +1,3 @@
-<?php
-
-use App\services\Utils;
-?>
 <h2 class="title profileTitle">Mon compte</h2>
 
 <section class="profile">
@@ -59,53 +55,51 @@ use App\services\Utils;
     </form>
 </section>
 <section class="profileBooks">
-    <table class="profileTable">
-        <thead class="profileThead">
-            <tr>
-                <th class="tableTitlePicture">
-                    PHOTO
-                </th>
-                <th class="tableTitle">
-                    TITRE
-                </th>
-                <th class="tableAuthor">
-                    AUTEUR
-                </th>
-                <th class="tableDescription">
-                    DESCRIPTION
-                </th>
-                <th class="tableAvailability">
-                    DISPONIBILITE
-                </th>
-                <th class="tableTitleActions">
-                    ACTION
-                </th>
-            </tr>
-        </thead>
-        <tbody class="booksTable">
+    <div class="profileTable">
+        <div class="profileThead">
+            <div class="tableTitlePicture">
+                PHOTO
+            </div>
+            <div class="tableTitle">
+                TITRE
+            </div>
+            <div class="tableAuthor">
+                AUTEUR
+            </div>
+            <div class="tableDescription">
+                DESCRIPTION
+            </div>
+            <div class="tableAvailability">
+                DISPONIBILITE
+            </div>
+            <div class="tableTitleActions">
+                ACTION
+            </div>
+        </div>
+        <div class="booksTable">
             <?php foreach ($books as $index => $book): ?>
-                <tr>
-                    <td class="tablePicture">
+                <div class="booksRow">
+                    <div class="tablePicture">
                         <div class="tableContainer">
                             <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="smallCover">
                         </div>
-                    </td>
-                    <td class="tableTitle">
+                    </div>
+                    <div class="tableTitle">
                         <div class="tableContainer">
                             <?= htmlspecialchars($book->getTitle()) ?>
                         </div>
-                    </td>
-                    <td class="tableAuthor">
+                    </div>
+                    <div class="tableAuthor">
                         <div class="tableContainer">
                             <?= htmlspecialchars($book->getAuthor()) ?>
                         </div>
-                    </td>
-                    <td class="tableDescription">
+                    </div>
+                    <div class="tableDescription">
                         <div class="tableContainer tableComment">
                             <?= htmlspecialchars($book->getComment()) ?>
                         </div>
-                    </td>
-                    <td class="tableAvailability">
+                    </div>
+                    <div class="tableAvailability">
                         <div class="tableContainer">
                             <?php if ($book->getAvailability() == 1): ?>
                                 <span class="available">Disponible</span>
@@ -113,18 +107,21 @@ use App\services\Utils;
                                 <span class="unavailable">Non dispo.</span>
                             <?php endif; ?>
                         </div>
-                    </td>
-                    <td class="tableActions">
+                    </div>
+                    <div class="tableActions">
                         <div class="tableContainer">
                             <a href="index.php?action=updateBook&id=<?= $book->getId() ?>" class="tableEdit">Éditer </a>
                             <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" class="tableDelete">Supprimer</a>
                         </div>
-                    </td>
-                </tr>
+                    </div>
+                </div>
             <?php endforeach; ?>
-        </tbody>
-    </table>
+        </div>
+    </div>
 </section>
+<a href="index.php?action=addBook" class="addNewBook">
+    <button class="button">Enregistrer un nouveau livre</button>
+</a>
 
 <script>
     function previewImage(event) {

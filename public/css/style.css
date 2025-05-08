@@ -21,9 +21,14 @@
     --available:#6DC541;
 }
 
+.body{
+    background-color: var(--back);
+}
+
 .link{
     text-decoration: none;
     color: var(--darkgrey);
+    background-color: transparent;
 }
 
 .cardLink{
@@ -41,7 +46,7 @@
     font-weight: 600;
     font-size: 16px;
     border-radius: 10px;
-    border: none;
+    border: 1px solid var(--green);
 }
 
 
@@ -84,7 +89,7 @@
 }
 
 .header a{
-    background-color: var(--softgrey);
+    background-color: transparent;
     font-size: 14px;
 }
 
@@ -102,6 +107,7 @@
     font-weight: bold;
     text-decoration: none;
     pointer-events: none;
+    background-color: transparent;
 }
 
 /*** MAIN ***/
@@ -109,6 +115,7 @@
     border: 1px blue solid;
     margin-bottom: 63px;
     width: 100%;
+    min-height: 80vh;
     margin-left: auto;
     margin-left: auto;
     background-color: var(--softgrey);
@@ -131,6 +138,9 @@
 .footerSpan{
     padding: 0 20px 0 20px;
     background-color: white;
+    color: var(--darkgrey);
+    font-size: 12px;
+    font-weight: 300;
 }
 
 /*** ACCUEIL ***/
@@ -273,7 +283,8 @@
     border: 1px solid var(--green);
 }
 
-.lightButton:hover{
+.lightButton:hover,
+.button:hover{
     background-color: var(--darkgreen);
     color: white;
     border: 1px solid var(--darkgreen);
@@ -352,6 +363,7 @@
     width: 488px;
     height: 488px;
     object-fit: cover;
+    margin-top: 15px;
 }
 
 .largeCover{
@@ -392,11 +404,54 @@
     width: 100%;
 }
 
+.profileUpdateForm{
+    margin: auto;
+    width: 322px;
+    height: 300px;
+}
+
+.updateUserLabel,
+.updateBookLabel{
+    font-size: 14px;
+    color: var(--textgrey);
+    font-weight: 400;
+}
+
+.updateUserInput{
+    background-color: var(--update);
+    color: var(--darkgrey);
+    height: 50px;
+    border-radius: 6px;
+    border: 1px solid var(--updateborder);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.placeholderPwd{
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.buttonUserUpdate{
+    margin: 0 0 30px 115px;
+}
+
 /*** PROFIL ***/
 
 .profile{
     width: 1135px;
     margin: auto;
+}
+
+.publicProfile{
+    width: 1135px;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
 }
 
 .profileDetail{
@@ -423,6 +478,17 @@
     justify-content: space-evenly;
     width: 547px;
     height: 508px;
+    border-radius: 20px;
+}
+
+.publicProfileDetail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 341px;
+    height: 580px;
     border-radius: 20px;
 }
 
@@ -485,57 +551,61 @@
     font-weight: 400;
 }
 
-.profileUpdateForm{
-    margin: auto;
-    width: 322px;
-    height: 300px;
-}
-
-.updateUserLabel{
-    font-size: 14px;
-    color: var(--textgrey);
-    font-weight: 400;
-}
-
-.updateUserInput{
-    background-color: var(--update);
-    height: 50px;
-    border-radius: 6px;
-    border: 1px solid var(--updateborder);
-    margin-top: 10px;
-    margin-bottom: 20px;
-    padding-left: 20px;
-}
-
-.placeholderPwd{
-    color: black;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.buttonUserUpdate{
-    margin: 0 0 30px 115px;
-}
-
 .profileBooks{
-    width: 100%;
-    border: 1px solid black;
     width: 1140px;
     margin: auto;
     margin-top: 33px;
+    margin-bottom: 30px;
     border-radius: 20px;
+}
+
+.publicProfileBooks{
+    display: flex;
+    width: 771px;
+    border-radius: 20px;
+    padding-left: 33px;
+    background-color: transparent;
+}
+
+.addNewBook{
+    margin-left: 150px;
+    margin-bottom: 30px;
 }
 
 /*** TABLEAUX ***/
 .profileTable{
+    display: flex;
+    flex-direction: column;
     border-radius: 20px;
 }
 
+.publicProfileTable{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
 .profileThead{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     height: 60px;
     font-size: 8px;
     font-weight: 600;
     color: var(--darkgrey);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.booksTable{
+    background-color: transparent;
+}
+
+.booksRow{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--softgrey)
 }
 
 .tableContainer{
@@ -592,10 +662,12 @@
     background-color: transparent;
     display: -webkit-box;
     -webkit-line-clamp: 4;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     padding-right: 30px;
+    padding-top: 35px;
 }
 
 .tableAvailability{
@@ -620,16 +692,14 @@
     background-color: transparent;
 }
 
-.booksTable tr:nth-child(even){
-    background-color: var(--softgrey);
+.booksTable .booksRow:nth-child(even){
+    background-color: var(--update);
 }
 
-.booksTable tr:last-child .tablePicture{
-    border-end-start-radius: 20px;
-}
-
-.booksTable tr:last-child .tableActions{
-    border-end-end-radius: 20px;
+.booksTable .booksRow:last-child{
+    border-bottom-left-radius: 20px; 
+    border-bottom-right-radius: 20px;
+    overflow: hidden
 }
 
 .available{
@@ -659,6 +729,7 @@
     font-size: 12px;
     font-weight: 400;
     text-decoration: underline;
+    background-color: transparent;
 }
 
 .tableDelete{
@@ -667,6 +738,7 @@
     font-weight: 400;
     text-decoration: underline;
     margin-left: 30px;
+    background-color: transparent;
 }
 
 /*** CARTES LIVRE***/
@@ -795,96 +867,458 @@
     border: none;
 }
 
+.return{
+    margin-top: 80px;
+    margin-left: 30px;
+    background-color: transparent;
+}
+
+.returnLink{
+    background-color: transparent;
+}
+
 /*** PAGE LIVRE ***/
+
+.filAriane{
+    font-size: 10px;
+    color: var(--textgrey);
+    font-weight: 300;
+    background-color: transparent;
+    padding-top: 15px;
+    padding-left: 140px;
+}
 
 .singleBook{
     display:flex;
+    margin-top: 10px;
+}
+
+.detailCover{
+    width: 720px;
+    height: auto;
 }
 
 .bookDescription{
-    padding: 20px;
+    width: 720px;
+    padding-top: 60px;
+    padding-left: 80px;
+}
+
+.detailTitle{
+    font-family: "Playfair Display";
+    font-size: 36px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.detailAuthor{
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--textgrey);
+}
+
+.detailLine{
+    margin-top: 30px;
+    width: 30px;
+}
+
+.detailDescription{
+    margin-top: 30px;
+    font-size: 8px;
+    color: var(--darkgrey);
+}
+
+.detailComment{
+    margin-top: 25px;
+    width: 485px;
+    height: 290px;
+    font-size: 14px;
+    overflow: auto;
+}
+
+.detailOwner{
+    margin-top: 30px;
+    font-size: 8px;
+    font-weight: 600;
+    color: var(--darkgrey)
 }
 
 .badgeUser{
     display: flex;
+    display: row;
     width: 157px;
-    height: 60px;
+    height: 50px;
     background-color: white;
     padding: 6px 17px 6px 6px;
     border-radius: 50px;
     align-items: center;
+    margin-top: 30px;
 }
 
-.badgeUser span{
-    margin-left: 10px;
+.badgeUser img,
+.badgeUser a{
     background-color: white;
+}
+.badgeUser p{
+    margin-left: 15px;
+    background-color: white;
+}
+
+.detailButton{
+    margin-top: 70px;
+    width: 485px;
 }
 
 /*** MODIFICATION LIVRE ***/
 
-.updateBook{
-    display: flex;
+.requiredField{
+    width: 100%;
+    font-size: 10px;
+    color: var(--textgrey);
+    text-align: right;
 }
 
-.inputUpdate{
+.return{
+    margin-left: 150px;
+    margin-top: 40px;
+}
+
+.returnLink{
+    font-size: 14px;
+    color: var(--textgrey);
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.updateBookTitle,
+.newBookTitle{
+    margin: 30px 150px;
+    background-color: transparent;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.updateBook,
+.newBook{
+    display: flex;
+    width: 1135px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+.updateBookForm,
+.newBookForm{
+    border-radius: 20px;
+    width: 1135px;
+}
+
+.updateBookCard,
+.newBookCard{
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.updateBookPicture,
+.newBookPicture{
+    width: 488px;
+}
+
+.updateCoverLink,
+.newBookLink{
+    margin-top: 20px;
+    text-align: end;
+}
+
+.inputUpdate,
+.inputNew{
     display:none;
 }
 
-.labelUpdate{
+.labelUpdate,
+.labelNew{
     text-decoration: underline;
 }
 
-.descriptionUpdate{
-    padding: 20px;
-}
-
-.formUpdateBook{
+.descriptionUpdate,
+.descriptionNew{
+    width: 435px;
+    margin: auto;
+    margin-top: 8px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.formUpdateBook label{
+.formUpdateBook,
+.formNewBook{
+    display: flex;
+    flex-direction: column;
+    width: 435px;
+    margin-bottom: 30px;
+}
+
+.updateBookLabel,
+.newBookLabel{
     color : var(--textgrey);
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
-.formUpdateBook input, 
-.formUpdateBook textarea,
-.formUpdateBook select{
+.updateInput,
+.newInput{
+    color: var(--darkgrey);
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    width: 435px;
+    border-radius: 6px;
+    border: 1px solid var(--updateborder);
     background-color: var(--update);
-    border: solid 1px var(--updateborder);
+    padding: 0 15px;
+}
+
+.updateBookTextarea,
+.newBookTextarea{
+    height: 356px;
+    width: 435px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--updateborder);
+    background-color: var(--update);
+}
+
+.updateBookSelect,
+.newBookSelect{
+    width: 465px;
+    background-color: var(--update);
+}
+
+.updateBookButton,
+.newBookButton{
+    display: flex;
+    align-content: left;
+    width: 435px;
+}
+
+.updateBookButton .button{
+    width: 320px;
 }
 
 /*** MESSAGERIE ***/
 .messaging{
     display: flex;
     flex-direction: row;
+    background-color: var(--softgrey);
 }
 
 .thread{
     display: flex;
     flex-direction: column;
     background-color: var(--back);
-    width: 25%;
+    width: 308px;
+    min-height: 80vh;
+    margin-left: 150px;
+}
+
+.messagingTitle{
+    font-size: 26px;
+    font-weight: 400;
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.threadBadge{
+    width: 100%;
+    height: 84px;
+    padding: 20px 30px;
+}
+
+.threadBadge a{
+    text-decoration: none;
+}
+
+.conversationBadge{
+    display: flex;
+    flex-direction: row;
 }
 
 .conversation{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow: hidden;
+    padding-left: 10px;
+}
+
+.conversationDetail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 160px;
+    color: var(--darkgrey);
+    }
+
+.conversationPseudo{
+    font-size: 14px;
+    font-weight: 400;
+    align-self: right;
+}
+
+.conversationHour{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.conversationLastMessage{
+    font-size: 12px;
+    font-weight: 400;
+    width: 160px;
+    color: var(--textgrey);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.noConversation{
+    padding: 30px 20px;
+}
+
+.messages{
     display: flex;
     flex-direction: column;
     background-color: var(--softgrey);
     width: 75%;
 }
 
+.messageDisplay{
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 35px;
+    background-color: transparent;
+}
+
+.messagesHeader{
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+.messagePseudo{
+    margin-left: 10px;
+    background-color: transparent;
+    color: var(--darkgrey);
+}
+
+.noMessage{
+    display: flex;
+    line-height: 50px;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 100px;
+    padding: 50px;
+    font-size: 20px;
+    height: 100px;
+    background-color: transparent;
+}
+
 .messageOtherUser{
+    display: flex;
+    flex-direction: column;
     text-align: left;
+    background-color: transparent;
 }
 
 .messageCurrentUser{
+    display: flex;
+    flex-direction: column;
     text-align: right;
+    background-color: transparent;
+}
+
+.allMessages{
+    background-color: transparent;
+}
+
+.messageHeader{
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    background-color: transparent;
+}
+
+.messageDate{
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--textgrey);
+    margin-left: 10px;
+    background-color: transparent;
+}
+
+.messageContentOther{
+    border-radius: 3px;
+    padding: 10px 20px;
+    width: 500px;
+    font-size: 12px;
+    color: var(--darkgrey);
+    background-color: white;
+}
+
+.messageContentCurrent{
+    margin-top: 10px;
+    margin-left: 420px;
+    border-radius: 3px;
+    padding: 10px 20px;
+    font-size: 12px;
+    color: var(--darkgrey);
+    background-color: var(--update);
+}
+
+.sendMessage{
+    width: 100%;
+    background-color: transparent;
+    margin-top : 30px;
+    height: 50px;
+}
+
+.messageInput{
+    height: 50px;
+    background-color: white;
+    border: 1px solid var(--updateborder);
+    border-radius: 6px;
+    padding-left: 50px;
+    color: var(--textgrey);
+    font-size: 14px;
+    width: 620px;
+}
+
+.sendMessageButton{
+    background-color: var(--green);
+    padding: 15px 40px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--green);
+    margin-left: 30px;
 }
 
 .messagingLink{
     position: relative;
     display:inline-block;
+    background-color: transparent;
 }
 
 .badgeCount{
@@ -972,4 +1406,38 @@
     width: 720px;
     height: auto;
     object-fit: cover;
+}
+
+/*** ADMINISTRATION  / ERREURS***/
+.administationPage,
+.errorPage{
+    margin: auto;
+    padding: 100px;
+}
+
+.adminTitle,
+.errorTitle{
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.adminProject,
+.errorMessage{
+    margin-top: 150px;
+}
+
+.denied{
+    font-weight: 500;
+    color:crimson;
+    text-decoration: underline;
+}
+
+.errorButtons{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.errorButtons a{
+    margin-left: 50px;
 }

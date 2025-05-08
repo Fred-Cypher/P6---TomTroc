@@ -3,9 +3,9 @@
 use App\services\Utils;
 
 ?>
-<span>Nos livres > <?= Utils::format($book->getTitle()) ?> </span>
+<p class="filAriane">Nos livres > <?= htmlspecialchars($book->getTitle()) ?> </p>
 <section class="singleBook">
-    <article>
+    <article class="detailCover">
         <?php if (htmlspecialchars($book->getCover())): ?>
             <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="largeCover">
         <?php else: ?>
@@ -13,29 +13,29 @@ use App\services\Utils;
         <?php endif ?>
     </article>
     <article class="bookDescription">
-        <h2><?= Utils::format($book->getTitle()) ?></h2>
-        <p><?= Utils::format($book->getAuthor()) ?></p>
-        <div>DESCRIPTION</div>
-        <p>
-            <?= Utils::format($book->getComment()) ?>
+        <h2 class="detailTitle"><?= htmlspecialchars($book->getTitle()) ?></h2>
+        <p class="detailAuthor">par <?= htmlspecialchars($book->getAuthor()) ?></p>
+        <hr class="detailLine">
+        <div class="detailDescription">DESCRIPTION</div>
+        <p class="detailComment">
+            <?= nl2br(htmlspecialchars($book->getComment())) ?>
         </p>
         <p>
-        <div>PROPRIÉTAIRE</div>
-        <div class="badgeUser">
-            <a href="index.php?action=publicProfile&id=<?= $book->getUserId() ?>">
+        <div class="detailOwner">PROPRIÉTAIRE</div>
+        <div>
+            <a href="index.php?action=publicProfile&id=<?= $book->getUserId() ?>" class="badgeUser link">
                 <img src="/uploads/avatars/<?= htmlspecialchars($book->getUserAvatar()) ?>" alt="" class="mediumAvatar">
-                <span><?= Utils::format($book->getUserPseudo()) ?></span>
+                <p><?= htmlspecialchars($book->getUserPseudo()) ?></p>
             </a>
         </div>
         </p>
-        <p>
+        <div>
             <?php if ($book->getUserId() != $_SESSION['user']['id']) { ?>
-                <a href="index.php?action=messages&user2_id=<?= $book->getUserId() ?>">
-                    <button class="button">Envoyer un message</button>
+                <a href="index.php?action=messages&user2_id=<?= $book->getUserId() ?>" class="detailSendMessage">
+                    <button class="button detailButton">Envoyer un message</button>
                 </a>
             <?php
             } ?>
-
-        </p>
+        </div>
     </article>
 </section>

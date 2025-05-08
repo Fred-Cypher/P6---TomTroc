@@ -3,11 +3,20 @@
     <form action="index.php" method="get" class="exchangeSearch">
         <input type="hidden" name="action" value="books">
         <input type="search" placeholder="Rechercher un livre" class="inputSearch" name="search">
-        <button type="submit" class="loupe-button" >
+        <button type="submit" class="loupe-button">
             <img src="/images/loupe.svg" alt="" class="loupe">
         </button>
+        
     </form>
-    
+    <!--<p class="return">
+        <?php if ($_GET['search']) { ?>
+            <a href=" index.php?action=books" class="link returnLink">Retour à la page des livres à l'échange</a>
+        <?php } else {
+            echo "";
+        }?>
+    </p>
+    <a href="index.php?action=home" <?= ($_GET['action'] === 'home') ? 'class="nolink"' : 'class="link"' ?>>Accueil</a>-->
+
 </section>
 <section class="exchangeBooks">
 
