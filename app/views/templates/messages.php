@@ -76,7 +76,7 @@
                 <?php };
             } ?>
             <form action="index.php?action=sendMessage" method="POST" class="sendMessage">
-                <input type="hidden" name="otherUserId" value="<?= $otherUserId ?>">
+                <input type="hidden" name="otherUserId" value="<?= $_REQUEST['user2_id'] ?? '' ?>">
                 <input name="content" placeholder="Tapez votre message ici" class="messageInput"></input>
                 <button type="submit" class="sendMessageButton">Envoyer</button>
             </form>
