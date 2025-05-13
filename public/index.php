@@ -15,7 +15,8 @@ $db = require '../config/config.php';
 $requestAction = Utils::request('action');
 $searchTerm = Utils::request('search');
 
-function defineUnreadCount($db){
+function defineUnreadCount($db): void
+{
     if (isset($_SESSION['user']['id'])){
         $messagesRepository = new MessagesRepository($db);
         $unreadCount = $messagesRepository->countUnreadMessages($_SESSION['user']['id']);
@@ -27,11 +28,13 @@ function defineUnreadCount($db){
 
 defineUnreadCount($db);
 
-function isAuthenticated(){
+function isAuthenticated(): bool
+{
     return isset($_SESSION['user']['id']);
 }
 
-function isAdmin(){
+function isAdmin(): bool
+{
     return (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN');
 }
 

@@ -10,24 +10,25 @@ use App\Models\UserRepository;
 use App\services\Utils;
 use DateTime;
 
-class MessagingController 
+class MessagingController
 {
-    private $conversationsRepository;
-    private $messagesRepository;
-    private $userRepository;
+    private ConversationsRepository $conversationsRepository;
+    private MessagesRepository $messagesRepository;
+    private UserRepository $userRepository;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->conversationsRepository = new ConversationsRepository;
         $this->messagesRepository = new MessagesRepository;
         $this->userRepository = new UserRepository;
     }
 
-    public function getMessages(?int $otherUserId = null)
+    public function getMessages(?int $otherUserId = null): void
     {
         $currentUserId = $_SESSION['user']['id'];
         $unreadCount = $this->messagesRepository->countUnreadMessages($_SESSION['user']['id']);
 
-        if(!isset($_REQUEST['user2_id'])) {
+        if (!isset($_REQUEST['user2_id'])) {
             $conversations = $this->conversationsRepository->getUserConversations($currentUserId);
 
             foreach ($conversations as $conversation) {
@@ -53,7 +54,7 @@ class MessagingController
         $userHash = $this->conversationsRepository->generateUsersHash($currentUserId, $otherUserId);
         $conversation = $this->conversationsRepository->findByHash($userHash);
 
-        if(!$conversation) {
+        if (!$conversation) {
             $conversation = new Conversation();
             $conversation->setUser1Id($currentUserId);
             $conversation->setUser2Id($otherUserId);
@@ -84,15 +85,14 @@ class MessagingController
         ob_start();
         require __DIR__ . '../../views/templates/messages.php';
         $content = ob_get_clean();
-        $unreadCount = $unreadCount ?? 0;
         require __DIR__ . '../../views/layout.php';
     }
 
-    public function sendMessage()
+    public function sendMessage(): void
     {
         $currentUserId = $_SESSION['user']['id'];
-        $otherUserId = (int) $_POST['otherUserId'];
-        $content = trim($_POST['content']); // A SECURISER ! 
+        $otherUserId = (int)$_POST['otherUserId'];
+        $content = strip_tags($_POST['content']);
 
         $userHash = $this->conversationsRepository->generateUsersHash($currentUserId, $otherUserId);
         $conversation = $this->conversationsRepository->findByHash($userHash);

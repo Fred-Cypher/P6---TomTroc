@@ -13,7 +13,7 @@ class MessagesRepository extends AbstractEntityManager
             'conversation_id' => $message->getConversationId(),
             'sender_id' => $message->getSenderId(),
             'content' => $message->getContent(),
-            'is_read' => (int) $message->getIsRead(),
+            'is_read' => (int)$message->getIsRead(),
             'created_at' => $message->getCreatedAt()->format('Y-m-d H:i:s'),
         ]);
     }
@@ -24,9 +24,8 @@ class MessagesRepository extends AbstractEntityManager
         $result = $this->db->query($sql, ['conversation_id' => $conversationId]);
         $messages = [];
 
-        while($messageData = $result->fetch()){
-            if (isset($messageData['created_at']))
-            {
+        while ($messageData = $result->fetch()) {
+            if (isset($messageData['created_at'])) {
                 $messageData['created_at'] = new DateTime($messageData['created_at']);
             }
             $messages[] = new Message($messageData);
@@ -60,7 +59,7 @@ class MessagesRepository extends AbstractEntityManager
         $result = $this->db->query($sql, ['userId' => $userId]);
         $data = $result->fetch();
 
-        return $data ? (int) $data['unread_count'] : 0;
+        return $data ? (int)$data['unread_count'] : 0;
     }
 
     public function markMessagesAsRead(int $conversationId, int $userId): void

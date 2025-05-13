@@ -1,8 +1,3 @@
-<?php
-
-use App\services\Utils;
-
-?>
 <p class="filAriane">Nos livres > <?= htmlspecialchars($book->getTitle()) ?> </p>
 <section class="singleBook">
     <article class="detailCover">
@@ -28,13 +23,12 @@ use App\services\Utils;
                 <p><?= htmlspecialchars($book->getUserPseudo()) ?></p>
             </a>
         </div>
-        </p>
         <div>
             <?php if ($book->getUserId() != $_SESSION['user']['id']) { ?>
                 <a href="index.php?action=messages&user2_id=<?= $book->getUserId() ?>" class="detailSendMessage">
                     <button class="button detailButton">Envoyer un message</button>
                 </a>
-            <?php
+                <?php
             } ?>
         </div>
     </article>

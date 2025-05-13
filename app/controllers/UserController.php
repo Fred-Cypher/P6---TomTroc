@@ -10,43 +10,45 @@ use App\services\Utils;
 use DateTime;
 use Exception;
 
-class UserController 
+class UserController
 {
-    private $userRepository;
-    private $booksRepository;
+    private UserRepository $userRepository;
+    private BooksRepository $booksRepository;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->userRepository = new UserRepository;
         $this->booksRepository = new BooksRepository;
     }
 
-    public function index()
+    public function index(): void
     {
         //Affiche le profil de l'utilisateur
-        if ($_SESSION['user']['pseudo']){
+        if ($_SESSION['user']['pseudo']) {
             $pseudo = $_SESSION['user']['pseudo'];
 
             $userRepository = new UserRepository();
             $user = $userRepository->getUserByPseudo($pseudo);
 
-            if ($user){
+            if ($user) {
                 $userId = $user->getId();
                 $books = $this->booksRepository->getBooksByUser($userId);
                 $count = $this->booksRepository->countBooksByUserId($userId);
                 $inscriptionDate = $user->getCreatedAt();
                 $registeredSince = $this->userRepository->getRegisteredSince($inscriptionDate);
-                
+
                 $title = "Tom Troc - Profil";
                 ob_start();
                 require __DIR__ . '../../views/templates/privateProfile.php';
                 $content = ob_get_clean();
                 require __DIR__ . '../../views/layout.php';
             } else {
-                $title = "Profil non trouvé";
+                /*$title = "Profil non trouvé";
                 ob_start();
                 require __DIR__ . '/../views/templates/error.php';
                 $content = ob_get_clean();
-                require __DIR__ . '/../views/layout.php';
+                require __DIR__ . '/../views/layout.php';*/
+                Utils::redirect('error', ['error' => 'notfound']);
             }
         } else {
             Utils::redirect('login');
@@ -57,8 +59,8 @@ class UserController
     {
         $message = '';
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-            try{
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            try {
                 $pseudo = Utils::request('pseudo');
                 $email = Utils::request('email');
                 $password = Utils::request('password');
@@ -67,17 +69,17 @@ class UserController
                 $createdAt = new DateTime();
                 $updatedAt = new DateTime();
 
-                if(empty($pseudo || $email || $password)){
+                if (empty($pseudo || $email || $password)) {
                     $message = "Tous les champs sont obligatoires";
                 } else {
                     $user = new User([
-                    'pseudo' => $pseudo,
-                    'email' => $email,
-                    'password' => $password,
-                    'avatar' => $avatar,
-                    'role' => $role,
-                    'created_at' => $createdAt,
-                    'updated_at' => $updatedAt
+                        'pseudo' => $pseudo,
+                        'email' => $email,
+                        'password' => $password,
+                        'avatar' => $avatar,
+                        'role' => $role,
+                        'created_at' => $createdAt,
+                        'updated_at' => $updatedAt
                     ]);
                     $this->userRepository->createUser($user);
 
@@ -99,7 +101,7 @@ class UserController
     {
         $message = '';
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Vérifier que le pseudo correspond au mot de passe et que l'utilisateur existe
             // On récupère les données du formulaire.
             $email = Utils::request("email");
@@ -111,13 +113,14 @@ class UserController
             } else {
                 $user = $this->userRepository->getUserByEmail($email);
                 if (!$user || !password_verify($password, $user->getPassword())) {
-                    $message = "Cet utilisateur n'existe pas. Veuillez vérifier vos identifiants";
+                    $message = "La connexion a échoué.
+                    Veuillez vérifier vos identifiants";
                 } else {
                     $_SESSION['user'] = [
                         'id' => $user->getId(),
                         'pseudo' => $user->getPseudo(),
-                        'role' => $user->getRole()                        
-                    ] ;
+                        'role' => $user->getRole()
+                    ];
 
                     Utils::redirect('home');
                 }
@@ -137,15 +140,15 @@ class UserController
         Utils::redirect('home');
     }
 
-    public function updateUser()
+    public function updateUser(): void
     {
         $id = Utils::request("id", -1);
 
-        try{
+        try {
             $userRepository = new UserRepository();
             $user = $userRepository->getUserById($id);
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $pseudo = Utils::request("pseudo");
                 $email = Utils::request("email");
                 $updatedAt = new DateTime();
@@ -155,12 +158,12 @@ class UserController
                 $pictureService = new PictureService($params);
 
                 if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] == UPLOAD_ERR_OK) {
-                    if ($user->getAvatar() && $user->getAvatar() !='defaultAvatar.png') {
+                    if ($user->getAvatar() && $user->getAvatar() != 'defaultAvatar.png') {
                         $pictureService->deletePicture($user->getAvatar());
                     }
                     $avatarFilename = $pictureService->addPicture($_FILES['avatar']);
-                } elseif ($_FILES['avatar']['error'] == UPLOAD_ERR_CANT_WRITE){
-                    echo ("Erreur lors du chargement de l'image");
+                } elseif ($_FILES['avatar']['error'] == UPLOAD_ERR_CANT_WRITE) {
+                    echo("Erreur lors du chargement de l'image");
                 } else {
                     $avatarFilename = $user->getAvatar();
                 }
@@ -191,7 +194,7 @@ class UserController
         require __DIR__ . '../../views/layout.php';
     }
 
-    public function showUser()
+    public function showUser(): void
     {
         try {
             $id = Utils::request('id', -1);
@@ -206,7 +209,7 @@ class UserController
                 $inscriptionDate = $user->getCreatedAt();
                 $registeredSince = $this->userRepository->getRegisteredSince($inscriptionDate);
 
-                $title = "Tom Troc - Profil utilisateur"  ;
+                $title = "Tom Troc - Profil utilisateur";
                 ob_start();
                 require __DIR__ . '../../views/templates/publicProfile.php';
                 $content = ob_get_clean();

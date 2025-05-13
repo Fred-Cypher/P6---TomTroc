@@ -3,7 +3,7 @@
         <h2 class="authenticationTitle">Connexion</h2>
 
         <?php if (!empty($message)): ?>
-            <p><?= $message ?></p>
+            <p class="loginMessage"><?= $message ?></p>
         <?php endif; ?>
 
         <form action="index.php?action=login" method="POST" class="authenticationForm">
@@ -17,6 +17,6 @@
         <p class="authenticationQuestion">Pas de compte ? <a href="index.php?action=register">Inscrivez-vous</a></p>
     </div>
     <div class="authenticationIllustration">
-        <img src="/images/mask_group-1.png" class="authenticationPicture">
+        <img src="/images/mask_group-1.png" class="authenticationPicture" alt="">
     </div>
 </section>

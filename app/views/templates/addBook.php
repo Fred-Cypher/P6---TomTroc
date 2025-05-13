@@ -16,7 +16,6 @@
                     <input type="file" name="cover" id="cover" class="inputUpdate" onchange="previewImage(event)">
                 </div>
             </div>
-            </div>
             <div class="descriptionNew">
                 <p class="requiredField"><span class="asterisk">*</span> Champs obligatoires </p>
                 <p class="formNewBook">
@@ -51,7 +50,7 @@
         var input = event.target;
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 document.getElementById('coverPreview').src = e.target.result;
             };
             reader.readAsDataURL(input.files[0]);

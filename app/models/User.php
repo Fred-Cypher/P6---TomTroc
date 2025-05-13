@@ -18,7 +18,7 @@ class User extends AbstractEntity
     {
         $this->hydrate($data);
     }
-    
+
     public function getPseudo(): string
     {
         return $this->pseudo;

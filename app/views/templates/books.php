@@ -6,20 +6,18 @@
         <button type="submit" class="loupe-button">
             <img src="/images/loupe.svg" alt="" class="loupe">
         </button>
-        
+
     </form>
-    <!--<p class="return">
-        <?php if ($_GET['search']) { ?>
-            <a href=" index.php?action=books" class="link returnLink">Retour à la page des livres à l'échange</a>
-        <?php } else {
-            echo "";
-        }?>
-    </p>
-    <a href="index.php?action=home" <?= ($_GET['action'] === 'home') ? 'class="nolink"' : 'class="link"' ?>>Accueil</a>-->
-
 </section>
-<section class="exchangeBooks">
+<p class="return">
+    <?php if (isset($_GET['search'])) { ?>
+        <a href=" index.php?action=books" class="returnLink">Retour à la page des livres à l'échange</a>
+    <?php } else {
+        echo "";
+    } ?>
+</p>
 
+<section class="exchangeBooks">
     <?php foreach ($books as $book): ?>
         <article class="bookCard">
             <a href="index.php?action=detailBook&id=<?= $book->getId() ?>" class="cardLink">

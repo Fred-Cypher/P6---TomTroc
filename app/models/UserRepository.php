@@ -16,7 +16,7 @@ class UserRepository extends AbstractEntityManager
     {
         $sql = "INSERT INTO users (pseudo, email, password, avatar, role, created_at, updated_at)
         VALUES (:pseudo, :email, :password, :avatar, :role, :created_at, :updated_at)";
-        $this->db->query($sql,[
+        $this->db->query($sql, [
             'pseudo' => $user->getPseudo(),
             'email' => $user->getEmail(),
             'password' => password_hash($user->getPassword(), PASSWORD_BCRYPT),
@@ -28,7 +28,7 @@ class UserRepository extends AbstractEntityManager
     }
 
     /**
-     *Récupération d'un utilisateur 
+     *Récupération d'un utilisateur
      *
      * @param string $pseudo
      * @return User|null
@@ -44,7 +44,7 @@ class UserRepository extends AbstractEntityManager
             $user['updated_at'] = new DateTime($user['updated_at']);
             return new User($user);
         }
-        return null; 
+        return null;
     }
 
     public function getUserByEmail(string $email): ?User
@@ -52,21 +52,7 @@ class UserRepository extends AbstractEntityManager
         $sql = "SELECT * FROM users WHERE email = :email";
         $result = $this->db->query($sql, ['email' => $email]);
         $user = $result->fetch();
-        if($user) {
-            $user['avatar'] = $user['avatar'] ?? 'defaultAvatar.png';
-            $user['created_at'] = new \DateTime($user['created_at']);
-            $user['updated_at'] = new \DateTime($user['updated_at']);
-            return new User($user);
-        }
-        return null;
-    }
-    
-    public function getUserById(int $id): ?User
-    {
-        $sql = "SELECT * FROM users WHERE id = :id";
-        $result = $this->db->query($sql, ['id' => $id]);
-        $user = $result->fetch();
-        if($user){
+        if ($user) {
             $user['avatar'] = $user['avatar'] ?? 'defaultAvatar.png';
             $user['created_at'] = new \DateTime($user['created_at']);
             $user['updated_at'] = new \DateTime($user['updated_at']);
@@ -75,7 +61,21 @@ class UserRepository extends AbstractEntityManager
         return null;
     }
 
-    public function updateUser(User $user)
+    public function getUserById(int $id): ?User
+    {
+        $sql = "SELECT * FROM users WHERE id = :id";
+        $result = $this->db->query($sql, ['id' => $id]);
+        $user = $result->fetch();
+        if ($user) {
+            $user['avatar'] = $user['avatar'] ?? 'defaultAvatar.png';
+            $user['created_at'] = new \DateTime($user['created_at']);
+            $user['updated_at'] = new \DateTime($user['updated_at']);
+            return new User($user);
+        }
+        return null;
+    }
+
+    public function updateUser(User $user): void
     {
         $sql = "UPDATE users SET pseudo = :pseudo, email = :email, password = :password, avatar = :avatar, updated_at = :updated_at
         WHERE id = :id";
@@ -91,7 +91,7 @@ class UserRepository extends AbstractEntityManager
             ]);
     }
 
-    public function getRegisteredSince(DateTime $createdAt)
+    public function getRegisteredSince(DateTime $createdAt): string
     {
         $now = new DateTime();
         $interval = $createdAt->diff($now);

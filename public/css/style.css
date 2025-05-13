@@ -1,6 +1,6 @@
 /*** GENERAL ***/
 
-*{
+* {
     margin: 0;
     padding: 0;
     background-color: var(--back);
@@ -8,38 +8,38 @@
 }
 
 
-:root{
+:root {
     --softgrey: #F5F3EF;
     --textgrey: #A6A6A6;
-    --darkgrey : #292929;
-    --green: #00AC66; 
-    --darkgreen: #006D41; 
+    --darkgrey: #292929;
+    --green: #00AC66;
+    --darkgreen: #006D41;
     --red: #C56D6D;
     --back: #FAF9F7;
     --update: #EDF2F6;
-    --updateborder:#F0F0F0;
-    --available:#6DC541;
+    --updateborder: #F0F0F0;
+    --available: #6DC541;
 }
 
-.body{
+.body {
     background-color: var(--back);
 }
 
-.link{
+.link {
     text-decoration: none;
     color: var(--darkgrey);
     background-color: transparent;
 }
 
-.cardLink{
+.cardLink {
     text-decoration: none;
 }
 
-.title{
+.title {
     font-family: "Playfair Display";
 }
 
-.button{
+.button {
     background-color: var(--green);
     padding: 22px 38px;
     color: white;
@@ -52,13 +52,13 @@
 
 /*** HEADER ***/
 
-.header{
-    border : 1px red solid;
+.header {
+    border: 1px red solid;
     background-color: var(--softgrey);
     height: 80px;
 }
 
-.headerNav{
+.headerNav {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -68,42 +68,42 @@
     background-color: var(--softgrey)
 }
 
-.headerPublic{
+.headerPublic {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 50%;
     border: #00AC66 1px solid;
-    padding : 0 100px;
+    padding: 0 100px;
     background-color: var(--softgrey)
 }
 
-.headerPrivate{
+.headerPrivate {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 50%;
-    padding : 0 100px;
+    padding: 0 100px;
     background-color: var(--softgrey);
-    border : 1px solid #C56D6D;
+    border: 1px solid #C56D6D;
 }
 
-.header a{
+.header a {
     background-color: transparent;
     font-size: 14px;
 }
 
-.line{
+.line {
     color: var(--textgrey);
 }
 
-.logo{
+.logo {
     width: 155px;
     height: 51px;
     background-color: var(--softgrey);
 }
 
-.nolink{
+.nolink {
     font-weight: bold;
     text-decoration: none;
     pointer-events: none;
@@ -111,18 +111,17 @@
 }
 
 /*** MAIN ***/
-.main{
+.main {
     border: 1px blue solid;
     margin-bottom: 63px;
     width: 100%;
     min-height: 80vh;
     margin-left: auto;
-    margin-left: auto;
     background-color: var(--softgrey);
 }
 
 /*** FOOTER ***/
-.footer{
+.footer {
     border: 1px green solid;
     display: flex;
     flex-direction: row;
@@ -135,7 +134,7 @@
     background-color: white;
 }
 
-.footerSpan{
+.footerSpan {
     padding: 0 20px 0 20px;
     background-color: white;
     color: var(--darkgrey);
@@ -145,12 +144,12 @@
 
 /*** ACCUEIL ***/
 
-.homeButton{
+.homeButton {
     margin-top: 50px;
     background-color: transparent;
 }
 
-.presentation{
+.presentation {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -158,35 +157,34 @@
     background-color: var(--softgrey);
 }
 
-.textPresentation{
+.textPresentation {
     width: 330px;
     height: 95px;
-    padding: 0 25px;
     background-color: var(--softgrey);
-    padding-top: 150px;
+    padding: 150px 25px 0;
 }
 
-.presentationTitle{
+.presentationTitle {
     font-family: "Playfair Display";
     font-size: 36px;
     background-color: var(--softgrey);
     width: 329px;
 }
 
-.presentationContent{
+.presentationContent {
     font-size: 16px;
     width: 328px;
     margin-top: 20px;
     background-color: var(--softgrey);
 }
 
-.picturePresentation{
+.picturePresentation {
     width: 404px;
     height: 539px;
     object-fit: cover;
 }
 
-.pictureAuthor{
+.pictureAuthor {
     font-style: italic;
     font-size: 12px;
     color: var(--textgrey);
@@ -195,7 +193,7 @@
     padding-top: 10px;
 }
 
-.lastBooks{
+.lastBooks {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -204,14 +202,14 @@
     background-color: var(--back);
 }
 
-.lastBooksTitle{
+.lastBooksTitle {
     font-size: 32px;
     font-family: "Playfair Display";
     font-weight: 400;
     margin-bottom: 50px;
 }
 
-.lastBooksCards{
+.lastBooksCards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -219,7 +217,7 @@
     padding: 20px;
 }
 
-.operation{
+.operation {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -229,14 +227,14 @@
     margin-top: 50px;
 }
 
-.operationTitle{
+.operationTitle {
     font-size: 32px;
     font-family: "Playfair Display";
     background-color: var(--softgrey);
     font-weight: 400;
 }
 
-.operationStickers{
+.operationStickers {
     display: flex;
     flex-basis: row;
     justify-content: space-around;
@@ -244,14 +242,14 @@
     background-color: var(--softgrey);
 }
 
-.operation span{
+.operation span {
     font-weight: 300;
     background-color: var(--softgrey);
     width: 400px;
     padding: 30px 0;
 }
 
-.sticker{
+.sticker {
     display: flex;
     width: 215px;
     height: 139px;
@@ -262,14 +260,14 @@
     border-radius: 15px;
 }
 
-.stickerText{
+.stickerText {
     margin: 15px;
     font-size: 14px;
     font-weight: 400;
     background-color: white;
 }
 
-.values{
+.values {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -277,32 +275,32 @@
     background-color: var(--softgrey);
 }
 
-.lightButton{
+.lightButton {
     background-color: var(--softgrey);
-    color : var(--green);
+    color: var(--green);
     border: 1px solid var(--green);
 }
 
 .lightButton:hover,
-.button:hover{
+.button:hover {
     background-color: var(--darkgreen);
     color: white;
     border: 1px solid var(--darkgreen);
 }
 
-.pictureValues{
+.pictureValues {
     width: 100%;
     height: 230px;
     margin-top: 50px;
 }
 
-.textValues{
+.textValues {
     width: 400px;
     height: 350px;
     background-color: var(--softgrey);
 }
 
-.titleValues{
+.titleValues {
     background-color: var(--softgrey);
     font-size: 32px;
     font-family: "Playfair Display";
@@ -310,14 +308,14 @@
     margin: 70px 0 30px 0;
 }
 
-.tomValues{
+.tomValues {
     background-color: var(--softgrey);
     font-size: 16px;
     font-weight: 300;
     width: 392px;
 }
 
-.sign{
+.sign {
     background-color: var(--softgrey);
     display: flex;
     justify-content: space-between;
@@ -325,7 +323,7 @@
     border: #00AC66 1px solid;
 }
 
-.sign span{
+.sign span {
     background-color: var(--softgrey);
     color: var(--textgrey);
     font-size: 12px;
@@ -333,11 +331,11 @@
     font-style: italic;
 }
 
-.signVector{
+.signVector {
     background-color: transparent;
 }
 
-.signVector img{
+.signVector img {
     background-color: transparent;
     margin-left: 400px;
     margin-top: 80px;
@@ -347,77 +345,78 @@
 
 /*** IMAGES ***/
 
-.smallCover{
+.smallCover {
     width: 78px;
     height: 78px;
     object-fit: cover;
 }
 
-.mediumCover{
+.mediumCover {
     width: 200px;
     height: 200px;
     object-fit: cover;
 }
 
-.updateCover{
+.updateCover {
     width: 488px;
     height: 488px;
     object-fit: cover;
     margin-top: 15px;
 }
 
-.largeCover{
+.largeCover {
     width: 720px;
     height: 863px;
     object-fit: cover;
 }
 
-.avatar{
+.avatar {
     border-radius: 50%;
     width: 135px;
     height: 135px;
     object-fit: cover;
 }
 
-.mediumAvatar{
+.mediumAvatar {
     border-radius: 50%;
     height: 48px;
     width: 48px;
     object-fit: cover;
 }
 
-.smallAvatar{
+.smallAvatar {
     border-radius: 50%;
     height: 24px;
     width: 24px;
     object-fit: cover;
 }
+
 /*** FORMULAIRES ***/
-.asterisk{
+.asterisk {
     color: red;
     font-weight: bold;
 }
 
-.updateLabelInput{
+.updateLabelInput {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.profileUpdateForm{
+.profileUpdateForm {
     margin: auto;
     width: 322px;
     height: 300px;
 }
 
 .updateUserLabel,
-.updateBookLabel{
+.updateBookLabel {
     font-size: 14px;
     color: var(--textgrey);
     font-weight: 400;
 }
 
-.updateUserInput{
+.updateUserInput {
     background-color: var(--update);
     color: var(--darkgrey);
     height: 50px;
@@ -428,33 +427,32 @@
     padding-left: 20px;
 }
 
-.placeholderPwd{
+.placeholderPwd {
     color: black;
     font-weight: bold;
     font-size: 14px;
 }
 
-.buttonUserUpdate{
+.buttonUserUpdate {
     margin: 0 0 30px 115px;
 }
 
 /*** PROFIL ***/
 
-.profile{
+.profile {
     width: 1135px;
     margin: auto;
 }
 
-.publicProfile{
+.publicProfile {
     width: 1135px;
-    margin: auto;
-    margin-top: 100px;
+    margin: 100px auto auto;
     display: flex;
     flex-direction: row;
     background-color: transparent;
 }
 
-.profileDetail{
+.profileDetail {
     display: flex;
     width: 1135px;
     height: 508px;
@@ -463,14 +461,14 @@
     border: 1px solid blue;
 }
 
-.profileTitle{
+.profileTitle {
     font-size: 26px;
     font-weight: 400;
     background-color: var(--softgrey);
     margin-left: 150px;
 }
 
-.profileDefinition{
+.profileDefinition {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -481,7 +479,7 @@
     border-radius: 20px;
 }
 
-.publicProfileDetail{
+.publicProfileDetail {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -492,7 +490,7 @@
     border-radius: 20px;
 }
 
-.profileAvatar{
+.profileAvatar {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -500,42 +498,42 @@
     border-bottom: 1px solid var(--softgrey);
 }
 
-.profileBlockText{
+.profileBlockText {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 114px;
 }
 
-.profilePseudo{
+.profilePseudo {
     font-size: 24px;
     font-weight: 400;
 }
 
-.memberSince{
+.memberSince {
     font-size: 14px;
     font-weight: 400;
     color: var(--textgrey);
     margin-top: 10px;
 }
 
-.bibliotheque{
+.bibliotheque {
     font-size: 8px;
     font-weight: 600;
     margin-top: 20px;
 }
 
-.booksNumber{
+.booksNumber {
     font-size: 14px;
     font-weight: 400;
     margin-top: 5px;
 }
 
-.booksNumber img{
+.booksNumber img {
     height: 13px;
 }
 
-.profileData{
+.profileData {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -545,21 +543,19 @@
     margin-left: 33px;
 }
 
-.profileDataTitle{
+.profileDataTitle {
     margin: 30px 0 0 115px;
     font-size: 16px;
     font-weight: 400;
 }
 
-.profileBooks{
+.profileBooks {
     width: 1140px;
-    margin: auto;
-    margin-top: 33px;
-    margin-bottom: 30px;
+    margin: 33px auto 30px;
     border-radius: 20px;
 }
 
-.publicProfileBooks{
+.publicProfileBooks {
     display: flex;
     width: 771px;
     border-radius: 20px;
@@ -567,26 +563,26 @@
     background-color: transparent;
 }
 
-.addNewBook{
+.addNewBook {
     margin-left: 150px;
     margin-bottom: 30px;
 }
 
 /*** TABLEAUX ***/
-.profileTable{
+.profileTable {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
 }
 
-.publicProfileTable{
+.publicProfileTable {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
     background-color: transparent;
 }
 
-.profileThead{
+.profileThead {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -598,17 +594,17 @@
     border-top-right-radius: 20px;
 }
 
-.booksTable{
+.booksTable {
     background-color: transparent;
 }
 
-.booksRow{
+.booksRow {
     display: flex;
     flex-direction: row;
     border: 1px solid var(--softgrey)
 }
 
-.tableContainer{
+.tableContainer {
     height: 130px;
     display: flex;
     align-items: center;
@@ -618,7 +614,7 @@
     background-color: transparent;
 }
 
-.tableTitlePicture{
+.tableTitlePicture {
     width: 150px;
     padding-left: 60px;
     text-align: left;
@@ -626,28 +622,28 @@
     border-top-left-radius: 20px;
 }
 
-.tablePicture{
+.tablePicture {
     width: 150px;
     padding-left: 60px;
     text-align: left;
     background-color: transparent;
 }
 
-.tableTitle{
+.tableTitle {
     width: 181px;
     padding-left: 10px;
     text-align: left;
     background-color: transparent;
 }
 
-.tableAuthor{
+.tableAuthor {
     width: 175px;
     padding-left: 10px;
     text-align: left;
     background-color: transparent;
 }
 
-.tableDescription{
+.tableDescription {
     width: 213px;
     padding-left: 10px;
     text-align: left;
@@ -655,7 +651,7 @@
     overflow: hidden;
 }
 
-.tableComment{
+.tableComment {
     width: 180px;
     height: auto;
     font-style: italic;
@@ -670,14 +666,14 @@
     padding-top: 35px;
 }
 
-.tableAvailability{
+.tableAvailability {
     width: 110px;
     text-align: left;
     padding-left: 30px;
     background-color: transparent;
 }
 
-.tableTitleActions{
+.tableTitleActions {
     width: 200px;
     padding-left: 20px;
     text-align: left;
@@ -685,24 +681,24 @@
     border-top-right-radius: 20px;
 }
 
-.tableActions{
+.tableActions {
     width: 200px;
     padding-left: 20px;
     text-align: left;
     background-color: transparent;
 }
 
-.booksTable .booksRow:nth-child(even){
+.booksTable .booksRow:nth-child(even) {
     background-color: var(--update);
 }
 
-.booksTable .booksRow:last-child{
-    border-bottom-left-radius: 20px; 
+.booksTable .booksRow:last-child {
+    border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     overflow: hidden
 }
 
-.available{
+.available {
     background-color: var(--available);
     color: white;
     padding: 4px 13px 0 15px;
@@ -713,7 +709,7 @@
     height: 15px;
 }
 
-.unavailable{
+.unavailable {
     background-color: var(--red);
     color: var(--softgrey);
     padding: 4px 13px 0 15px;
@@ -724,16 +720,16 @@
     height: 15px;
 }
 
-.tableEdit{
-    color:#292929;
+.tableEdit {
+    color: #292929;
     font-size: 12px;
     font-weight: 400;
     text-decoration: underline;
     background-color: transparent;
 }
 
-.tableDelete{
-    color:red;
+.tableDelete {
+    color: red;
     font-size: 12px;
     font-weight: 400;
     text-decoration: underline;
@@ -742,24 +738,23 @@
 }
 
 /*** CARTES LIVRE***/
-.exchangeHeader{
+.exchangeHeader {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 100px;
     background-color: var(--softgrey);
     max-width: 900px;
-    margin: auto;
-    margin-top: 30px;
+    margin: 30px auto auto;
 }
 
-.exchangeTitle{
+.exchangeTitle {
     background-color: var(--softgrey);
     display: flex;
     justify-self: flex-start;
 }
 
-.exchangeBooks{
+.exchangeBooks {
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -770,7 +765,7 @@
     background-color: var(--softgrey)
 }
 
-.bookCard{
+.bookCard {
     width: 200px;
     /*width: 20%;*/
     height: 324px;
@@ -782,7 +777,7 @@
     box-shadow: 0 4px 24px 0 #00000003;
 }
 
-.bookInformation{
+.bookInformation {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -791,33 +786,33 @@
     background-color: white;
 }
 
-.exchangeBookTitle{ 
+.exchangeBookTitle {
     background-color: white;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
-    color : var(--darkgrey);
+    color: var(--darkgrey);
 }
 
-.exchangeBookAuthor{
+.exchangeBookAuthor {
     background-color: white;
     color: var(--textgrey);
     font-size: 14px;
 }
 
-.exchangeBookSeller{
+.exchangeBookSeller {
     background-color: white;
     color: var(--textgrey);
     font-size: 10px;
     font-style: italic;
 }
 
-.itemImage{
+.itemImage {
     position: relative;
-    display:inline-block;
+    display: inline-block;
 }
 
-.badgeNonDispo{
+.badgeNonDispo {
     position: absolute;
     /*right: 10px;*/
     top: 16px;
@@ -834,7 +829,7 @@
 
 /*** RECHERCHE ***/
 
-.exchangeSearch{
+.exchangeSearch {
     position: relative;
     display: flex;
     left: 350px;
@@ -842,7 +837,7 @@
     width: 322px;
 }
 
-.inputSearch{
+.inputSearch {
     display: flex;
     justify-self: flex-end;
     padding-left: 40px;
@@ -853,33 +848,35 @@
     color: var(--textgrey);
 }
 
-.loupe{
+.loupe {
     height: 16px;
     width: auto;
-    color : var(--textgrey);
+    color: var(--textgrey);
     position: absolute;
-    left: 10px; 
-    top: 50%; 
+    left: 10px;
+    top: 50%;
     transform: translateY(-50%);
 }
 
-.loupe-button{
+.loupe-button {
     border: none;
 }
 
-.return{
-    margin-top: 80px;
-    margin-left: 30px;
+.return {
+    margin-right: 270px;
     background-color: transparent;
+    text-align: right;
+    text-decoration: underline;
 }
 
-.returnLink{
+.returnLink {
     background-color: transparent;
+    color: var(--darkgrey);
 }
 
 /*** PAGE LIVRE ***/
 
-.filAriane{
+.filAriane {
     font-size: 10px;
     color: var(--textgrey);
     font-weight: 300;
@@ -888,48 +885,48 @@
     padding-left: 140px;
 }
 
-.singleBook{
-    display:flex;
+.singleBook {
+    display: flex;
     margin-top: 10px;
 }
 
-.detailCover{
+.detailCover {
     width: 720px;
     height: auto;
 }
 
-.bookDescription{
+.bookDescription {
     width: 720px;
     padding-top: 60px;
     padding-left: 80px;
 }
 
-.detailTitle{
+.detailTitle {
     font-family: "Playfair Display";
     font-size: 36px;
     font-weight: 400;
     color: #000000;
 }
 
-.detailAuthor{
+.detailAuthor {
     margin-top: 30px;
     font-size: 16px;
     font-weight: 400;
     color: var(--textgrey);
 }
 
-.detailLine{
+.detailLine {
     margin-top: 30px;
     width: 30px;
 }
 
-.detailDescription{
+.detailDescription {
     margin-top: 30px;
     font-size: 8px;
     color: var(--darkgrey);
 }
 
-.detailComment{
+.detailComment {
     margin-top: 25px;
     width: 485px;
     height: 290px;
@@ -937,16 +934,16 @@
     overflow: auto;
 }
 
-.detailOwner{
+.detailOwner {
     margin-top: 30px;
     font-size: 8px;
     font-weight: 600;
     color: var(--darkgrey)
 }
 
-.badgeUser{
+.badgeUser {
     display: flex;
-    display: row;
+    flex-direction: row;
     width: 157px;
     height: 50px;
     background-color: white;
@@ -957,34 +954,35 @@
 }
 
 .badgeUser img,
-.badgeUser a{
+.badgeUser a {
     background-color: white;
 }
-.badgeUser p{
+
+.badgeUser p {
     margin-left: 15px;
     background-color: white;
 }
 
-.detailButton{
+.detailButton {
     margin-top: 70px;
     width: 485px;
 }
 
 /*** MODIFICATION LIVRE ***/
 
-.requiredField{
+.requiredField {
     width: 100%;
     font-size: 10px;
     color: var(--textgrey);
     text-align: right;
 }
 
-.return{
+.return {
     margin-left: 150px;
     margin-top: 40px;
 }
 
-.returnLink{
+.returnLink {
     font-size: 14px;
     color: var(--textgrey);
     font-weight: 400;
@@ -992,7 +990,7 @@
 }
 
 .updateBookTitle,
-.newBookTitle{
+.newBookTitle {
     margin: 30px 150px;
     background-color: transparent;
     font-size: 26px;
@@ -1000,24 +998,22 @@
 }
 
 .updateBook,
-.newBook{
+.newBook {
     display: flex;
     width: 1135px;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    margin: 30px auto 50px;
     border-radius: 20px;
     background-color: transparent;
 }
 
 .updateBookForm,
-.newBookForm{
+.newBookForm {
     border-radius: 20px;
     width: 1135px;
 }
 
 .updateBookCard,
-.newBookCard{
+.newBookCard {
     display: flex;
     flex-direction: row;
     padding: 50px;
@@ -1025,38 +1021,37 @@
 }
 
 .updateBookPicture,
-.newBookPicture{
+.newBookPicture {
     width: 488px;
 }
 
 .updateCoverLink,
-.newBookLink{
+.newBookLink {
     margin-top: 20px;
     text-align: end;
 }
 
 .inputUpdate,
-.inputNew{
-    display:none;
+.inputNew {
+    display: none;
 }
 
 .labelUpdate,
-.labelNew{
+.labelNew {
     text-decoration: underline;
 }
 
 .descriptionUpdate,
-.descriptionNew{
+.descriptionNew {
     width: 435px;
-    margin: auto;
-    margin-top: 8px;
+    margin: 8px auto auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .formUpdateBook,
-.formNewBook{
+.formNewBook {
     display: flex;
     flex-direction: column;
     width: 435px;
@@ -1064,15 +1059,15 @@
 }
 
 .updateBookLabel,
-.newBookLabel{
-    color : var(--textgrey);
+.newBookLabel {
+    color: var(--textgrey);
     font-size: 14px;
     font-weight: 400;
     margin-bottom: 10px;
 }
 
 .updateInput,
-.newInput{
+.newInput {
     color: var(--darkgrey);
     font-size: 14px;
     font-weight: 400;
@@ -1085,7 +1080,7 @@
 }
 
 .updateBookTextarea,
-.newBookTextarea{
+.newBookTextarea {
     height: 356px;
     width: 435px;
     padding: 15px;
@@ -1095,30 +1090,30 @@
 }
 
 .updateBookSelect,
-.newBookSelect{
+.newBookSelect {
     width: 465px;
     background-color: var(--update);
 }
 
 .updateBookButton,
-.newBookButton{
+.newBookButton {
     display: flex;
-    align-content: left;
+    align-content: start;
     width: 435px;
 }
 
-.updateBookButton .button{
+.updateBookButton .button {
     width: 320px;
 }
 
 /*** MESSAGERIE ***/
-.messaging{
+.messaging {
     display: flex;
     flex-direction: row;
     background-color: var(--softgrey);
 }
 
-.thread{
+.thread {
     display: flex;
     flex-direction: column;
     background-color: var(--back);
@@ -1127,7 +1122,7 @@
     margin-left: 150px;
 }
 
-.messagingTitle{
+.messagingTitle {
     font-size: 26px;
     font-weight: 400;
     margin-top: 50px;
@@ -1135,49 +1130,58 @@
     margin-bottom: 30px;
 }
 
-.threadBadge{
+.threadBadge {
     width: 100%;
     height: 84px;
     padding: 20px 30px;
 }
 
-.threadBadge a{
+.active-conversation {
+    background-color: white;
+}
+
+.threadBadge a {
     text-decoration: none;
 }
 
-.conversationBadge{
+.conversationBadge {
     display: flex;
     flex-direction: row;
+    background-color: transparent;
 }
 
-.conversation{
+.conversation {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     overflow: hidden;
     padding-left: 10px;
+    background-color: transparent;
 }
 
-.conversationDetail{
+.conversationDetail {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 160px;
     color: var(--darkgrey);
-    }
+    background-color: transparent;
+}
 
-.conversationPseudo{
+.conversationPseudo {
     font-size: 14px;
     font-weight: 400;
-    align-self: right;
+    align-self: end;
+    background-color: transparent;
 }
 
-.conversationHour{
+.conversationHour {
     font-size: 12px;
     font-weight: 400;
+    background-color: transparent;
 }
 
-.conversationLastMessage{
+.conversationLastMessage {
     font-size: 12px;
     font-weight: 400;
     width: 160px;
@@ -1188,20 +1192,21 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    background-color: transparent;
 }
 
-.noConversation{
+.noConversation {
     padding: 30px 20px;
 }
 
-.messages{
+.messages {
     display: flex;
     flex-direction: column;
     background-color: var(--softgrey);
     width: 75%;
 }
 
-.messageDisplay{
+.messageDisplay {
     min-height: 70vh;
     display: flex;
     flex-direction: column;
@@ -1210,56 +1215,55 @@
     background-color: transparent;
 }
 
-.messagesHeader{
+.messagesHeader {
     display: flex;
     align-items: center;
     background-color: transparent;
 }
 
-.messagePseudo{
+.messagePseudo {
     margin-left: 10px;
     background-color: transparent;
     color: var(--darkgrey);
 }
 
-.noMessage{
+.noMessage {
     display: flex;
     line-height: 50px;
     justify-content: space-between;
-    margin: auto;
-    margin-top: 100px;
+    margin: 100px auto auto;
     padding: 50px;
     font-size: 20px;
     height: 100px;
     background-color: transparent;
 }
 
-.messageOtherUser{
+.messageOtherUser {
     display: flex;
     flex-direction: column;
     text-align: left;
     background-color: transparent;
 }
 
-.messageCurrentUser{
+.messageCurrentUser {
     display: flex;
     flex-direction: column;
     text-align: right;
     background-color: transparent;
 }
 
-.allMessages{
+.allMessages {
     background-color: transparent;
 }
 
-.messageHeader{
+.messageHeader {
     display: flex;
     align-items: center;
     padding: 5px 0;
     background-color: transparent;
 }
 
-.messageDate{
+.messageDate {
     font-size: 12px;
     font-weight: 400;
     color: var(--textgrey);
@@ -1267,7 +1271,7 @@
     background-color: transparent;
 }
 
-.messageContentOther{
+.messageContentOther {
     border-radius: 3px;
     padding: 10px 20px;
     width: 500px;
@@ -1276,7 +1280,7 @@
     background-color: white;
 }
 
-.messageContentCurrent{
+.messageContentCurrent {
     margin-top: 10px;
     margin-left: 420px;
     border-radius: 3px;
@@ -1286,14 +1290,14 @@
     background-color: var(--update);
 }
 
-.sendMessage{
+.sendMessage {
     width: 100%;
     background-color: transparent;
-    margin-top : 30px;
+    margin-top: 30px;
     height: 50px;
 }
 
-.messageInput{
+.messageInput {
     height: 50px;
     background-color: white;
     border: 1px solid var(--updateborder);
@@ -1304,7 +1308,7 @@
     width: 620px;
 }
 
-.sendMessageButton{
+.sendMessageButton {
     background-color: var(--green);
     padding: 15px 40px;
     color: white;
@@ -1315,13 +1319,13 @@
     margin-left: 30px;
 }
 
-.messagingLink{
+.messagingLink {
     position: relative;
-    display:inline-block;
+    display: inline-block;
     background-color: transparent;
 }
 
-.badgeCount{
+.badgeCount {
     position: absolute;
     display: flex;
     align-items: center;
@@ -1339,23 +1343,23 @@
 
 /*** INSCRIPTION/CONNEXION ***/
 
-.authentication{
+.authentication {
     display: flex;
     flex-direction: row;
     background-color: var(--softgrey);
     text-align: left;
 }
 
-.authenticationText{
+.authenticationText {
     display: flex;
     flex-direction: column;
-    margin : 130px 220px 130px 130px;
+    margin: 130px 220px 130px 130px;
     width: 50%;
     background-color: var(--softgrey);
     border: 1px solid green;
 }
 
-.authenticationTitle{
+.authenticationTitle {
     background-color: var(--softgrey);
     font-size: 36px;
     font-weight: 400;
@@ -1363,27 +1367,27 @@
     padding-bottom: 50px;
 }
 
-.authenticationForm{
+.authenticationForm {
     display: flex;
     flex-direction: column;
     background-color: var(--softgrey);
 }
 
-.authenticationLabel{
+.authenticationLabel {
     color: var(--textgrey);
     background-color: var(--softgrey);
     font-size: 14px;
     padding-bottom: 15px;
 }
 
-.authenticationInput{
+.authenticationInput {
     border-radius: 6px;
     border: 1px solid var(--updateborder);
     height: 50px;
     margin-bottom: 30px;
 }
 
-.authenticationQuestion{
+.authenticationQuestion {
     display: flex;
     padding-top: 30px;
     background-color: var(--softgrey);
@@ -1391,53 +1395,62 @@
     font-size: 14px;
 }
 
-.authenticationQuestion a{
+.authenticationQuestion a {
     background-color: var(--softgrey);
-    text-decoration: none;
     text-decoration-line: underline;
     color: black;
     padding-left: 5px;
 }
 
-.authenticationIllustration{
+.authenticationIllustration {
     width: 50%;
 }
-.authenticationPicture{
+
+.authenticationPicture {
     width: 720px;
     height: auto;
     object-fit: cover;
 }
 
-/*** ADMINISTRATION  / ERREURS***/
+.loginMessage {
+    height: 50px;
+    background-color: rgba(255, 166, 0, 0.363);
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/*** ADMINISTRATION / ERREURS***/
 .administationPage,
-.errorPage{
+.errorPage {
     margin: auto;
     padding: 100px;
 }
 
 .adminTitle,
-.errorTitle{
+.errorTitle {
     font-size: 40px;
     font-weight: 400;
 }
 
 .adminProject,
-.errorMessage{
+.errorMessage {
     margin-top: 150px;
 }
 
-.denied{
+.denied {
     font-weight: 500;
-    color:crimson;
+    color: crimson;
     text-decoration: underline;
 }
 
-.errorButtons{
+.errorButtons {
     display: flex;
     flex-direction: row;
     margin-top: 50px;
 }
 
-.errorButtons a{
+.errorButtons a {
     margin-left: 50px;
 }

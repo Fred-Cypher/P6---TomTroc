@@ -6,7 +6,8 @@
             <article class="profileDefinition">
                 <div class="profileAvatar">
                     <div>
-                        <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar" id="avatarPreview">
+                        <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar"
+                             id="avatarPreview">
                     </div>
                     <div>
                         <label for="avatar" class="labelUpdate">Modifier</label>
@@ -22,10 +23,10 @@
                             <img src="/images/vector.svg" alt="">
                             <?php if ($count < 2) {
                                 echo $count ?> livre <?php
-                                                    } else {
-                                                        echo $count ?> livres <?php
-                                                                            }
-                                                                                ?>
+                            } else {
+                                echo $count ?> livres <?php
+                            }
+                            ?>
                         </p>
                     </div>
                 </div>
@@ -36,15 +37,18 @@
                     <input type="hidden" name="id" id="id" value="<?= $user->getId() ?>">
                     <p class="updateLabelInput">
                         <label for="email" class="updateUserLabel">Adresse email</label>
-                        <input type="text" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" class="updateUserInput">
+                        <input type="text" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>"
+                               class="updateUserInput">
                     </p>
                     <p class="updateLabelInput">
                         <label for="password" class="updateUserLabel">Mot de passe</label>
-                        <input type="password" id="password" name="password" placeholder="•••••••••" class="updateUserInput placeholderPwd">
+                        <input type="password" id="password" name="password" placeholder="•••••••••"
+                               class="updateUserInput placeholderPwd">
                     </p>
                     <p class="updateLabelInput">
                         <label for="pseudo" class="updateUserLabel">Pseudo</label>
-                        <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>" class="updateUserInput">
+                        <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>"
+                               class="updateUserInput">
                     </p>
                 </div>
                 <p class="buttonUserUpdate">
@@ -81,7 +85,8 @@
                 <div class="booksRow">
                     <div class="tablePicture">
                         <div class="tableContainer">
-                            <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="smallCover">
+                            <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt=""
+                                 class="smallCover">
                         </div>
                     </div>
                     <div class="tableTitle">
@@ -111,7 +116,8 @@
                     <div class="tableActions">
                         <div class="tableContainer">
                             <a href="index.php?action=updateBook&id=<?= $book->getId() ?>" class="tableEdit">Éditer </a>
-                            <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" class="tableDelete">Supprimer</a>
+                            <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>"
+                               class="tableDelete">Supprimer</a>
                         </div>
                     </div>
                 </div>
@@ -125,10 +131,10 @@
 
 <script>
     function previewImage(event) {
-        var input = event.target;
+        let input = event.target;
         if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
                 document.getElementById('avatarPreview').src = e.target.result;
             };
             reader.readAsDataURL(input.files[0]);

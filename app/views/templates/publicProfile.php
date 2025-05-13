@@ -1,7 +1,8 @@
 <section class="publicProfile">
     <article class="publicProfileDetail">
         <div class="profileAvatar">
-            <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar" id="avatarPreview">
+            <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar"
+                 id="avatarPreview">
         </div>
         <p class="profilePseudo"><?= htmlspecialchars($user->getPseudo()) ?></p>
         <p class="memberSince">Membre depuis <?= $registeredSince ?></p>
@@ -12,9 +13,9 @@
                 <img src="/images/vector.svg" alt="">
                 <?php if ($count < 2) {
                     echo $count ?> livre <?php
-                                        } else {
-                                            echo $count ?> livres <?php
-                                                                } ?>
+                } else {
+                    echo $count ?> livres <?php
+                } ?>
             </p>
         </div>
 
@@ -23,7 +24,7 @@
                 <a href="index.php?action=messages&user2_id=<?= $userId ?>">
                     <button class="button lightButton">Ecrire un message</button>
                 </a>
-            <?php
+                <?php
             } ?>
         </p>
     </article>
@@ -40,7 +41,8 @@
                     <div class="booksRow">
                         <div class="tablePicture">
                             <div class="tableContainer">
-                                <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="smallCover">
+                                <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt=""
+                                     class="smallCover">
                             </div>
                         </div>
                         <div class="tableTitle">

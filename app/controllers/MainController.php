@@ -5,9 +5,9 @@ namespace App\Controllers;
 use App\Models\BooksRepository;
 use App\Models\MessagesRepository;
 
-class MainController 
+class MainController
 {
-    private $booksRepository;
+    private BooksRepository $booksRepository;
     private $messagesRepository;
 
     public function __construct()
@@ -15,13 +15,12 @@ class MainController
         $this->booksRepository = new BooksRepository;
         $this->messagesRepository = new MessagesRepository;
     }
-    
-    public function index() {
+
+    public function index(): void
+    {
 
         $books = $this->booksRepository->getLastFourBooksRegistered();
 
-       // $unreadCount = $this->messagesRepository->countUnreadMessages($_SESSION['user']['id']);
-        
         $title = "Tom Troc - Accueil";
         ob_start();
         require __DIR__ . '../../views/templates/home.php';
@@ -30,7 +29,8 @@ class MainController
         require __DIR__ . '../../views/layout.php';
     }
 
-    public function error(){
+    public function error(): void
+    {
         $title = "Erreur";
         ob_start();
         require __DIR__ . '../../views/templates/error.php';
@@ -38,7 +38,7 @@ class MainController
         require __DIR__ . '../../views/layout.php';
     }
 
-    public function error401()
+    public function error401(): void
     {
         $title = "Accès refusé";
         ob_start();

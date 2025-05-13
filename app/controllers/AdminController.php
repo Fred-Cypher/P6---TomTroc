@@ -4,7 +4,8 @@ namespace App\Controllers;
 
 class AdminController
 {
-    public function index(){
+    public function index(): void
+    {
 
         $title = "Tom Troc - Administration";
         ob_start();
@@ -13,7 +14,8 @@ class AdminController
         require __DIR__ . '../../views/layout.php';
     }
 
-    public function deniedAccess(){
+    public function deniedAccess(): void
+    {
         $title = "Accès refusé";
         ob_start();
         require __DIR__ . '../../views/templates/deniedAccess.php';

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use DateTime;
+use Exception;
 use PDO;
 
 class BooksRepository extends AbstractEntityManager
@@ -15,15 +16,15 @@ class BooksRepository extends AbstractEntityManager
             'title' => $book->getTitle(),
             'author' => $book->getAuthor(),
             'comment' => $book->getComment(),
-            'cover' =>$book->getCover(),
-            'availability' => (int) $book->getAvailability(),
+            'cover' => $book->getCover(),
+            'availability' => (int)$book->getAvailability(),
             'created_at' => $book->getCreatedAt()->format('Y-m-d H:i:s'),
             'updated_at' => $book->getUpdatedAt()->format('Y-m-d H:i:s'),
             'user_id' => $book->getUserId(),
         ]);
     }
 
-    public function updateBook(Book $book)
+    public function updateBook(Book $book): void
     {
         $sql = "UPDATE books SET id = :id, title = :title, author = :author, comment = :comment, cover = :cover, availability = :availability,  updated_at = :updated_at
         WHERE id = :id";
@@ -33,11 +34,14 @@ class BooksRepository extends AbstractEntityManager
             'author' => $book->getAuthor(),
             'comment' => $book->getComment(),
             'cover' => $book->getCover(),
-            'availability' => (int) $book->getAvailability(),
+            'availability' => (int)$book->getAvailability(),
             'updated_at' => $book->getUpdatedAt()->format('Y-m-d H:i:s'),
         ]);
     }
 
+    /**
+     * @throws Exception
+     */
     public function getAllBooks(): array
     {
         $sql = "SELECT b.id, b.title, b.author, b.comment, b.cover, b.availability, b.created_at, b.updated_at, u.id as user_id, u.pseudo as user_pseudo
@@ -45,9 +49,9 @@ class BooksRepository extends AbstractEntityManager
         JOIN users u ON b.user_id = u.id";
         $result = $this->db->query($sql);
         $books = [];
-        
+
         while ($book = $result->fetch(PDO::FETCH_ASSOC)) {
-            if($book){
+            if ($book) {
                 $book['cover'] = $book['cover'] ?? 'defaultBook.jpg';
                 $book['created_at'] = new DateTime($book['created_at']);
                 $book['updated_at'] = new DateTime($book['updated_at']);
@@ -77,16 +81,18 @@ class BooksRepository extends AbstractEntityManager
         return null;
     }
 
+    /**
+     * @throws Exception
+     */
     public function getBooksByUser(int $userId): array
     {
         $sql = "SELECT * FROM books WHERE user_id = :user_id";
         $result = $this->db->query($sql, ['user_id' => $userId]);
         $books = [];
 
-        while ($booksData = $result->fetch()){
+        while ($booksData = $result->fetch()) {
             $booksData['cover'] = $booksData['cover'] ?? 'defaultBook.jpg';
-            if (isset($booksData['created_at']))
-            {
+            if (isset($booksData['created_at'])) {
                 $booksData['created_at'] = new DateTime($booksData['created_at']);
             }
             if (isset($booksData['updated_at'])) {
@@ -103,7 +109,8 @@ class BooksRepository extends AbstractEntityManager
         $this->db->query($sql, ['id' => $id]);
     }
 
-    public function getLastFourBooksRegistered(){
+    public function getLastFourBooksRegistered(): array
+    {
         $sql = "SELECT b.id, b.title, b.author, b.comment, b.cover, b.availability, b.created_at, b.updated_at, u.id as user_id, u.pseudo as user_pseudo
         FROM books b
         JOIN users u ON b.user_id = u.id
@@ -123,7 +130,8 @@ class BooksRepository extends AbstractEntityManager
         return $books;
     }
 
-    public function countBooksByUserId($userId){
+    public function countBooksByUserId($userId): int
+    {
         $sql = "SELECT COUNT(*) AS bookscount 
                 FROM books 
                 WHERE user_id = :user_id";
@@ -131,9 +139,12 @@ class BooksRepository extends AbstractEntityManager
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return (int) ($result['bookscount'] ?? 0 );
+        return (int)($result['bookscount'] ?? 0);
     }
 
+    /**
+     * @throws Exception
+     */
     public function searchBooksByTitle(string $searchTerm): array
     {
         $searchTerm = '%' . strtolower($searchTerm) . '%';

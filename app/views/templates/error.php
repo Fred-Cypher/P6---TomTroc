@@ -3,4 +3,10 @@
 
     <p class="errorMessage">La page demandée n'existe pas</p>
 
+    <?php if (isset($_GET['error']))
+        switch ($error):
+            case 'notfound' : ?>
+                <p class=""> Profil non trouvé</p>
+                <?php break; ?>
+            <?php endswitch; ?>
 </section>

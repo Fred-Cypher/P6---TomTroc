@@ -1,7 +1,8 @@
 <section class="presentation">
     <div class="textPresentation">
         <p class="presentationTitle">Rejoignez nos lecteurs passionnés</p>
-        <p class="presentationContent">Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres. </p>
+        <p class="presentationContent">Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de
+            la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres. </p>
         <p class="homeButton">
             <a href="index.php?action=books">
                 <button class="button">Découvrir</button>
@@ -76,11 +77,16 @@
     <div class="textValues">
         <div class="titleValues">Nos valeurs</div>
         <p class="tomValues">
-            Chez Tom Troc, nous mettons l'accent sur le partage, la découverte et la communauté. Nos valeurs sont ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. Nous croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes. <br>
+            Chez Tom Troc, nous mettons l'accent sur le partage, la découverte et la communauté. Nos valeurs sont
+            ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. Nous
+            croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes.
+            <br>
 
             Notre association a été fondée avec une conviction profonde : chaque livre mérite d'être lu et partagé. <br>
 
-            Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter, de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les étagères.</p>
+            Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter,
+            de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les
+            étagères.</p>
         <p class="sign">
             <span>L'équipe Tom Troc</span>
         </p>

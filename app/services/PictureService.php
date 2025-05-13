@@ -13,7 +13,10 @@ class PictureService
         $this->params = $params;
     }
 
-    public function addPicture($picture, ?string $folder = '')
+    /**
+     * @throws Exception
+     */
+    public function addPicture($picture, ?string $folder = ''): string
     {
         $file = md5(uniqid(rand(), true)) . '.webp';
 
@@ -23,7 +26,7 @@ class PictureService
             throw new Exception('Format d\'image incorrect');
         }
 
-        switch ($pictureInfos['mime']){
+        switch ($pictureInfos['mime']) {
             case 'image/png':
                 $pictureSource = \imagecreatefrompng($picture['tmp_name']);
                 break;
@@ -47,14 +50,14 @@ class PictureService
             mkdir($path, 0755, true);
         }
 
-        imagewebp($pictureSource, $path . '/' .  $file);
+        imagewebp($pictureSource, $path . '/' . $file);
 
         imagedestroy($pictureSource);
 
         return $file;
     }
 
-    public function deletePicture($filename, ?string $folder = '')
+    public function deletePicture($filename, ?string $folder = ''): void
     {
         $path = $this->params['images_directory'] . $folder . '/' . $filename;
 

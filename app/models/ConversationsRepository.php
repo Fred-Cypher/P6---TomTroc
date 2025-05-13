@@ -18,8 +18,8 @@ class ConversationsRepository extends AbstractEntityManager
         $result = $this->db->query($sql);
         $conversations = [];
 
-        while ($conversation = $result->fetch(PDO::FETCH_ASSOC)){
-            if ($conversation){
+        while ($conversation = $result->fetch(PDO::FETCH_ASSOC)) {
+            if ($conversation) {
                 $conversation['user1_id'] = $conversation['user1_id'];
                 $conversation['user2_id'] = $conversation['user2_id'];
                 $conversation['created_at'] = new DateTime($conversation['created_at']);
@@ -33,7 +33,7 @@ class ConversationsRepository extends AbstractEntityManager
     public function findByHash(string $userHash): ?Conversation
     {
         $sql = "SELECT * FROM conversations WHERE user_hash = :user_hash";
-        $stmt = $this->db->query($sql, ['user_hash'=> $userHash]);
+        $stmt = $this->db->query($sql, ['user_hash' => $userHash]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$result) {
@@ -52,7 +52,7 @@ class ConversationsRepository extends AbstractEntityManager
 
     public function createConversation(Conversation $conversation): void
     {
-        try{
+        try {
             $sql = "INSERT INTO conversations (user1_id, user2_id, user_hash, created_at) VALUES (:user1_id, :user2_id, :user_hash, :created_at)";
 
             $this->db->query($sql, [
@@ -68,14 +68,13 @@ class ConversationsRepository extends AbstractEntityManager
     }
 
     public function getUserConversations(int $userId): array
-    {  
+    {
         $sql = "SELECT * FROM conversations WHERE user1_id = :user_id OR user2_id = :user_id ORDER BY created_at DESC";
         $result = $this->db->query($sql, ['user_id' => $userId]);
         $conversations = [];
 
-        while($conversationData = $result->fetch()){
-            if (isset($conversationData['created_at']))
-            {
+        while ($conversationData = $result->fetch()) {
+            if (isset($conversationData['created_at'])) {
                 $conversationData['created_at'] = new DateTime($conversationData['created_at']);
             }
             $conversations[] = new Conversation($conversationData);

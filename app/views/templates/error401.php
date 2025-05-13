@@ -1,9 +1,3 @@
-<section>
-    <h2></h2>
-    <p></p>
-
-</section>
-
 <section class="errorPage">
     <h2 class="errorTitle title">Accès refusé</h2>
 

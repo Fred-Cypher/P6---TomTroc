@@ -19,6 +19,6 @@
         <p class="authenticationQuestion">Déjà inscrit ? <a href="index.php?action=login">Connectez-vous</a></p>
     </div>
     <div class="authenticationIllustration">
-        <img src="/images/mask_group-1.png" class="authenticationPicture">
+        <img src="/images/mask_group-1.png" class="authenticationPicture" alt="">
     </div>
 </section>
