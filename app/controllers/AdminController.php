@@ -6,7 +6,6 @@ class AdminController
 {
     public function index(): void
     {
-
         $title = "Tom Troc - Administration";
         ob_start();
         require __DIR__ . '../../views/templates/admin.php';

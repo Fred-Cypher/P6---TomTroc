@@ -1,16 +1,16 @@
 <section class="publicProfile">
     <article class="publicProfileDetail">
         <div class="profileAvatar">
-            <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar"
-                 id="avatarPreview">
+            <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar de l'utilisateur"
+                 class="avatar">
         </div>
         <p class="profilePseudo"><?= htmlspecialchars($user->getPseudo()) ?></p>
         <p class="memberSince">Membre depuis <?= $registeredSince ?></p>
 
-        <div>
+        <div class="biblioBlock">
             <p class="bibliotheque">BIBLIOTHEQUE</p>
             <p class="booksNumber">
-                <img src="/images/vector.svg" alt="">
+                <img src="/images/vector.svg" alt="Image vectorielle représentant deux livres sur champ">
                 <?php if ($count < 2) {
                     echo $count ?> livre <?php
                 } else {
@@ -20,11 +20,13 @@
         </div>
 
         <p>
-            <?php if ($userId != $_SESSION['user']['id']) { ?>
-                <a href="index.php?action=messages&user2_id=<?= $userId ?>">
-                    <button class="button lightButton">Ecrire un message</button>
-                </a>
-                <?php
+            <?php if (isset($_SESSION['user']['id'])) {
+                if ($userId != $_SESSION['user']['id']) { ?>
+                    <a href="index.php?action=messages&user2_id=<?= $userId ?>">
+                        <button class="button lightButton">Ecrire un message</button>
+                    </a>
+                    <?php
+                }
             } ?>
         </p>
     </article>
@@ -41,7 +43,8 @@
                     <div class="booksRow">
                         <div class="tablePicture">
                             <div class="tableContainer">
-                                <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt=""
+                                <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>"
+                                     alt="Illustration pour le livre : <?= htmlspecialchars($book->getTitle()) ?>"
                                      class="smallCover">
                             </div>
                         </div>
@@ -57,7 +60,7 @@
                         </div>
                         <div class="tableDescription">
                             <div class="tableContainer tableComment">
-                                <?= htmlspecialchars($book->getComment()) ?>
+                                <?= nl2br(htmlspecialchars($book->getComment())) ?>
                             </div>
                         </div>
                     </div>

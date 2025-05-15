@@ -7,6 +7,9 @@
     font-family: "inter";
 }
 
+a {
+    background-color: transparent;
+}
 
 :root {
     --softgrey: #F5F3EF;
@@ -53,7 +56,6 @@
 /*** HEADER ***/
 
 .header {
-    border: 1px red solid;
     background-color: var(--softgrey);
     height: 80px;
 }
@@ -64,7 +66,7 @@
     justify-content: flex-start;
     position: relative;
     align-items: center;
-    margin-top: 15px;
+    padding-top: 15px;
     background-color: var(--softgrey)
 }
 
@@ -73,7 +75,6 @@
     justify-content: space-evenly;
     align-items: center;
     width: 50%;
-    border: #00AC66 1px solid;
     padding: 0 100px;
     background-color: var(--softgrey)
 }
@@ -85,7 +86,6 @@
     width: 50%;
     padding: 0 100px;
     background-color: var(--softgrey);
-    border: 1px solid #C56D6D;
 }
 
 .header a {
@@ -112,17 +112,15 @@
 
 /*** MAIN ***/
 .main {
-    border: 1px blue solid;
     margin-bottom: 63px;
     width: 100%;
-    min-height: 80vh;
+    min-height: 100%;
     margin-left: auto;
-    background-color: var(--softgrey);
+    background-color: var(--back);
 }
 
 /*** FOOTER ***/
 .footer {
-    border: 1px green solid;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -236,7 +234,7 @@
 
 .operationStickers {
     display: flex;
-    flex-basis: row;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     background-color: var(--softgrey);
@@ -276,7 +274,7 @@
 }
 
 .lightButton {
-    background-color: var(--softgrey);
+    background-color: transparent;
     color: var(--green);
     border: 1px solid var(--green);
 }
@@ -320,7 +318,6 @@
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-    border: #00AC66 1px solid;
 }
 
 .sign span {
@@ -375,6 +372,7 @@
     width: 135px;
     height: 135px;
     object-fit: cover;
+    background-color: transparent;
 }
 
 .mediumAvatar {
@@ -401,12 +399,14 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    background-color: transparent;
 }
 
 .profileUpdateForm {
     margin: auto;
     width: 322px;
     height: 300px;
+    background-color: transparent;
 }
 
 .updateUserLabel,
@@ -414,6 +414,7 @@
     font-size: 14px;
     color: var(--textgrey);
     font-weight: 400;
+    background-color: transparent;
 }
 
 .updateUserInput {
@@ -435,6 +436,7 @@
 
 .buttonUserUpdate {
     margin: 0 0 30px 115px;
+    background-color: transparent;
 }
 
 /*** PROFIL ***/
@@ -442,13 +444,19 @@
 .profile {
     width: 1135px;
     margin: auto;
+    background-color: transparent;
 }
 
 .publicProfile {
     width: 1135px;
-    margin: 100px auto auto;
+    margin: auto;
+    padding-top: 100px;
     display: flex;
     flex-direction: row;
+    background-color: transparent;
+}
+
+.profileForm {
     background-color: transparent;
 }
 
@@ -457,15 +465,15 @@
     width: 1135px;
     height: 508px;
     margin: auto;
-    background-color: var(--softgrey);
-    border: 1px solid blue;
+    background-color: transparent;
 }
 
 .profileTitle {
     font-size: 26px;
     font-weight: 400;
-    background-color: var(--softgrey);
+    background-color: transparent;
     margin-left: 150px;
+    padding: 50px 0;
 }
 
 .profileDefinition {
@@ -477,6 +485,7 @@
     width: 547px;
     height: 508px;
     border-radius: 20px;
+    background-color: #FFFFFF;
 }
 
 .publicProfileDetail {
@@ -488,6 +497,7 @@
     width: 341px;
     height: 580px;
     border-radius: 20px;
+    background-color: #FFFFFF;
 }
 
 .profileAvatar {
@@ -496,6 +506,16 @@
     justify-content: center;
     height: 254px;
     border-bottom: 1px solid var(--softgrey);
+    background-color: #FFFFFF;
+}
+
+.profileAvatar div {
+    background-color: transparent;
+}
+
+.updateAvatar {
+    background-color: transparent;
+    text-decoration: underline
 }
 
 .profileBlockText {
@@ -503,11 +523,13 @@
     flex-direction: column;
     justify-content: space-evenly;
     height: 114px;
+    background-color: transparent;
 }
 
 .profilePseudo {
     font-size: 24px;
     font-weight: 400;
+    background-color: transparent;
 }
 
 .memberSince {
@@ -515,18 +537,25 @@
     font-weight: 400;
     color: var(--textgrey);
     margin-top: 10px;
+    background-color: transparent;
+}
+
+.biblioBlock {
+    background-color: transparent;
 }
 
 .bibliotheque {
     font-size: 8px;
     font-weight: 600;
     margin-top: 20px;
+    background-color: transparent;
 }
 
 .booksNumber {
     font-size: 14px;
     font-weight: 400;
     margin-top: 5px;
+    background-color: transparent;
 }
 
 .booksNumber img {
@@ -541,12 +570,14 @@
     height: 508px;
     border-radius: 20px;
     margin-left: 33px;
+    background-color: #FFFFFF;
 }
 
 .profileDataTitle {
     margin: 30px 0 0 115px;
     font-size: 16px;
     font-weight: 400;
+    background-color: transparent;
 }
 
 .profileBooks {
@@ -592,6 +623,7 @@
     color: var(--darkgrey);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    background-color: #FFFFFF;
 }
 
 .booksTable {
@@ -601,7 +633,8 @@
 .booksRow {
     display: flex;
     flex-direction: row;
-    border: 1px solid var(--softgrey)
+    border: 1px solid var(--softgrey);
+    background-color: #FFFFFF;
 }
 
 .tableContainer {
@@ -658,7 +691,6 @@
     background-color: transparent;
     display: -webkit-box;
     -webkit-line-clamp: 4;
-    line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -743,13 +775,14 @@
     flex-direction: row;
     align-items: center;
     height: 100px;
-    background-color: var(--softgrey);
+    background-color: transparent;
     max-width: 900px;
-    margin: 30px auto auto;
+    padding-top: 30px;
+    margin: auto;
 }
 
 .exchangeTitle {
-    background-color: var(--softgrey);
+    background-color: transparent;
     display: flex;
     justify-self: flex-start;
 }
@@ -762,15 +795,13 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
-    background-color: var(--softgrey)
+    background-color: transparent;
 }
 
 .bookCard {
     width: 200px;
-    /*width: 20%;*/
     height: 324px;
     background-color: white;
-    /*border : 1px solid rebeccapurple;*/
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     margin: 0 15px 30px;
@@ -814,7 +845,6 @@
 
 .badgeNonDispo {
     position: absolute;
-    /*right: 10px;*/
     top: 16px;
     left: 116px;
     background-color: var(--red);
@@ -846,6 +876,7 @@
     height: 35px;
     width: 300px;
     color: var(--textgrey);
+    background-color: #FFFFFF;
 }
 
 .loupe {
@@ -977,16 +1008,18 @@
     text-align: right;
 }
 
-.return {
+.returnBook {
     margin-left: 150px;
-    margin-top: 40px;
+    padding-top: 40px;
+    background-color: transparent;
 }
 
-.returnLink {
+.returnLinkBook {
     font-size: 14px;
     color: var(--textgrey);
     font-weight: 400;
     text-decoration: none;
+    background-color: transparent;
 }
 
 .updateBookTitle,
@@ -1004,6 +1037,7 @@
     margin: 30px auto 50px;
     border-radius: 20px;
     background-color: transparent;
+    padding-bottom: 50px;
 }
 
 .updateBookForm,
@@ -1118,7 +1152,7 @@
     flex-direction: column;
     background-color: var(--back);
     width: 308px;
-    min-height: 80vh;
+    min-height: 83vh;
     margin-left: 150px;
 }
 
@@ -1188,7 +1222,6 @@
     color: var(--textgrey);
     display: -webkit-box;
     -webkit-line-clamp: 1;
-    line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1243,13 +1276,16 @@
     flex-direction: column;
     text-align: left;
     background-color: transparent;
+    width: 500px;
 }
 
 .messageCurrentUser {
     display: flex;
     flex-direction: column;
     text-align: right;
+    margin-left: 200px;
     background-color: transparent;
+    width: 500px;
 }
 
 .allMessages {
@@ -1271,6 +1307,15 @@
     background-color: transparent;
 }
 
+.messageDateCurrent {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--textgrey);
+    margin-left: 130px;
+    background-color: transparent;
+    width: 500px;
+}
+
 .messageContentOther {
     border-radius: 3px;
     padding: 10px 20px;
@@ -1282,12 +1327,13 @@
 
 .messageContentCurrent {
     margin-top: 10px;
-    margin-left: 420px;
+    margin-left: 100px;
     border-radius: 3px;
     padding: 10px 20px;
     font-size: 12px;
     color: var(--darkgrey);
     background-color: var(--update);
+    width: 500px;
 }
 
 .sendMessage {
@@ -1316,7 +1362,7 @@
     font-size: 16px;
     border-radius: 10px;
     border: 1px solid var(--green);
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 .messagingLink {
@@ -1331,8 +1377,8 @@
     align-items: center;
     justify-content: center;
     top: 19px;
-    right: 405px;
-    width: 10px;
+    right: 402px;
+    width: 11px;
     height: 15px;
     font-size: 8px;
     font-weight: 700;
@@ -1346,7 +1392,7 @@
 .authentication {
     display: flex;
     flex-direction: row;
-    background-color: var(--softgrey);
+    background-color: var(--back);
     text-align: left;
 }
 
@@ -1355,12 +1401,11 @@
     flex-direction: column;
     margin: 130px 220px 130px 130px;
     width: 50%;
-    background-color: var(--softgrey);
-    border: 1px solid green;
+    background-color: transparent;
 }
 
 .authenticationTitle {
-    background-color: var(--softgrey);
+    background-color: transparent;
     font-size: 36px;
     font-weight: 400;
     font-family: "Playfair Display";
@@ -1370,12 +1415,12 @@
 .authenticationForm {
     display: flex;
     flex-direction: column;
-    background-color: var(--softgrey);
+    background-color: transparent;
 }
 
 .authenticationLabel {
     color: var(--textgrey);
-    background-color: var(--softgrey);
+    background-color: transparent;
     font-size: 14px;
     padding-bottom: 15px;
 }
@@ -1385,18 +1430,19 @@
     border: 1px solid var(--updateborder);
     height: 50px;
     margin-bottom: 30px;
+    background-color: #FFFFFF;
 }
 
 .authenticationQuestion {
     display: flex;
     padding-top: 30px;
-    background-color: var(--softgrey);
+    background-color: transparent;
     text-align: left;
     font-size: 14px;
 }
 
 .authenticationQuestion a {
-    background-color: var(--softgrey);
+    background-color: transparent;
     text-decoration-line: underline;
     color: black;
     padding-left: 5px;

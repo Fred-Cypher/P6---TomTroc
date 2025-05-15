@@ -1,5 +1,5 @@
-<p class="return">
-    <a href="index.php?action=privateProfile" class="returnLink">← retour</a>
+<p class="returnBook">
+    <a href="index.php?action=privateProfile" class="returnLinkBook">← retour</a>
 </p>
 
 <h2 class="title newBookTitle">Enregistrer un nouveau livre</h2>
@@ -9,7 +9,8 @@
         <article class="newBookCard">
             <div class="newBookPicture">
                 <div>
-                    <img src="/uploads/covers/defaultBook.png ?>" alt="" class="updateCover" id="coverPreview">
+                    <img src="/uploads/covers/defaultBook.png ?>" alt="Image par défaut" class="updateCover"
+                         id="coverPreview">
                 </div>
                 <div class="newCoverLink">
                     <label for="cover" class="labelUpdate">Ajouter une couverture</label>

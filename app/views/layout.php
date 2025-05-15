@@ -35,15 +35,15 @@
                         <img src="/images/icon_messagerie.svg" alt="Messagerie">
                         Messagerie
                         <?php if (UNREAD_COUNT > 0): ?>
-                    <div class="badgeCount">
-                        <?= UNREAD_COUNT ?>
-                    </div>
-                    <?php endif; ?>
+                            <div class="badgeCount">
+                                <?= UNREAD_COUNT ?>
+                            </div>
+                        <?php endif; ?>
                     </p>
                 </a>
             <?php } else { ?>
                 <p class="messagingLink">
-                    <a href="index.php?action=login" class="link">
+                    <a href="index.php?action=error401" class="link">
                         <img src="/images/icon_mon_compte.svg" alt="Mon compte">
                         Messagerie
                     </a>
@@ -80,11 +80,13 @@
 </main>
 <footer>
     <div class="footer">
-            <span class="footerSpan"><?php if (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN') { ?>
+            <span class="footerSpan">
+                <?php if (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN') { ?>
                     <a href="index.php?action=admin" class="link">
                         Panneau d'administration
                     </a>
-                <?php } ?></span>
+                <?php } ?>
+            </span>
         <span class="footerSpan">Politique de confidentialité</span>
         <span class="footerSpan">Mentions légales</span>
         <span class="footerSpan">Tom Troc &#169; </span>

@@ -1,10 +1,14 @@
 <section class="exchangeHeader">
-    <h2 class="exchangeTitle">Nos livres à l'échange</h2>
+    <?php if (isset($_GET['search'])) { ?>
+        <h2 class="exchangeTitle">Résultat de la recherche </h2>
+    <?php } else { ?>
+        <h2 class="exchangeTitle">Nos livres à l'échange</h2>
+    <?php } ?>
     <form action="index.php" method="get" class="exchangeSearch">
         <input type="hidden" name="action" value="books">
         <input type="search" placeholder="Rechercher un livre" class="inputSearch" name="search">
         <button type="submit" class="loupe-button">
-            <img src="/images/loupe.svg" alt="" class="loupe">
+            <img src="/images/loupe.svg" alt="Loupe, icône de recherche" class="loupe">
         </button>
 
     </form>
@@ -25,7 +29,9 @@
                     <?php if (!$book->getAvailability()): ?>
                         <span class="badgeNonDispo">non dispo.</span>
                     <?php endif ?>
-                    <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="mediumCover">
+                    <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>"
+                         alt="Image correspondant au livre : <?= htmlspecialchars($book->getTitle()) ?>"
+                         class="mediumCover">
                 </p>
                 <div class="bookInformation">
                     <p class="exchangeBookTitle"><?= htmlspecialchars($book->getTitle()) ?></p>

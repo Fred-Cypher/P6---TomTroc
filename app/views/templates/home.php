@@ -10,7 +10,7 @@
         </p>
     </div>
     <div>
-        <img src="/images/hamza-nouasria-KXrvPthkmYQ-unsplash1-1.png" alt="" class="picturePresentation">
+        <img src="/images/hamza-nouasria-KXrvPthkmYQ-unsplash1-1.png" alt="Photo de Hamza Nouasria représenant un homme lisant au milieu de livres" class="picturePresentation">
         <p class="pictureAuthor">Hamza</p>
     </div>
 </section>
@@ -24,7 +24,7 @@
                         <?php if (!$book->getAvailability()): ?>
                             <span class="badgeNonDispo">non dispo.</span>
                         <?php endif ?>
-                        <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="mediumCover">
+                        <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="Illustration pour le livre : <?= htmlspecialchars($book->getTitle()) ?>" class="mediumCover">
                     </p>
                     <div class="bookInformation">
                         <p class="exchangeBookTitle"><?= htmlspecialchars($book->getTitle()) ?></p>
@@ -73,7 +73,7 @@
         </p>
 
     </div>
-    <img src="/images/mask_group.png" alt="" class="pictureValues">
+    <img src="/images/mask_group.png" alt="Jeune fille devant une bibliothèque" class="pictureValues">
     <div class="textValues">
         <div class="titleValues">Nos valeurs</div>
         <p class="tomValues">
@@ -86,12 +86,13 @@
 
             Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter,
             de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les
-            étagères.</p>
+            étagères.
+        </p>
         <p class="sign">
             <span>L'équipe Tom Troc</span>
         </p>
     </div>
     <div class="signVector">
-        <img src="/images/vector2.svg" alt="">
+        <img src="/images/vector2.svg" alt="Cœur vert">
     </div>
 </section>

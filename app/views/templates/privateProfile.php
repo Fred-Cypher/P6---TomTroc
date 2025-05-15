@@ -6,21 +6,21 @@
             <article class="profileDefinition">
                 <div class="profileAvatar">
                     <div>
-                        <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="" class="avatar"
-                             id="avatarPreview">
+                        <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>"
+                             alt="Avatar de l'utilisateur" class="avatar" id="avatarPreview">
                     </div>
                     <div>
-                        <label for="avatar" class="labelUpdate">Modifier</label>
+                        <label for="avatar" class="updateAvatar">Modifier</label>
                         <input type="file" name="avatar" id="avatar" class="inputUpdate" onchange="previewImage(event)">
                     </div>
                 </div>
                 <div class="profileBlockText">
                     <p class="profilePseudo"><?= htmlspecialchars($user->getPseudo()) ?></p>
                     <p class="memberSince">Membre depuis <?= $registeredSince ?></p>
-                    <div>
+                    <div class="biblioBlock">
                         <p class="bibliotheque">BIBLIOTHEQUE</p>
                         <p class="booksNumber">
-                            <img src="/images/vector.svg" alt="">
+                            <img src="/images/vector.svg" alt="Image vectorielle représentant deux livres sur champ">
                             <?php if ($count < 2) {
                                 echo $count ?> livre <?php
                             } else {
@@ -85,7 +85,8 @@
                 <div class="booksRow">
                     <div class="tablePicture">
                         <div class="tableContainer">
-                            <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt=""
+                            <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>"
+                                 alt="Illustration pour le livre : <?= htmlspecialchars($book->getTitle()) ?>"
                                  class="smallCover">
                         </div>
                     </div>
@@ -101,7 +102,7 @@
                     </div>
                     <div class="tableDescription">
                         <div class="tableContainer tableComment">
-                            <?= htmlspecialchars($book->getComment()) ?>
+                            <?= nl2br(htmlspecialchars($book->getComment())) ?>
                         </div>
                     </div>
                     <div class="tableAvailability">

@@ -1,5 +1,5 @@
-<p class="return">
-    <a href="index.php?action=privateProfile" class="returnLink">← retour</a>
+<p class="returnBook">
+    <a href="index.php?action=privateProfile" class="returnLinkBook">← retour</a>
 </p>
 
 <h2 class="title updateBookTitle">Modifier les informations</h2>
@@ -12,8 +12,9 @@
                     Photo
                 </span>
                 <div>
-                    <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="" class="updateCover"
-                         id="coverPreview">
+                    <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>"
+                         alt="Illustration pour le livre : <?= htmlspecialchars($book->getTitle()) ?>"
+                         class="updateCover" id="coverPreview">
                 </div>
                 <div class="updateCoverLink">
                     <label for="cover" class="labelUpdate ">Modifier la photo</label>
@@ -34,8 +35,9 @@
                 </p>
                 <p class="formUpdateBook">
                     <label for="comment" class="form-label updateBookLabel">Commentaire</label>
-                    <textarea name="comment" id="comment" class="updateBookTextarea" rows="17"
-                              cols="80"><?= htmlspecialchars($book->getComment()) ?></textarea>
+                    <textarea name="comment" id="comment" class="updateBookTextarea" rows="17" cols="80">
+                        <?= htmlspecialchars($book->getComment()) ?>
+                    </textarea>
                 </p>
                 <p class="formUpdateBook">
                     <label for="availability" class="updateBookLabel">Disponibilité</label>
