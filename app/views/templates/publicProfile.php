@@ -22,11 +22,12 @@
         <p>
             <?php if (isset($_SESSION['user']['id'])) {
                 if ($userId != $_SESSION['user']['id']) { ?>
-                    <a href="index.php?action=messages&user2_id=<?= $userId ?>">
-                        <button class="button lightButton">Ecrire un message</button>
-                    </a>
-                    <?php
-                }
+                    <div class="button lightButton">
+                        <a href="index.php?action=messages&user2_id=<?= $userId ?>">
+                            Ecrire un message
+                        </a>
+                    </div>
+                <?php }
             } ?>
         </p>
     </article>

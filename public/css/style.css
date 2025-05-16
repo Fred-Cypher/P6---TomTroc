@@ -9,6 +9,7 @@
 
 a {
     background-color: transparent;
+    text-decoration: none;
 }
 
 :root {
@@ -277,6 +278,10 @@ a {
     background-color: transparent;
     color: var(--green);
     border: 1px solid var(--green);
+}
+
+.lightButton a{
+    color: var(--green);
 }
 
 .lightButton:hover,
@@ -596,7 +601,7 @@ a {
 
 .addNewBook {
     margin-left: 150px;
-    margin-bottom: 30px;
+    padding: 20px 0 30px;
 }
 
 /*** TABLEAUX ***/
@@ -994,9 +999,25 @@ a {
     background-color: white;
 }
 
-.detailButton {
+.detailSendMessage{
     margin-top: 70px;
     width: 485px;
+    color: white;
+}
+
+.detailButton {
+    background-color: var(--green);
+    padding: 22px 0;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--green);
+    width: 485px;
+    text-align: center;
+}
+
+.detailButton a{
+    color: white;
 }
 
 /*** MODIFICATION LIVRE ***/
@@ -1376,8 +1397,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 19px;
-    right: 402px;
+    top: 33px;
+    right: 405px;
     width: 11px;
     height: 15px;
     font-size: 8px;

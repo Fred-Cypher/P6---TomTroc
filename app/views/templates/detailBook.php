@@ -3,7 +3,7 @@
     <article class="detailCover">
         <?php if (htmlspecialchars($book->getCover())): ?>
             <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>"
-                 alt="Illustration du livre : <?= htmlspecialchars($book->getTitle()) ?>" class="largeCover">
+                alt="Illustration du livre : <?= htmlspecialchars($book->getTitle()) ?>" class="largeCover">
         <?php else: ?>
             <img src="/uploads/covers/defaultBook.jpg" alt="Illustration par défaut" class="largeCover">
         <?php endif ?>
@@ -16,22 +16,23 @@
         <p class="detailComment">
             <?= nl2br(htmlspecialchars($book->getComment())) ?>
         </p>
-        <p>
         <div class="detailOwner">PROPRIÉTAIRE</div>
         <div>
             <a href="index.php?action=publicProfile&id=<?= $book->getUserId() ?>" class="badgeUser link">
                 <img src="/uploads/avatars/<?= htmlspecialchars($book->getUserAvatar()) ?>"
-                     alt="Avatar du propriétaire du livre" class="mediumAvatar">
+                    alt="Avatar du propriétaire du livre" class="mediumAvatar">
                 <p><?= htmlspecialchars($book->getUserPseudo()) ?></p>
             </a>
         </div>
-        <div>
+        <div class="detailSendMessage">
             <?php if (isset($_SESSION['user']['id'])) {
                 if ($book->getUserId() != $_SESSION['user']['id']) { ?>
-                    <a href="index.php?action=messages&user2_id=<?= $book->getUserId() ?>" class="detailSendMessage">
-                        <button class="button detailButton">Envoyer un message</button>
+                <div class="detailButton">
+                    <a href="index.php?action=messages&user2_id=<?= $book->getUserId() ?>" >
+                        Envoyer un message
                     </a>
-                    <?php
+                </div>
+            <?php
                 }
             } ?>
         </div>

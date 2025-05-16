@@ -4,9 +4,7 @@
         <p class="presentationContent">Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de
             la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres. </p>
         <p class="homeButton">
-            <a href="index.php?action=books">
-                <button class="button">Découvrir</button>
-            </a>
+            <a href="index.php?action=books" class="button">Découvrir</a>
         </p>
     </div>
     <div>
@@ -35,9 +33,7 @@
             </div>
         <?php endforeach; ?>
     </div>
-    <a href="index.php?action=books">
-        <button class="button">Voir tous les livres</button>
-    </a>
+    <a href="index.php?action=books"  class="button">Voir tous les livres</a>
 </section>
 <section class="values">
     <div class="operation">
@@ -67,11 +63,8 @@
             </div>
         </div>
         <p class="homeButton">
-            <a href="index.php?action=books">
-                <button class="lightButton button">Voir tous les livres</button>
-            </a>
+            <a href="index.php?action=books"  class="lightButton button">Voir tous les livres</a>
         </p>
-
     </div>
     <img src="/images/mask_group.png" alt="Jeune fille devant une bibliothèque" class="pictureValues">
     <div class="textValues">

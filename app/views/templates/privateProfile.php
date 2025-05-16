@@ -126,9 +126,12 @@
         </div>
     </div>
 </section>
-<a href="index.php?action=addBook" class="addNewBook">
-    <button class="button">Enregistrer un nouveau livre</button>
-</a>
+<div class="addNewBook">
+    <a href="index.php?action=addBook" class="button">
+        Enregistrer un nouveau livre
+    </a>
+</div>
+
 
 <script>
     function previewImage(event) {
