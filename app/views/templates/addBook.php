@@ -9,7 +9,7 @@
         <article class="newBookCard">
             <div class="newBookPicture">
                 <div>
-                    <img src="/uploads/covers/defaultBook.png ?>" alt="Image par défaut" class="updateCover"
+                    <img src="/uploads/covers/defaultBook.png" alt="Image par défaut" class="updateCover"
                          id="coverPreview">
                 </div>
                 <div class="newCoverLink">
