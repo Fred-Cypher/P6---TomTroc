@@ -35,16 +35,16 @@
                         <img src="/images/icon_messagerie.svg" alt="Messagerie">
                         Messagerie
                         <?php if (UNREAD_COUNT > 0): ?>
-                            <div class="badgeCount">
+                            <span class="badgeCount">
                                 <?= UNREAD_COUNT ?>
-                            </div>
+                            </span>
                         <?php endif; ?>
                     </p>
                 </a>
             <?php } else { ?>
                 <p class="messagingLink">
                     <a href="index.php?action=error401" class="link">
-                        <img src="/images/icon_mon_compte.svg" alt="Mon compte">
+                        <img src="/images/icon_messagerie.svg" alt="Messagerie">
                         Messagerie
                     </a>
                 </p>

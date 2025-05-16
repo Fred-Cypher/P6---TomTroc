@@ -1394,18 +1394,16 @@ a {
 
 .badgeCount {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 33px;
-    right: 405px;
-    width: 11px;
+    width: 10px;
     height: 15px;
+    margin-left: 3px;
+    padding-top: 4px;
     font-size: 8px;
     font-weight: 700;
     color: var(--softgrey);
     background-color: var(--darkgrey);
     border-radius: 7px;
+    text-align: center;
 }
 
 /*** INSCRIPTION/CONNEXION ***/
