@@ -1,5 +1,9 @@
 /*** GENERAL ***/
 
+html{
+    font-size: 16px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +26,7 @@ a {
     --back: #FAF9F7;
     --update: #EDF2F6;
     --updateborder: #F0F0F0;
-    --available: #6DC541;
+    --available: #6DC5A1;
 }
 
 .body {
@@ -45,7 +49,7 @@ a {
 
 .button {
     background-color: var(--green);
-    padding: 22px 38px;
+    padding: 1.4rem 2.4rem;
     color: white;
     font-weight: 600;
     font-size: 16px;
@@ -58,7 +62,7 @@ a {
 
 .header {
     background-color: var(--softgrey);
-    height: 80px;
+    height: 5rem;
 }
 
 .headerNav {
@@ -67,7 +71,7 @@ a {
     justify-content: flex-start;
     position: relative;
     align-items: center;
-    padding-top: 15px;
+    padding-top: 1rem;
     background-color: var(--softgrey)
 }
 
@@ -76,7 +80,7 @@ a {
     justify-content: space-evenly;
     align-items: center;
     width: 50%;
-    padding: 0 100px;
+    padding: 0 6rem;
     background-color: var(--softgrey)
 }
 
@@ -85,7 +89,7 @@ a {
     justify-content: space-evenly;
     align-items: center;
     width: 50%;
-    padding: 0 100px;
+    padding: 0 6.25rem;
     background-color: var(--softgrey);
 }
 
@@ -99,8 +103,8 @@ a {
 }
 
 .logo {
-    width: 155px;
-    height: 51px;
+    width: 9.7rem;
+    height: 3.2rem;
     background-color: var(--softgrey);
 }
 
@@ -113,9 +117,8 @@ a {
 
 /*** MAIN ***/
 .main {
-    margin-bottom: 63px;
     width: 100%;
-    min-height: 100%;
+    min-height: 83vh;
     margin-left: auto;
     background-color: var(--back);
 }
@@ -126,15 +129,15 @@ a {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    height: 61px;
+    height: 4rem;
     width: 100%;
-    position: fixed;
+
     bottom: 0;
     background-color: white;
 }
 
 .footerSpan {
-    padding: 0 20px 0 20px;
+    padding: 0 1.25rem;
     background-color: white;
     color: var(--darkgrey);
     font-size: 12px;
@@ -144,7 +147,7 @@ a {
 /*** ACCUEIL ***/
 
 .homeButton {
-    margin-top: 50px;
+    margin-top: 3.2rem;
     background-color: transparent;
 }
 
@@ -152,13 +155,13 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding: 80px 30px 80px 30px;
+    padding: 5rem 15rem;
     background-color: var(--softgrey);
 }
 
 .textPresentation {
-    width: 330px;
-    height: 95px;
+    width: 21rem;
+    height: 6rem;
     background-color: var(--softgrey);
     padding: 150px 25px 0;
 }
@@ -166,20 +169,21 @@ a {
 .presentationTitle {
     font-family: "Playfair Display";
     font-size: 36px;
+    font-weight: 400;
     background-color: var(--softgrey);
-    width: 329px;
+    width: 21rem;
 }
 
 .presentationContent {
     font-size: 16px;
-    width: 328px;
-    margin-top: 20px;
+    width: 21rem;
+    margin-top: 1.25rem;
     background-color: var(--softgrey);
 }
 
 .picturePresentation {
-    width: 404px;
-    height: 539px;
+    width: 25.25rem;
+    height: 33.7rem;
     object-fit: cover;
 }
 
@@ -189,7 +193,7 @@ a {
     color: var(--textgrey);
     text-align: end;
     background-color: var(--softgrey);
-    padding-top: 10px;
+    padding-top: 0.7rem;
 }
 
 .lastBooks {
@@ -197,7 +201,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 670px;
+    height: 42rem;
     background-color: var(--back);
 }
 
@@ -205,7 +209,7 @@ a {
     font-size: 32px;
     font-family: "Playfair Display";
     font-weight: 400;
-    margin-bottom: 50px;
+    margin-bottom: 3.2rem;
 }
 
 .lastBooksCards {
@@ -213,7 +217,7 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 .operation {
@@ -221,9 +225,9 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 450px;
+    height: 28rem;
     background-color: var(--softgrey);
-    margin-top: 50px;
+    margin-top: 3rem;
 }
 
 .operationTitle {
@@ -244,23 +248,23 @@ a {
 .operation span {
     font-weight: 300;
     background-color: var(--softgrey);
-    width: 400px;
-    padding: 30px 0;
+    width: 25rem;
+    padding: 1.9rem 0;
 }
 
 .sticker {
     display: flex;
-    width: 215px;
-    height: 139px;
+    width: 13.5rem;
+    height: 8.7rem;
     text-align: center;
     align-items: center;
     background-color: white;
-    margin: 20px;
+    margin: 1.25rem;
     border-radius: 15px;
 }
 
 .stickerText {
-    margin: 15px;
+    margin: 1rem;
     font-size: 14px;
     font-weight: 400;
     background-color: white;
@@ -270,12 +274,12 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 1350px;
+    height: 84rem;
     background-color: var(--softgrey);
 }
 
 .lightButton {
-    background-color: transparent;
+    background-color: var(--softgrey);
     color: var(--green);
     border: 1px solid var(--green);
 }
@@ -293,13 +297,13 @@ a {
 
 .pictureValues {
     width: 100%;
-    height: 230px;
+    height: 14.4rem;
     margin-top: 50px;
 }
 
 .textValues {
-    width: 400px;
-    height: 350px;
+    width: 25rem;
+    height: 22rem;
     background-color: var(--softgrey);
 }
 
@@ -308,21 +312,21 @@ a {
     font-size: 32px;
     font-family: "Playfair Display";
     font-weight: 400;
-    margin: 70px 0 30px 0;
+    margin: 4.4rem 0 1.9rem 0;
 }
 
 .tomValues {
     background-color: var(--softgrey);
     font-size: 16px;
     font-weight: 300;
-    width: 392px;
+    width: 24.5rem;
 }
 
 .sign {
     background-color: var(--softgrey);
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 2.5rem;
 }
 
 .sign span {
@@ -339,58 +343,59 @@ a {
 
 .signVector img {
     background-color: transparent;
-    margin-left: 400px;
-    margin-top: 80px;
-    width: 120px;
-    height: 102px;
+    margin-left: 25rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    width: 7.5rem;
+    height: 6.4rem;
 }
 
 /*** IMAGES ***/
 
 .smallCover {
-    width: 78px;
-    height: 78px;
+    width: 4.875rem;
+    height: 4.875rem;
     object-fit: cover;
 }
 
 .mediumCover {
-    width: 200px;
-    height: 200px;
+    width: 12.5rem;
+    height: 12.5rem;
     object-fit: cover;
 }
 
 .updateCover {
-    width: 488px;
-    height: 488px;
+    width: 30.5rem;
+    height: 30.5rem;
     object-fit: cover;
-    margin-top: 15px;
+    margin-top: 1rem;
 }
 
 .largeCover {
-    width: 720px;
-    height: 863px;
+    width: 45rem;
+    height: 54rem;
     object-fit: cover;
 }
 
 .avatar {
     border-radius: 50%;
-    width: 135px;
-    height: 135px;
+    width: 8.44rem;
+    height: 8.44rem;
     object-fit: cover;
     background-color: transparent;
 }
 
 .mediumAvatar {
     border-radius: 50%;
-    height: 48px;
-    width: 48px;
+    height: 3rem;
+    width: 3rem;
     object-fit: cover;
 }
 
 .smallAvatar {
     border-radius: 50%;
-    height: 24px;
-    width: 24px;
+    height: 1.5rem;
+    width: 1.5rem;
     object-fit: cover;
 }
 
@@ -409,8 +414,8 @@ a {
 
 .profileUpdateForm {
     margin: auto;
-    width: 322px;
-    height: 300px;
+    width: 20.125rem;
+    height: 18.75rem;
     background-color: transparent;
 }
 
@@ -425,12 +430,12 @@ a {
 .updateUserInput {
     background-color: var(--update);
     color: var(--darkgrey);
-    height: 50px;
+    height: 3.125rem;
     border-radius: 6px;
     border: 1px solid var(--updateborder);
-    margin-top: 10px;
-    margin-bottom: 20px;
-    padding-left: 20px;
+    margin-top: 0.6rem;
+    margin-bottom: 1.6rem;
+    padding-left: 1.25rem;
 }
 
 .placeholderPwd {
@@ -440,25 +445,27 @@ a {
 }
 
 .buttonUserUpdate {
-    margin: 0 0 30px 115px;
+    margin: 0 0 3rem 7.1rem;
     background-color: transparent;
 }
 
 /*** PROFIL ***/
 
 .profile {
-    width: 1135px;
+    width: 71rem;
     margin: auto;
     background-color: transparent;
 }
 
 .publicProfile {
-    width: 1135px;
+    width: 71rem;
     margin: auto;
-    padding-top: 100px;
+    margin-bottom: 5rem;;
+    padding-top: 6.25rem;
     display: flex;
     flex-direction: row;
     background-color: transparent;
+    min-height: 85vh;
 }
 
 .profileForm {
@@ -467,8 +474,8 @@ a {
 
 .profileDetail {
     display: flex;
-    width: 1135px;
-    height: 508px;
+    width: 71rem;
+    height: 31.75rem;
     margin: auto;
     background-color: transparent;
 }
@@ -477,8 +484,8 @@ a {
     font-size: 26px;
     font-weight: 400;
     background-color: transparent;
-    margin-left: 150px;
-    padding: 50px 0;
+    margin-left: 9.4rem;
+    padding: 3.125rem 0;
 }
 
 .profileDefinition {
@@ -487,8 +494,8 @@ a {
     align-items: center;
     text-align: center;
     justify-content: space-evenly;
-    width: 547px;
-    height: 508px;
+    width: 34.2rem;
+    height: 31.75rem;
     border-radius: 20px;
     background-color: #FFFFFF;
 }
@@ -499,8 +506,8 @@ a {
     align-items: center;
     text-align: center;
     justify-content: space-evenly;
-    width: 341px;
-    height: 580px;
+    width: 21.3rem;
+    height: 36.25rem;
     border-radius: 20px;
     background-color: #FFFFFF;
 }
@@ -509,7 +516,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 254px;
+    height: 16rem;
     border-bottom: 1px solid var(--softgrey);
     background-color: #FFFFFF;
 }
@@ -527,7 +534,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 114px;
+    height: 7.2rem;
     background-color: transparent;
 }
 
@@ -541,7 +548,7 @@ a {
     font-size: 14px;
     font-weight: 400;
     color: var(--textgrey);
-    margin-top: 10px;
+    margin-top: 0.7rem;
     background-color: transparent;
 }
 
@@ -552,56 +559,56 @@ a {
 .bibliotheque {
     font-size: 8px;
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     background-color: transparent;
 }
 
 .booksNumber {
     font-size: 14px;
     font-weight: 400;
-    margin-top: 5px;
+    margin-top: 0.3rem;
     background-color: transparent;
 }
 
 .booksNumber img {
-    height: 13px;
+    height: 0.8rem;
 }
 
 .profileData {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 555px;
-    height: 508px;
+    width: 34.7rem;
+    height: 31.8rem;
     border-radius: 20px;
     margin-left: 33px;
     background-color: #FFFFFF;
 }
 
 .profileDataTitle {
-    margin: 30px 0 0 115px;
+    margin: 1.9rem 0 0 7.2rem;
     font-size: 16px;
     font-weight: 400;
     background-color: transparent;
 }
 
 .profileBooks {
-    width: 1140px;
-    margin: 33px auto 30px;
+    width: 71.25rem;
+    margin: 2rem auto 1.9rem;
     border-radius: 20px;
 }
 
 .publicProfileBooks {
     display: flex;
-    width: 771px;
-    border-radius: 20px;
-    padding-left: 33px;
+    width: 48.2rem;
+    border-radius: 1.25rem;
+    padding-left: 2rem;
     background-color: transparent;
 }
 
 .addNewBook {
-    margin-left: 150px;
-    padding: 20px 0 30px;
+    margin-left: 9rem;
+    padding: 1.25rem 0 1.9rem;
 }
 
 /*** TABLEAUX ***/
@@ -622,7 +629,7 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 60px;
+    height: 3.75rem;
     font-size: 8px;
     font-weight: 600;
     color: var(--darkgrey);
@@ -643,7 +650,7 @@ a {
 }
 
 .tableContainer {
-    height: 130px;
+    height: 8.2rem;
     display: flex;
     align-items: center;
     color: var(--darkgrey);
@@ -653,44 +660,44 @@ a {
 }
 
 .tableTitlePicture {
-    width: 150px;
-    padding-left: 60px;
+    width: 9.4rem;
+    padding-left: 3.75rem;
     text-align: left;
     background-color: transparent;
     border-top-left-radius: 20px;
 }
 
 .tablePicture {
-    width: 150px;
-    padding-left: 60px;
+    width: 9.4rem;
+    padding-left: 3.75rem;
     text-align: left;
     background-color: transparent;
 }
 
 .tableTitle {
-    width: 181px;
-    padding-left: 10px;
+    width: 11.32rem;
+    padding-left: 0.6rem;
     text-align: left;
     background-color: transparent;
 }
 
 .tableAuthor {
-    width: 175px;
-    padding-left: 10px;
+    width: 11rem;
+    padding-left: 0.6rem;
     text-align: left;
     background-color: transparent;
 }
 
 .tableDescription {
-    width: 213px;
-    padding-left: 10px;
+    width: 13.3rem;
+    padding-left: 0.6rem;
     text-align: left;
     background-color: transparent;
     overflow: hidden;
 }
 
 .tableComment {
-    width: 180px;
+    width: 11.25rem;
     height: auto;
     font-style: italic;
     background-color: transparent;
@@ -699,28 +706,28 @@ a {
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-right: 30px;
-    padding-top: 35px;
+    padding-right: 1.9rem;
+    padding-top: 2.2rem;
 }
 
 .tableAvailability {
-    width: 110px;
+    width: 6.9rem;
     text-align: left;
-    padding-left: 30px;
+    padding-left: 1.9rem;
     background-color: transparent;
 }
 
 .tableTitleActions {
-    width: 200px;
-    padding-left: 20px;
+    width: 12.5rem;
+    padding-left: 1.25rem;
     text-align: left;
     background-color: transparent;
     border-top-right-radius: 20px;
 }
 
 .tableActions {
-    width: 200px;
-    padding-left: 20px;
+    width: 12.5rem;
+    padding-left: 1.25rem;
     text-align: left;
     background-color: transparent;
 }
@@ -738,23 +745,25 @@ a {
 .available {
     background-color: var(--available);
     color: white;
-    padding: 4px 13px 0 15px;
+    padding: 0.25rem 0.9rem 0 0.9rem;
     border-radius: 15px;
     font-size: 9px;
     font-weight: 500;
-    width: 50px;
-    height: 15px;
+    width: 3.2rem;
+    height: 1rem;
+    text-align: center;
 }
 
 .unavailable {
     background-color: var(--red);
     color: var(--softgrey);
-    padding: 4px 13px 0 15px;
+    padding: 0.25rem 0.9rem 0 0.9rem;
     border-radius: 15px;
     font-size: 9px;
     font-weight: 500;
-    width: 50px;
-    height: 15px;
+    width: 3.2rem;
+    height: 1rem;
+    text-align: center;
 }
 
 .tableEdit {
@@ -770,7 +779,7 @@ a {
     font-size: 12px;
     font-weight: 400;
     text-decoration: underline;
-    margin-left: 30px;
+    margin-left: 1.9rem;
     background-color: transparent;
 }
 
@@ -779,46 +788,50 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 100px;
+    height: 6.25rem;
     background-color: transparent;
-    max-width: 900px;
-    padding-top: 30px;
+    max-width: 56.25rem;
+    padding-top: 4rem;
     margin: auto;
 }
 
 .exchangeTitle {
     background-color: transparent;
+    font-weight: 400;
+    font-size: 36px;
     display: flex;
     justify-self: flex-start;
+    font-family: "Playfair Display";
 }
 
 .exchangeBooks {
     display: flex;
     flex-direction: row;
     margin: auto;
-    max-width: 1000px;
+    max-width: 62.5rem;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
+    padding: 1.25rem;
     background-color: transparent;
+    min-height: 85vh;
 }
 
 .bookCard {
-    width: 200px;
-    height: 324px;
+    width: 12.5rem;
+    height: 20.25rem;
     background-color: white;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    margin: 0 15px 30px;
-    box-shadow: 0 4px 24px 0 #00000003;
+    margin: 0 1rem 1.9rem;
+    box-shadow: 0 0.25rem 1.5rem 0 #00000003;
 }
 
 .bookInformation {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 100px;
-    padding: 0 10px;
+    height: 6.25rem;
+    padding: 0 0.625rem;
     background-color: white;
 }
 
@@ -850,16 +863,16 @@ a {
 
 .badgeNonDispo {
     position: absolute;
-    top: 16px;
-    left: 116px;
+    top: 1rem;
+    left: 7.25rem;
     background-color: var(--red);
     color: var(--softgrey);
-    padding: 4px 13px 0 15px;
+    padding: 0.25rem 0.8rem 0 1rem;
     border-radius: 15px;
     font-size: 9px;
     font-weight: 500;
-    width: 50px;
-    height: 15px;
+    width: 3rem;
+    height: 1rem;
 }
 
 /*** RECHERCHE ***/
@@ -867,29 +880,29 @@ a {
 .exchangeSearch {
     position: relative;
     display: flex;
-    left: 350px;
+    left: 16.2rem;
     background-color: transparent;
-    width: 322px;
+    width: 20rem;
 }
 
 .inputSearch {
     display: flex;
     justify-self: flex-end;
-    padding-left: 40px;
+    padding-left: 2.5rem;
     border-radius: 10px;
     border: 1px solid var(--updateborder);
-    height: 35px;
-    width: 300px;
+    height: 2.5rem;
+    width: 18.75rem;
     color: var(--textgrey);
     background-color: #FFFFFF;
 }
 
 .loupe {
-    height: 16px;
+    height: 1rem;
     width: auto;
     color: var(--textgrey);
     position: absolute;
-    left: 10px;
+    left: 0.7rem;
     top: 50%;
     transform: translateY(-50%);
 }
@@ -899,7 +912,7 @@ a {
 }
 
 .return {
-    margin-right: 270px;
+    margin-right: 15rem;
     background-color: transparent;
     text-align: right;
     text-decoration: underline;
@@ -916,25 +929,23 @@ a {
     font-size: 10px;
     color: var(--textgrey);
     font-weight: 300;
-    background-color: transparent;
-    padding-top: 15px;
-    padding-left: 140px;
+    background-color: var(--softgrey);
+    padding: 1.5rem 0 1rem 8.75rem ;
 }
 
 .singleBook {
     display: flex;
-    margin-top: 10px;
 }
 
 .detailCover {
-    width: 720px;
+    width: 45rem;
     height: auto;
 }
 
 .bookDescription {
-    width: 720px;
-    padding-top: 60px;
-    padding-left: 80px;
+    width: 45rem;
+    padding-top: 3.75rem;
+    padding-left: 5rem;
 }
 
 .detailTitle {
@@ -945,33 +956,33 @@ a {
 }
 
 .detailAuthor {
-    margin-top: 30px;
+    margin-top: 2rem;
     font-size: 16px;
     font-weight: 400;
     color: var(--textgrey);
 }
 
 .detailLine {
-    margin-top: 30px;
-    width: 30px;
+    margin-top: 2rem;
+    width: 1.8rem;
 }
 
 .detailDescription {
-    margin-top: 30px;
+    margin-top: 2rem;
     font-size: 8px;
     color: var(--darkgrey);
 }
 
 .detailComment {
-    margin-top: 25px;
-    width: 485px;
-    height: 290px;
+    margin-top: 1.5rem;
+    width: 30.3rem;
+    height: 18rem;
     font-size: 14px;
     overflow: auto;
 }
 
 .detailOwner {
-    margin-top: 30px;
+    margin-top: 2rem;
     font-size: 8px;
     font-weight: 600;
     color: var(--darkgrey)
@@ -980,13 +991,13 @@ a {
 .badgeUser {
     display: flex;
     flex-direction: row;
-    width: 157px;
-    height: 50px;
+    width: 9.8rem;
+    height: 3rem;
     background-color: white;
-    padding: 6px 17px 6px 6px;
+    padding: 0.4rem 1rem 0.4rem 0.4rem;
     border-radius: 50px;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 2rem;
 }
 
 .badgeUser img,
@@ -995,19 +1006,19 @@ a {
 }
 
 .badgeUser p {
-    margin-left: 15px;
+    margin-left: 1rem;
     background-color: white;
 }
 
 .detailSendMessage{
-    margin-top: 70px;
-    width: 485px;
+    margin-top: 4.4rem;
+    width: 30.3rem;
     color: white;
 }
 
 .detailButton {
     background-color: var(--green);
-    padding: 22px 0;
+    padding: 1.4rem 0;
     font-weight: 600;
     font-size: 16px;
     border-radius: 10px;
@@ -1030,9 +1041,9 @@ a {
 }
 
 .returnBook {
-    margin-left: 150px;
-    padding-top: 40px;
-    background-color: transparent;
+    padding-left: 9.4rem;
+    padding-top: 2.5rem;
+    background-color: var(--back);
 }
 
 .returnLinkBook {
@@ -1040,13 +1051,13 @@ a {
     color: var(--textgrey);
     font-weight: 400;
     text-decoration: none;
-    background-color: transparent;
+    background-color: var(--back);
 }
 
 .updateBookTitle,
 .newBookTitle {
-    margin: 30px 150px;
-    background-color: transparent;
+    padding: 1.9rem 9.4rem;
+    background-color: var(--back);
     font-size: 26px;
     font-weight: 400;
 }
@@ -1054,63 +1065,74 @@ a {
 .updateBook,
 .newBook {
     display: flex;
-    width: 1135px;
-    margin: 30px auto 50px;
-    border-radius: 20px;
-    background-color: transparent;
-    padding-bottom: 50px;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--back);
+    padding-bottom: 5rem;
 }
 
 .updateBookForm,
 .newBookForm {
     border-radius: 20px;
-    width: 1135px;
+    width: 71rem;
+    background-color: #FFFFFF;
 }
 
 .updateBookCard,
 .newBookCard {
     display: flex;
     flex-direction: row;
-    padding: 50px;
+    padding: 3.2rem;
     border-radius: 20px;
+    background-color: #FFFFFF;
 }
 
 .updateBookPicture,
 .newBookPicture {
-    width: 488px;
+    width: 30.5rem;
+    background-color: #FFFFFF;
+}
+
+.updatePicture{
+    background-color: #FFFFFF;
 }
 
 .updateCoverLink,
 .newBookLink {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     text-align: end;
+    background-color: #FFFFFF;
 }
 
 .inputUpdate,
 .inputNew {
     display: none;
+    background-color: #FFFFFF;
 }
 
 .labelUpdate,
 .labelNew {
     text-decoration: underline;
+    background-color: #FFFFFF;
 }
 
 .descriptionUpdate,
 .descriptionNew {
-    width: 435px;
-    margin: 8px auto auto;
+    width: 27.2rem;
+    margin: 0.5rem auto auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #FFFFFF;
 }
 
 .formUpdateBook,
 .formNewBook {
     display: flex;
     flex-direction: column;
-    width: 435px;
-    margin-bottom: 30px;
+    width: 27rem;
+    margin-bottom: 2rem;
+    background-color: #FFFFFF;
 }
 
 .updateBookLabel,
@@ -1118,7 +1140,8 @@ a {
     color: var(--textgrey);
     font-size: 14px;
     font-weight: 400;
-    margin-bottom: 10px;
+    margin-bottom: 0.7rem;
+    background-color: #FFFFFF;
 }
 
 .updateInput,
@@ -1126,19 +1149,19 @@ a {
     color: var(--darkgrey);
     font-size: 14px;
     font-weight: 400;
-    height: 50px;
-    width: 435px;
+    height: 3.1rem;
+    width: 27rem;
     border-radius: 6px;
     border: 1px solid var(--updateborder);
     background-color: var(--update);
-    padding: 0 15px;
+    padding: 0 1rem;
 }
 
 .updateBookTextarea,
 .newBookTextarea {
-    height: 356px;
-    width: 435px;
-    padding: 15px;
+    height: 22rem;
+    width: 27rem;
+    padding: 1rem;
     border-radius: 6px;
     border: 1px solid var(--updateborder);
     background-color: var(--update);
@@ -1146,7 +1169,7 @@ a {
 
 .updateBookSelect,
 .newBookSelect {
-    width: 465px;
+    width: 29rem;
     background-color: var(--update);
 }
 
@@ -1154,11 +1177,12 @@ a {
 .newBookButton {
     display: flex;
     align-content: start;
-    width: 435px;
+    width: 27rem;
+    background-color: #FFFFFF;
 }
 
 .updateBookButton .button {
-    width: 320px;
+    width: 20rem;
 }
 
 /*** MESSAGERIE ***/
@@ -1172,23 +1196,23 @@ a {
     display: flex;
     flex-direction: column;
     background-color: var(--back);
-    width: 308px;
-    min-height: 83vh;
-    margin-left: 150px;
+    width: 19rem;
+    margin-left: 8.7rem;
+    min-height: 85vh;
 }
 
 .messagingTitle {
     font-size: 26px;
     font-weight: 400;
-    margin-top: 50px;
-    margin-left: 30px;
-    margin-bottom: 30px;
+    margin-top: 3rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
 }
 
 .threadBadge {
     width: 100%;
-    height: 84px;
-    padding: 20px 30px;
+    height: 3rem;
+    padding: 1.5rem 1.3rem;
 }
 
 .active-conversation {
@@ -1210,7 +1234,7 @@ a {
     flex-direction: column;
     justify-content: space-around;
     overflow: hidden;
-    padding-left: 10px;
+    padding-left: 0.6rem;
     background-color: transparent;
 }
 
@@ -1218,7 +1242,7 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 160px;
+    width: 10.5rem;
     color: var(--darkgrey);
     background-color: transparent;
 }
@@ -1239,7 +1263,7 @@ a {
 .conversationLastMessage {
     font-size: 12px;
     font-weight: 400;
-    width: 160px;
+    width: 10.5rem;
     color: var(--textgrey);
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -1250,7 +1274,7 @@ a {
 }
 
 .noConversation {
-    padding: 30px 20px;
+    padding: 2rem 1rem;
 }
 
 .messages {
@@ -1265,7 +1289,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 35px;
+    padding: 3rem;
     background-color: transparent;
 }
 
@@ -1276,19 +1300,19 @@ a {
 }
 
 .messagePseudo {
-    margin-left: 10px;
+    margin-left: 0.6rem;
     background-color: transparent;
     color: var(--darkgrey);
 }
 
 .noMessage {
     display: flex;
-    line-height: 50px;
+    line-height: 3rem;
     justify-content: space-between;
-    margin: 100px auto auto;
-    padding: 50px;
+    margin: 6rem auto;
+    padding: 3rem;
     font-size: 20px;
-    height: 100px;
+    height: 6rem;
     background-color: transparent;
 }
 
@@ -1297,16 +1321,16 @@ a {
     flex-direction: column;
     text-align: left;
     background-color: transparent;
-    width: 500px;
+    width: 31rem;
 }
 
 .messageCurrentUser {
     display: flex;
     flex-direction: column;
     text-align: right;
-    margin-left: 200px;
+    margin-left: 11rem;
     background-color: transparent;
-    width: 500px;
+    width: 31rem;
 }
 
 .allMessages {
@@ -1316,7 +1340,7 @@ a {
 .messageHeader {
     display: flex;
     align-items: center;
-    padding: 5px 0;
+    padding: 0.4rem 0;
     background-color: transparent;
 }
 
@@ -1324,7 +1348,7 @@ a {
     font-size: 12px;
     font-weight: 400;
     color: var(--textgrey);
-    margin-left: 10px;
+    margin-left: 0.6rem;
     background-color: transparent;
 }
 
@@ -1332,58 +1356,58 @@ a {
     font-size: 12px;
     font-weight: 400;
     color: var(--textgrey);
-    margin-left: 130px;
+    margin-left: 8.5rem;
     background-color: transparent;
-    width: 500px;
+    width: 31.2rem;
 }
 
 .messageContentOther {
     border-radius: 3px;
-    padding: 10px 20px;
-    width: 500px;
+    padding: 0.6rem 1.2rem;
+    width: 30rem;
     font-size: 12px;
     color: var(--darkgrey);
     background-color: white;
 }
 
 .messageContentCurrent {
-    margin-top: 10px;
-    margin-left: 100px;
+    margin-top: 0.6rem;
+    margin-left: 7.5rem;
     border-radius: 3px;
-    padding: 10px 20px;
+    padding: 0.6rem 1.2rem;
     font-size: 12px;
     color: var(--darkgrey);
     background-color: var(--update);
-    width: 500px;
+    width: 30rem;
 }
 
 .sendMessage {
     width: 100%;
     background-color: transparent;
-    margin-top: 30px;
-    height: 50px;
+    margin-top: 5rem;
+    height: 3rem;
 }
 
 .messageInput {
-    height: 50px;
+    height: 3rem;
     background-color: white;
     border: 1px solid var(--updateborder);
     border-radius: 6px;
-    padding-left: 50px;
+    padding-left: 3rem;
     color: var(--textgrey);
     font-size: 14px;
-    width: 620px;
+    width: 37rem;
 }
 
 .sendMessageButton {
     background-color: var(--green);
-    padding: 15px 40px;
+    padding: 0.9rem 2.5rem;
     color: white;
     font-weight: 600;
     font-size: 16px;
     border-radius: 10px;
     border: 1px solid var(--green);
-    margin-left: 20px;
+    margin-left: 1.25rem;
 }
 
 .messagingLink {
@@ -1394,10 +1418,10 @@ a {
 
 .badgeCount {
     position: absolute;
-    width: 10px;
-    height: 15px;
-    margin-left: 3px;
-    padding-top: 4px;
+    width: 0.6rem;
+    height: 0.9rem;
+    margin-left: 0.1rem;
+    padding-top: 0.25rem;
     font-size: 8px;
     font-weight: 700;
     color: var(--softgrey);
@@ -1418,7 +1442,7 @@ a {
 .authenticationText {
     display: flex;
     flex-direction: column;
-    margin: 130px 220px 130px 130px;
+    margin: 8rem 14rem 8rem 8rem;
     width: 50%;
     background-color: transparent;
 }
@@ -1428,7 +1452,7 @@ a {
     font-size: 36px;
     font-weight: 400;
     font-family: "Playfair Display";
-    padding-bottom: 50px;
+    padding-bottom: 3.5rem;
 }
 
 .authenticationForm {
@@ -1441,20 +1465,20 @@ a {
     color: var(--textgrey);
     background-color: transparent;
     font-size: 14px;
-    padding-bottom: 15px;
+    padding-bottom: 1rem;
 }
 
 .authenticationInput {
     border-radius: 6px;
     border: 1px solid var(--updateborder);
-    height: 50px;
-    margin-bottom: 30px;
+    height: 3rem;
+    margin-bottom: 2rem;
     background-color: #FFFFFF;
 }
 
 .authenticationQuestion {
     display: flex;
-    padding-top: 30px;
+    padding-top: 2rem;
     background-color: transparent;
     text-align: left;
     font-size: 14px;
@@ -1464,7 +1488,7 @@ a {
     background-color: transparent;
     text-decoration-line: underline;
     color: black;
-    padding-left: 5px;
+    padding-left: 0.3rem;
 }
 
 .authenticationIllustration {
@@ -1472,25 +1496,25 @@ a {
 }
 
 .authenticationPicture {
-    width: 720px;
+    width: 45rem;
     height: auto;
     object-fit: cover;
 }
 
 .loginMessage {
-    height: 50px;
+    height: 3.5rem;
     background-color: rgba(255, 166, 0, 0.363);
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     border-radius: 10px;
-    padding: 5px;
+    padding: 1rem 1rem 0 1rem;
 }
 
 /*** ADMINISTRATION / ERREURS***/
 .administationPage,
 .errorPage {
     margin: auto;
-    padding: 100px;
+    padding: 7rem;
 }
 
 .adminTitle,
@@ -1501,7 +1525,7 @@ a {
 
 .adminProject,
 .errorMessage {
-    margin-top: 150px;
+    margin-top: 10rem;
 }
 
 .denied {
@@ -1513,9 +1537,9 @@ a {
 .errorButtons {
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
+    margin-top: 3rem;
 }
 
 .errorButtons a {
-    margin-left: 50px;
+    margin-left: 3rem;
 }

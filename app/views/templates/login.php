@@ -3,7 +3,7 @@
         <h2 class="authenticationTitle">Connexion</h2>
 
         <?php if (!empty($message)): ?>
-            <p class="loginMessage"><?= $message ?></p>
+            <p class="loginMessage"><?= nl2br($message) ?></p>
         <?php endif; ?>
 
         <form action="index.php?action=login" method="POST" class="authenticationForm">
