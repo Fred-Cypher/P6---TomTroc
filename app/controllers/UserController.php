@@ -43,11 +43,6 @@ class UserController
                 $content = ob_get_clean();
                 require __DIR__ . '../../views/layout.php';
             } else {
-                /*$title = "Profil non trouvé";
-                ob_start();
-                require __DIR__ . '/../views/templates/error.php';
-                $content = ob_get_clean();
-                require __DIR__ . '/../views/layout.php';*/
                 Utils::redirect('error', ['error' => 'notfound']);
             }
         } else {

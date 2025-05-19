@@ -117,6 +117,6 @@ class MessagingController
 
         $this->messagesRepository->sendMessage($message);
 
-        Utils::redirect('messages');
+        Utils::redirect('messages&user2_id=' . $otherUserId);
     }
 }

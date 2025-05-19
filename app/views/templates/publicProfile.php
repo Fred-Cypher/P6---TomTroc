@@ -1,8 +1,7 @@
 <section class="publicProfile">
     <article class="publicProfileDetail">
         <div class="profileAvatar">
-            <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar de l'utilisateur"
-                 class="avatar">
+            <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar de l'utilisateur" class="avatar">
         </div>
         <p class="profilePseudo"><?= htmlspecialchars($user->getPseudo()) ?></p>
         <p class="memberSince">Membre depuis <?= $registeredSince ?></p>
@@ -44,9 +43,7 @@
                     <div class="booksRow">
                         <div class="tablePicture">
                             <div class="tableContainer">
-                                <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>"
-                                     alt="Illustration pour le livre : <?= htmlspecialchars($book->getTitle()) ?>"
-                                     class="smallCover">
+                                <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="Illustration pour le livre : <?= htmlspecialchars($book->getTitle()) ?>" class="smallCover">
                             </div>
                         </div>
                         <div class="tableTitle">

@@ -8,9 +8,8 @@
     <form action="index.php?action=addBook" method="POST" enctype="multipart/form-data" class="newBookForm">
         <article class="newBookCard">
             <div class="newBookPicture">
-                <div>
-                    <img src="/uploads/covers/defaultPicture.png" alt="Image par défaut" class="updateCover"
-                         id="coverPreview">
+                <div class="defaultFile">
+                    <img src="/uploads/covers/defaultPicture.png" alt="Image par défaut" class="updateCover" id="coverPreview">
                 </div>
                 <div class="newCoverLink">
                     <label for="cover" class="labelUpdate">Ajouter une couverture</label>

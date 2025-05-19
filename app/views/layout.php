@@ -11,8 +11,7 @@
     <title><?= $title ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="icon" type="image/vnd.icon" href="/images/Group10.svg">
 </head>
@@ -28,8 +27,7 @@
         </div>
         <div class="headerPrivate">
             <span class="line">|</span>
-            <?php
-            if (isset($_SESSION['user'])) { ?>
+            <?php if (isset($_SESSION['user'])) { ?>
                 <a href="index.php?action=messages" <?= ($_GET['action'] === 'messages') ? 'class="nolink"' : 'class="link"' ?>>
                     <p class="messagingLink">
                         <img src="/images/icon_messagerie.svg" alt="Messagerie">
@@ -49,8 +47,7 @@
                     </a>
                 </p>
             <?php } ?>
-            <?php
-            if (isset($_SESSION['user'])) { ?>
+            <?php if (isset($_SESSION['user'])) { ?>
                 <a href="index.php?action=privateProfile" <?= ($_GET['action'] === 'privateProfile') ? 'class="nolink"' : 'class="link"' ?>>
                     <img src="/images/icon_mon_compte.svg" alt="Mon compte">
                     Mon compte
@@ -61,8 +58,7 @@
                     Mon compte
                 </a>
             <?php } ?>
-            <?php
-            if (isset($_SESSION['user'])) { ?>
+            <?php if (isset($_SESSION['user'])) { ?>
                 <a href="index.php?action=logout" class="link">
                     Déconnexion
                 </a>
@@ -78,6 +74,7 @@
 <main class="main">
     <?= $content ?>
 </main>
+
 <footer>
     <div class="footer">
             <span class="footerSpan">

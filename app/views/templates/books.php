@@ -10,7 +10,6 @@
         <button type="submit" class="loupe-button">
             <img src="/images/loupe.svg" alt="Loupe, icône de recherche" class="loupe">
         </button>
-
     </form>
 </section>
 <p class="return">

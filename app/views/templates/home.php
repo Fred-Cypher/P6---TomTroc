@@ -33,7 +33,7 @@
             </div>
         <?php endforeach; ?>
     </div>
-    <a href="index.php?action=books"  class="button">Voir tous les livres</a>
+    <a href="index.php?action=books" class="button">Voir tous les livres</a>
 </section>
 <section class="values">
     <div class="operation">
@@ -42,8 +42,7 @@
         <div class="operationStickers">
             <div class="sticker">
                 <p class="stickerText">
-                    Inscrivez-vous gratuitement sur
-                    notre plateforme
+                    Inscrivez-vous gratuitement sur notre plateforme
                 </p>
             </div>
             <div class="sticker">

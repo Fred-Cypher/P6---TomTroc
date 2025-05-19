@@ -1,9 +1,8 @@
-<p class="filAriane">Nos livres > <?= htmlspecialchars($book->getTitle()) ?> </p>
+<p class="filAriane">Nos livres > <?= htmlspecialchars($book->getTitle()) ?></p>
 <section class="singleBook">
     <article class="detailCover">
         <?php if (htmlspecialchars($book->getCover())): ?>
-            <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>"
-                alt="Illustration du livre : <?= htmlspecialchars($book->getTitle()) ?>" class="largeCover">
+            <img src="/uploads/covers/<?= htmlspecialchars($book->getCover()) ?>" alt="Illustration du livre : <?= htmlspecialchars($book->getTitle()) ?>" class="largeCover">
         <?php else: ?>
             <img src="/uploads/covers/defaultBook.jpg" alt="Illustration par défaut" class="largeCover">
         <?php endif ?>
@@ -27,13 +26,12 @@
         <div class="detailSendMessage">
             <?php if (isset($_SESSION['user']['id'])) {
                 if ($book->getUserId() != $_SESSION['user']['id']) { ?>
-                <div class="detailButton">
-                    <a href="index.php?action=messages&user2_id=<?= $book->getUserId() ?>" >
-                        Envoyer un message
-                    </a>
-                </div>
-            <?php
-                }
+                    <div class="detailButton">
+                        <a href="index.php?action=messages&user2_id=<?= $book->getUserId() ?>" >
+                            Envoyer un message
+                        </a>
+                    </div>
+                <?php }
             } ?>
         </div>
     </article>
