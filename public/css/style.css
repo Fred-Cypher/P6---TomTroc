@@ -1297,11 +1297,9 @@ a {
     display: flex;
     flex-direction: column;
     background-color: var(--softgrey);
-    width: 75%;
 }
 
 .messageDisplay {
-    min-height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1351,6 +1349,7 @@ a {
 
 .allMessages {
     background-color: transparent;
+    padding: 3rem;
 }
 
 .messageHeader {
@@ -1398,10 +1397,10 @@ a {
 }
 
 .sendMessage {
-    width: 100%;
     background-color: transparent;
     margin-top: 5rem;
     height: 3rem;
+    padding: 0 3rem 3rem 3rem;;
 }
 
 .messageInput {

@@ -46,19 +46,21 @@
                             class="mediumAvatar">
                         <p class="messagePseudo"><?= $otherUserPseudo ?></p>
                     </div>
+                </div>
                 <div class="allMessages">
                     <?php foreach ($messages as $message) {
                         if ($message->getSenderId() != $_SESSION['user']['id']) { ?>
                             <p class="messageOtherUser">
-                            <div class="messageHeader">
-                                <img src="/uploads/avatars/<?= $otherUserAvatar ?>" alt="Avatar de l'expéditeur du message" class="smallAvatar">
-                                <div class="messageDate">
-                                    <?= $message->getCreatedAt()->format('d:m  H:i') ?>
+                                <div class="messageHeader">
+                                    <img src="/uploads/avatars/<?= $otherUserAvatar ?>" alt="Avatar de l'expéditeur du message" class="smallAvatar">
+                                    <div class="messageDate">
+                                        <?= $message->getCreatedAt()->format('d:m  H:i') ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="messageContentOther">
-                                <?= htmlspecialchars($message->getContent()) ?> <br>
-                            </div>
+                                <div class="messageContentOther">
+                                    <?= htmlspecialchars($message->getContent()) ?> <br>
+                                </div>
+                            </p>
                         <?php } else { ?>
                             <div class="messageCurrentUser">
                                 <div class="messageDateCurrent">
@@ -69,15 +71,14 @@
                                 </div>
                             </div>
                         <?php } ?>
-                    <?php }
-            } ?>
-                    <form action="index.php?action=sendMessage" method="POST" class="sendMessage">
-                        <input type="hidden" name="otherUserId" value="<?= $_REQUEST['user2_id'] ?? '' ?>">
-                        <input name="content" placeholder="Tapez votre message ici" class="messageInput">
-                        <button type="submit" class="sendMessageButton">Envoyer</button>
-                    </form>
+                    <?php } ?>
                 </div>
-            </div>
+            <?php } ?>
+            <form action="index.php?action=sendMessage" method="POST" class="sendMessage">
+                <input type="hidden" name="otherUserId" value="<?= $_REQUEST['user2_id'] ?? '' ?>">
+                <input name="content" placeholder="Tapez votre message ici" class="messageInput">
+                <button type="submit" class="sendMessageButton">Envoyer</button>
+            </form>
         <?php } else: { ?>
             <p class="noMessage">Pas de message à afficher. <br>
                 Veuillez sélectionner une conversation existante.</p>
