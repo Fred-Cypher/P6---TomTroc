@@ -1,4 +1,4 @@
-<section class="errorPage">
+<section class="error401Page">
     <h2 class="errorTitle title">Accès refusé</h2>
 
     <p class="errorMessage">Vous devez être connecté pour accéder à cette page</p>

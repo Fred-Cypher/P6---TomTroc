@@ -1,15 +1,14 @@
 /*** GENERAL ***/
-
-html{
-    font-size: 16px;
-    height: 100%;
-}
-
 * {
     margin: 0;
     padding: 0;
     background-color: var(--back);
     font-family: "inter";
+}
+
+html{
+    font-size: 16px;
+    height: 100%;
 }
 
 a {
@@ -1538,7 +1537,14 @@ a {
 .administationPage,
 .errorPage {
     margin: auto;
-    padding: 7rem;
+    padding: 15rem;
+    min-height: 100%;
+}
+
+.error401Page{
+    margin: auto;
+    padding: 15rem 15rem 7rem 15rem;
+    min-height: 100%;
 }
 
 .adminTitle,
