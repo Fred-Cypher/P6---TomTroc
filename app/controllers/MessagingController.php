@@ -108,15 +108,17 @@ class MessagingController
             $conversation = $this->conversationsRepository->findByHash($userHash);
         }
 
-        $message = new Message();
-        $message->setConversationId($conversation->getId());
-        $message->setSenderId($currentUserId);
-        $message->setContent($content);
-        $message->setIsRead(false);
-        $message->setCreatedAt(new DateTime());
+        if ($content){
+            $message = new Message();
+            $message->setConversationId($conversation->getId());
+            $message->setSenderId($currentUserId);
+            $message->setContent($content);
+            $message->setIsRead(false);
+            $message->setCreatedAt(new DateTime());
 
-        $this->messagesRepository->sendMessage($message);
-
+            $this->messagesRepository->sendMessage($message);
+        }
+        
         Utils::redirect('messages&user2_id=' . $otherUserId);
     }
 }
