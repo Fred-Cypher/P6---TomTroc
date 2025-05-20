@@ -549,6 +549,11 @@ a {
     font-size: 24px;
     font-weight: 400;
     background-color: transparent;
+    
+}
+
+.publicProfilePseudo{
+    margin-top: 2rem;
 }
 
 .memberSince {
@@ -561,6 +566,10 @@ a {
 
 .biblioBlock {
     background-color: transparent;
+}
+
+.publicProfilButtonBlock{
+    margin: 3rem 0;
 }
 
 .bibliotheque {

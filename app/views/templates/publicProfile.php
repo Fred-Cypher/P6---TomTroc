@@ -3,7 +3,7 @@
         <div class="profileAvatar">
             <img src="/uploads/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar de l'utilisateur" class="avatar">
         </div>
-        <p class="profilePseudo"><?= htmlspecialchars($user->getPseudo()) ?></p>
+        <p class="profilePseudo publicProfilePseudo"><?= htmlspecialchars($user->getPseudo()) ?></p>
         <p class="memberSince">Membre depuis <?= $registeredSince ?></p>
 
         <div class="biblioBlock">
@@ -18,14 +18,12 @@
             </p>
         </div>
 
-        <p>
+        <p class="publicProfilButtonBlock">
             <?php if (isset($_SESSION['user']['id'])) {
                 if ($userId != $_SESSION['user']['id']) { ?>
-                    <div class="button lightButton">
-                        <a href="index.php?action=messages&user2_id=<?= $userId ?>">
-                            Ecrire un message
-                        </a>
-                    </div>
+                    <a href="index.php?action=messages&user2_id=<?= $userId ?>">
+                        <span class="button lightButton">Ecrire un message</span>
+                    </a>
                 <?php }
             } ?>
         </p>
