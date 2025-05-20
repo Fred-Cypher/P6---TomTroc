@@ -151,6 +151,7 @@ switch ($requestAction) {
             Utils::redirect('deniedAccess');
         }
         break;
+        
     default:
         $controller = new MainController();
         $controller->error();

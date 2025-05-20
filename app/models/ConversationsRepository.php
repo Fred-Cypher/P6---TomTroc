@@ -61,7 +61,6 @@ class ConversationsRepository extends AbstractEntityManager
                 'user_hash' => $conversation->getUserHash(),
                 'created_at' => $conversation->getCreatedAt()->format('Y-m-d H:i:s')
             ]);
-            echo "Conversation créée avec succès";
         } catch (\Exception $e) {
             die("Erreur SQL : " . $e->getMessage());
         }

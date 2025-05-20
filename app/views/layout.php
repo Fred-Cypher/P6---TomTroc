@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -77,13 +73,13 @@
 
 <footer>
     <div class="footer">
-            <span class="footerSpan">
-                <?php if (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN') { ?>
-                    <a href="index.php?action=admin" class="link">
-                        Panneau d'administration
-                    </a>
-                <?php } ?>
-            </span>
+        <span class="footerSpan">
+            <?php if (isset($_SESSION['user']['role']) && ($_SESSION['user']['role']) === 'ROLE_ADMIN') { ?>
+                <a href="index.php?action=admin" class="link">
+                    Panneau d'administration
+                </a>
+            <?php } ?>
+        </span>
         <span class="footerSpan">Politique de confidentialité</span>
         <span class="footerSpan">Mentions légales</span>
         <span class="footerSpan">Tom Troc &#169; </span>
