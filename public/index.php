@@ -12,6 +12,8 @@ require_once '../autoload.php';
 
 $db = require '../config/config.php';
 
+date_default_timezone_set('Europe/Paris');
+
 $requestAction = Utils::request('action');
 $searchTerm = Utils::request('search');
 
