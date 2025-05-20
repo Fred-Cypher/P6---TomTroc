@@ -1,7 +1,7 @@
 <section class="error401Page">
     <h2 class="errorTitle title">Accès refusé</h2>
 
-    <p class="errorMessage">Vous devez être connecté pour accéder à cette page</p>
+    <p class="errorMessage">Vous devez être connecté(e) pour accéder à cette page</p>
     <div class="errorButtons">
         <a href="index.php?action=login">
             <button class="button">Connectez-vous</button>
